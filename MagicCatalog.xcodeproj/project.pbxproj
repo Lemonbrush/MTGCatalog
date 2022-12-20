@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */; };
+		DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF7E29525E570024B7EA /* ContentView.swift */; };
+		DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDF8029525E570024B7EA /* Assets.xcassets */; };
+		DD0DDF8429525E570024B7EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDF8329525E570024B7EA /* Preview Assets.xcassets */; };
+		DD0DDF8E29525E580024B7EA /* MagicCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF8D29525E580024B7EA /* MagicCatalogTests.swift */; };
+		DD0DDF9829525E580024B7EA /* MagicCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF9729525E580024B7EA /* MagicCatalogUITests.swift */; };
+		DD0DDF9A29525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD0DDF8A29525E580024B7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0DDF7129525E570024B7EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD0DDF7829525E570024B7EA;
+			remoteInfo = MagicCatalog;
+		};
+		DD0DDF9429525E580024B7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0DDF7129525E570024B7EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD0DDF7829525E570024B7EA;
+			remoteInfo = MagicCatalog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD0DDF7929525E570024B7EA /* MagicCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogApp.swift; sourceTree = "<group>"; };
+		DD0DDF7E29525E570024B7EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD0DDF8029525E570024B7EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD0DDF8329525E570024B7EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD0DDF8929525E580024B7EA /* MagicCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0DDF8D29525E580024B7EA /* MagicCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogTests.swift; sourceTree = "<group>"; };
+		DD0DDF9329525E580024B7EA /* MagicCatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0DDF9729525E580024B7EA /* MagicCatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogUITests.swift; sourceTree = "<group>"; };
+		DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD0DDF7629525E570024B7EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF8629525E580024B7EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF9029525E580024B7EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD0DDF7029525E570024B7EA = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF7B29525E570024B7EA /* MagicCatalog */,
+				DD0DDF8C29525E580024B7EA /* MagicCatalogTests */,
+				DD0DDF9629525E580024B7EA /* MagicCatalogUITests */,
+				DD0DDF7A29525E570024B7EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD0DDF7A29525E570024B7EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF7929525E570024B7EA /* MagicCatalog.app */,
+				DD0DDF8929525E580024B7EA /* MagicCatalogTests.xctest */,
+				DD0DDF9329525E580024B7EA /* MagicCatalogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD0DDF7B29525E570024B7EA /* MagicCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */,
+				DD0DDF7E29525E570024B7EA /* ContentView.swift */,
+				DD0DDF8029525E570024B7EA /* Assets.xcassets */,
+				DD0DDF8229525E570024B7EA /* Preview Content */,
+			);
+			path = MagicCatalog;
+			sourceTree = "<group>";
+		};
+		DD0DDF8229525E570024B7EA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF8329525E570024B7EA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD0DDF8C29525E580024B7EA /* MagicCatalogTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF8D29525E580024B7EA /* MagicCatalogTests.swift */,
+			);
+			path = MagicCatalogTests;
+			sourceTree = "<group>";
+		};
+		DD0DDF9629525E580024B7EA /* MagicCatalogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDF9729525E580024B7EA /* MagicCatalogUITests.swift */,
+				DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */,
+			);
+			path = MagicCatalogUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD0DDF7829525E570024B7EA /* MagicCatalog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0DDF9D29525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalog" */;
+			buildPhases = (
+				DD0DDF7529525E570024B7EA /* Sources */,
+				DD0DDF7629525E570024B7EA /* Frameworks */,
+				DD0DDF7729525E570024B7EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagicCatalog;
+			productName = MagicCatalog;
+			productReference = DD0DDF7929525E570024B7EA /* MagicCatalog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD0DDF8829525E580024B7EA /* MagicCatalogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0DDFA029525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalogTests" */;
+			buildPhases = (
+				DD0DDF8529525E580024B7EA /* Sources */,
+				DD0DDF8629525E580024B7EA /* Frameworks */,
+				DD0DDF8729525E580024B7EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD0DDF8B29525E580024B7EA /* PBXTargetDependency */,
+			);
+			name = MagicCatalogTests;
+			productName = MagicCatalogTests;
+			productReference = DD0DDF8929525E580024B7EA /* MagicCatalogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD0DDF9229525E580024B7EA /* MagicCatalogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0DDFA329525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalogUITests" */;
+			buildPhases = (
+				DD0DDF8F29525E580024B7EA /* Sources */,
+				DD0DDF9029525E580024B7EA /* Frameworks */,
+				DD0DDF9129525E580024B7EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD0DDF9529525E580024B7EA /* PBXTargetDependency */,
+			);
+			name = MagicCatalogUITests;
+			productName = MagicCatalogUITests;
+			productReference = DD0DDF9329525E580024B7EA /* MagicCatalogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD0DDF7129525E570024B7EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					DD0DDF7829525E570024B7EA = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					DD0DDF8829525E580024B7EA = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = DD0DDF7829525E570024B7EA;
+					};
+					DD0DDF9229525E580024B7EA = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = DD0DDF7829525E570024B7EA;
+					};
+				};
+			};
+			buildConfigurationList = DD0DDF7429525E570024B7EA /* Build configuration list for PBXProject "MagicCatalog" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD0DDF7029525E570024B7EA;
+			productRefGroup = DD0DDF7A29525E570024B7EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD0DDF7829525E570024B7EA /* MagicCatalog */,
+				DD0DDF8829525E580024B7EA /* MagicCatalogTests */,
+				DD0DDF9229525E580024B7EA /* MagicCatalogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD0DDF7729525E570024B7EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0DDF8429525E570024B7EA /* Preview Assets.xcassets in Resources */,
+				DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF8729525E580024B7EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF9129525E580024B7EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD0DDF7529525E570024B7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */,
+				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF8529525E580024B7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0DDF8E29525E580024B7EA /* MagicCatalogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0DDF8F29525E580024B7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0DDF9A29525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift in Sources */,
+				DD0DDF9829525E580024B7EA /* MagicCatalogUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD0DDF8B29525E580024B7EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD0DDF7829525E570024B7EA /* MagicCatalog */;
+			targetProxy = DD0DDF8A29525E580024B7EA /* PBXContainerItemProxy */;
+		};
+		DD0DDF9529525E580024B7EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD0DDF7829525E570024B7EA /* MagicCatalog */;
+			targetProxy = DD0DDF9429525E580024B7EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DD0DDF9B29525E580024B7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD0DDF9C29525E580024B7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD0DDF9E29525E580024B7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD0DDF9F29525E580024B7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD0DDFA129525E580024B7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCatalog.app/MagicCatalog";
+			};
+			name = Debug;
+		};
+		DD0DDFA229525E580024B7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCatalog.app/MagicCatalog";
+			};
+			name = Release;
+		};
+		DD0DDFA429525E580024B7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicCatalog;
+			};
+			name = Debug;
+		};
+		DD0DDFA529525E580024B7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MagicCatalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicCatalog;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD0DDF7429525E570024B7EA /* Build configuration list for PBXProject "MagicCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0DDF9B29525E580024B7EA /* Debug */,
+				DD0DDF9C29525E580024B7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0DDF9D29525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0DDF9E29525E580024B7EA /* Debug */,
+				DD0DDF9F29525E580024B7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0DDFA029525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0DDFA129525E580024B7EA /* Debug */,
+				DD0DDFA229525E580024B7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0DDFA329525E580024B7EA /* Build configuration list for PBXNativeTarget "MagicCatalogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0DDFA429525E580024B7EA /* Debug */,
+				DD0DDFA529525E580024B7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD0DDF7129525E570024B7EA /* Project object */;
+}
