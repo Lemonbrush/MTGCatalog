@@ -23,6 +23,10 @@
 		DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */; };
 		DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFC129532DB70024B7EA /* CardReviewScreenView.swift */; };
 		DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFC329532E000024B7EA /* CardReviewScreenTextBlockView.swift */; };
+		DD0DDFCB295344CC0024B7EA /* Beleren2016-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFC8295344CC0024B7EA /* Beleren2016-Bold.ttf */; };
+		DD0DDFCC295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFC9295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf */; };
+		DD0DDFCD295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFCA295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf */; };
+		DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFD3295347F80024B7EA /* MTGFontName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,11 @@
 		DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		DD0DDFC129532DB70024B7EA /* CardReviewScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenView.swift; sourceTree = "<group>"; };
 		DD0DDFC329532E000024B7EA /* CardReviewScreenTextBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenTextBlockView.swift; sourceTree = "<group>"; };
+		DD0DDFC8295344CC0024B7EA /* Beleren2016-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beleren2016-Bold.ttf"; sourceTree = "<group>"; };
+		DD0DDFC9295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beleren2016SmallCaps-Bold.ttf"; sourceTree = "<group>"; };
+		DD0DDFCA295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beleren2016SmallCaps-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DD0DDFCE295345CE0024B7EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD0DDFD3295347F80024B7EA /* MTGFontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGFontName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +121,9 @@
 		DD0DDF7B29525E570024B7EA /* MagicCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DDFD2295347DC0024B7EA /* Constants */,
+				DD0DDFCE295345CE0024B7EA /* Info.plist */,
+				DD0DDFC5295343E90024B7EA /* Resources */,
 				DD0DDFBC29531FB40024B7EA /* Extensions */,
 				DD0DDFB02953052D0024B7EA /* CardReviewScreen */,
 				DD0DDFB5295306A60024B7EA /* Model */,
@@ -218,6 +230,40 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DD0DDFC5295343E90024B7EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFC6295344140024B7EA /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD0DDFC6295344140024B7EA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFC7295344B40024B7EA /* Beleren */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DD0DDFC7295344B40024B7EA /* Beleren */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFC8295344CC0024B7EA /* Beleren2016-Bold.ttf */,
+				DD0DDFC9295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf */,
+				DD0DDFCA295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf */,
+			);
+			path = Beleren;
+			sourceTree = "<group>";
+		};
+		DD0DDFD2295347DC0024B7EA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFD3295347F80024B7EA /* MTGFontName.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,8 +368,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0DDFCD295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf in Resources */,
 				DD0DDF8429525E570024B7EA /* Preview Assets.xcassets in Resources */,
+				DD0DDFCC295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf in Resources */,
 				DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */,
+				DD0DDFCB295344CC0024B7EA /* Beleren2016-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +408,7 @@
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
+				DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +569,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -547,6 +598,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
