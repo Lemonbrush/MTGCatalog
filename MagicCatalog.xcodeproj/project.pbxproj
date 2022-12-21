@@ -14,6 +14,15 @@
 		DD0DDF8E29525E580024B7EA /* MagicCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF8D29525E580024B7EA /* MagicCatalogTests.swift */; };
 		DD0DDF9829525E580024B7EA /* MagicCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF9729525E580024B7EA /* MagicCatalogUITests.swift */; };
 		DD0DDF9A29525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */; };
+		DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFA629525E8B0024B7EA /* CardSideView.swift */; };
+		DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFAC295270340024B7EA /* Swiftfall.swift */; };
+		DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFB3295305900024B7EA /* CardReviewScreenViewModel.swift */; };
+		DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFB729530EF20024B7EA /* ImageDownloaderManager.swift */; };
+		DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFBA295317410024B7EA /* InteractiveCardView.swift */; };
+		DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFBD29531FE00024B7EA /* View+CornerRadius.swift */; };
+		DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */; };
+		DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFC129532DB70024B7EA /* CardReviewScreenView.swift */; };
+		DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFC329532E000024B7EA /* CardReviewScreenTextBlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		DD0DDF9329525E580024B7EA /* MagicCatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0DDF9729525E580024B7EA /* MagicCatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogUITests.swift; sourceTree = "<group>"; };
 		DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DD0DDFA629525E8B0024B7EA /* CardSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSideView.swift; sourceTree = "<group>"; };
+		DD0DDFAC295270340024B7EA /* Swiftfall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftfall.swift; sourceTree = "<group>"; };
+		DD0DDFB3295305900024B7EA /* CardReviewScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenViewModel.swift; sourceTree = "<group>"; };
+		DD0DDFB729530EF20024B7EA /* ImageDownloaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderManager.swift; sourceTree = "<group>"; };
+		DD0DDFBA295317410024B7EA /* InteractiveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardView.swift; sourceTree = "<group>"; };
+		DD0DDFBD29531FE00024B7EA /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
+		DD0DDFC129532DB70024B7EA /* CardReviewScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenView.swift; sourceTree = "<group>"; };
+		DD0DDFC329532E000024B7EA /* CardReviewScreenTextBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenTextBlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +112,9 @@
 		DD0DDF7B29525E570024B7EA /* MagicCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DDFBC29531FB40024B7EA /* Extensions */,
+				DD0DDFB02953052D0024B7EA /* CardReviewScreen */,
+				DD0DDFB5295306A60024B7EA /* Model */,
 				DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */,
 				DD0DDF7E29525E570024B7EA /* ContentView.swift */,
 				DD0DDF8029525E570024B7EA /* Assets.xcassets */,
@@ -125,6 +146,76 @@
 				DD0DDF9929525E580024B7EA /* MagicCatalogUITestsLaunchTests.swift */,
 			);
 			path = MagicCatalogUITests;
+			sourceTree = "<group>";
+		};
+		DD0DDFAB295270110024B7EA /* ScryfallService */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFAC295270340024B7EA /* Swiftfall.swift */,
+			);
+			path = ScryfallService;
+			sourceTree = "<group>";
+		};
+		DD0DDFB02953052D0024B7EA /* CardReviewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFB2295305450024B7EA /* ViewModel */,
+				DD0DDFB1295305400024B7EA /* View */,
+			);
+			path = CardReviewScreen;
+			sourceTree = "<group>";
+		};
+		DD0DDFB1295305400024B7EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFB9295317240024B7EA /* InteractiveCardView */,
+				DD0DDFC129532DB70024B7EA /* CardReviewScreenView.swift */,
+				DD0DDFC329532E000024B7EA /* CardReviewScreenTextBlockView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0DDFB2295305450024B7EA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFB3295305900024B7EA /* CardReviewScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD0DDFB5295306A60024B7EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFB629530EE60024B7EA /* ImageDownloader */,
+				DD0DDFAB295270110024B7EA /* ScryfallService */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0DDFB629530EE60024B7EA /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFB729530EF20024B7EA /* ImageDownloaderManager.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		DD0DDFB9295317240024B7EA /* InteractiveCardView */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFA629525E8B0024B7EA /* CardSideView.swift */,
+				DD0DDFBA295317410024B7EA /* InteractiveCardView.swift */,
+			);
+			path = InteractiveCardView;
+			sourceTree = "<group>";
+		};
+		DD0DDFBC29531FB40024B7EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFBD29531FE00024B7EA /* View+CornerRadius.swift */,
+				DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +348,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
+				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
+				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
+				DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */,
+				DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */,
 				DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
+				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
+				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
+				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
+				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
