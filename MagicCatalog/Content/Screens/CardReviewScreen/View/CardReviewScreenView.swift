@@ -11,7 +11,7 @@ struct CardReviewScreenView: View {
     
     // MARK: - Private properties
     
-    @StateObject private var viewModel = CardReviewScreenViewModel()
+    @ObservedObject private var viewModel: CardReviewScreenViewModel
     
     @State private var scrollOffset: CGFloat = .zero
     
@@ -24,7 +24,8 @@ struct CardReviewScreenView: View {
     
     // MARK: - Construction
     
-    init() {
+    init(viewModel: CardReviewScreenViewModel) {
+        self.viewModel = viewModel
         UIScrollView.appearance().bounces = false
     }
     
@@ -54,6 +55,29 @@ struct CardReviewScreenView: View {
                 .frame(maxWidth: .infinity)
                 .padding([.top], 70)
                 .padding([.bottom], 40)
+            
+            VStack {
+                HStack {
+                    Button(action: {
+                        viewModel.didPressBackButton()
+                    }) {
+                        ZStack {
+//                            RoundedCornerShape()
+//                                .fill(.ultraThinMaterial)
+//                                .background(.gray)
+//                                .frame(width: 100, height: 50)
+//                                .clipShape(RoundedCornerShape())
+                            Image(systemName: "chevron.left")
+                                .padding(10)
+                                .foregroundColor(.black)
+                        }
+                    }
+                    Spacer()
+                }.padding([.leading, .trailing], 20)
+                
+                Spacer()
+            }.padding([.top], 50)
+            
         }.padding([.bottom], 20)
     }
     

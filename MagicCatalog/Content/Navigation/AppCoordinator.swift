@@ -13,39 +13,15 @@ enum AppCoordinatorNavigation {
 }
 
 final class AppCoordinator: Coordinator {
+    
+    // MARK: - Properties
+    
     @Published var navigationStack: [(AppCoordinatorNavigation, Any)] = []
     
-    init() {
-        pushToNavigationStack(.cardReview, viewModel: CardReviewScreenViewModel())
-    }
-}
-
-enum CardReviewCoordinatorNavigation {
-    case mainScreen
-}
-
-class CardReviewScreenCoordinator: Coordinator {
-    
-    @Published var navigationStack: [(CardReviewCoordinatorNavigation, Any)] = []
+    // MARK: - Construction
     
     init() {
-        let viewModel = CardReviewScreenViewModel()
-        viewModel.onNavigation = { [weak self] navigation in
-            switch navigation {
-            case .mainScreen:
-                self?.pushMainScreenCoordinator()
-            }
-        }
+        pushToNavigationStack(.mainScreen, viewModel: MainScreenCoordinator())
+        pushToNavigationStack(.cardReview, viewModel: CardReviewScreenCoordinator())
     }
-    
-    // MARK: - Private functions
-    
-    private func pushMainScreenCoordinator() {
-        let coordinator = MainScreenCoordinator()
-        pushToNavigationStack(.mainScreen, viewModel: coordinator)
-    }
-}
-
-class MainScreenCoordinator: Coordinator {
-    @Published var navigationStack: [(CardReviewCoordinatorNavigation, Any)] = []
 }

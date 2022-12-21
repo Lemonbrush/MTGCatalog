@@ -14,15 +14,18 @@ protocol Coordinator: ObservableObject {
 }
 
 extension Coordinator {
+    
+    // MARK: - Functions
+    
     func isActive(_ item: NavigationItem) -> Binding<Bool> {
         return .constant(navigationStack.contains(where: { $0.0 == item }))
     }
     
     func viewModel<T: ObservableObject>(for item: NavigationItem) -> T {
+        print("ITEM -> \(item)")
         guard let strongItem = navigationStack.first(where: { $0.0 == item }) else {
             fatalError("Item is not in stack")
         }
-        
         guard let viewModel = strongItem.1 as? T else {
             fatalError("View model type is not correct")
         }

@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
     
     // MARK: - View body
     
     var body: some View {
-        CardReviewScreenView()
+        AppCoordinatorView(coordinator: AppCoordinator())
     }
 }

@@ -9,15 +9,15 @@ import SwiftUI
 
 struct AppCoordinatorView: View {
     
+    // MARK: - Properties
+    
     @ObservedObject var coordinator: AppCoordinator
     
+    // MARK: - Body view
+    
     var body: some View {
-        ZStack {
-            CardReviewScreenView()
-            
-            LazyNavigationLink(isActive: coordinator.isActive(.cardReview), destination: {
-                AppCoordinatorView(coordinator: coordinator.viewModel(for: .cardReview))
-            })
+        NavigationView {
+            MainScreenCoordinatorView(coordinator: coordinator.viewModel(for: .mainScreen))
         }
     }
 }

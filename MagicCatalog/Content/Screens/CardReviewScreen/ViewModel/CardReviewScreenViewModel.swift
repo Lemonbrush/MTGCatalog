@@ -15,11 +15,15 @@ struct CardModel {
     var flavourText: String?
 }
 
+enum CardReviewScreenViewNavigation {
+    case back
+}
+
 class CardReviewScreenViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    var onNavigation: ((CardReviewCoordinatorNavigation) -> Void)?
+    var onNavigation: ((CardReviewScreenViewNavigation) -> Void)?
     
     @Published var cardImage: UIImage = UIImage()
     @Published var cardModel = CardModel()
@@ -33,6 +37,12 @@ class CardReviewScreenViewModel: ObservableObject {
     init() {
         imageDownloader.delegate = self
         fetchRandomCardData()
+    }
+    
+    // MARK: - Functions
+    
+    func didPressBackButton() {
+        onNavigation?(.back)
     }
     
     // MARK: - Private functions
