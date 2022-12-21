@@ -11,4 +11,7 @@ struct MTGFontName {
     static let mtgBold = "Beleren2016-Bold"
     static let mtgSmallCapsBold = "Beleren2016SmallCaps-Bold"
     static let mtgSmallCapsBoldItalic = "Beleren2016SmallCaps-BoldItalic"
+    
+    static let mplantin = "Mplantin"
+    static let matrixBold = "Matrix-Bold"
 }

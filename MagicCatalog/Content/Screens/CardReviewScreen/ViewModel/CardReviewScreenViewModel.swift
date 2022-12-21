@@ -19,6 +19,8 @@ class CardReviewScreenViewModel: ObservableObject {
     
     // MARK: - Properties
     
+    var onNavigation: ((CardReviewCoordinatorNavigation) -> Void)?
+    
     @Published var cardImage: UIImage = UIImage()
     @Published var cardModel = CardModel()
     

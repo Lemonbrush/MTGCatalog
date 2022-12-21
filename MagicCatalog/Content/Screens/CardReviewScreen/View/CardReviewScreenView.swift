@@ -59,14 +59,14 @@ struct CardReviewScreenView: View {
         VStack(spacing: 30) {
             VStack {
                 Text(viewModel.cardModel.cardTitle)
-                    .font(.custom(MTGFontName.mtgBold, fixedSize: 36))
+                    .font(.custom(MTGFontName.mtgBold, fixedSize: FontSize.pt36))
                     .padding([.bottom], 5)
                     .multilineTextAlignment(.center)
                 Text(viewModel.cardModel.creatureType)
-                    .font(.system(size: 18))
+                    .font(.system(size: FontSize.pt18))
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
-            }
+            }.padding([.bottom], 20)
             
             if let cardText = viewModel.cardModel.cardText {
                 CardReviewScreenTextBlockView(title: "Card text", text: cardText)

@@ -27,6 +27,15 @@
 		DD0DDFCC295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFC9295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf */; };
 		DD0DDFCD295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFCA295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf */; };
 		DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFD3295347F80024B7EA /* MTGFontName.swift */; };
+		DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFD929535BFB0024B7EA /* Coordinator.swift */; };
+		DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFDB29535DB70024B7EA /* AppCoordinator.swift */; };
+		DD0DDFE5295362C40024B7EA /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFE4295362C40024B7EA /* AppCoordinatorView.swift */; };
+		DD0DDFE7295364750024B7EA /* LazyNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */; };
+		DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */; };
+		DD0DDFEC295367470024B7EA /* Mplantin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFEB295367470024B7EA /* Mplantin.ttf */; };
+		DD0DDFEF2953675F0024B7EA /* Matrix-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */; };
+		DD0DDFF22953677B0024B7EA /* magic-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFF12953677B0024B7EA /* magic-font.ttf */; };
+		DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF32953682A0024B7EA /* FontSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +80,15 @@
 		DD0DDFCA295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beleren2016SmallCaps-BoldItalic.ttf"; sourceTree = "<group>"; };
 		DD0DDFCE295345CE0024B7EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD0DDFD3295347F80024B7EA /* MTGFontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGFontName.swift; sourceTree = "<group>"; };
+		DD0DDFD929535BFB0024B7EA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DD0DDFDB29535DB70024B7EA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DD0DDFE4295362C40024B7EA /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigationLink.swift; sourceTree = "<group>"; };
+		DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyLoadView.swift; sourceTree = "<group>"; };
+		DD0DDFEB295367470024B7EA /* Mplantin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mplantin.ttf; sourceTree = "<group>"; };
+		DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matrix-Bold.ttf"; sourceTree = "<group>"; };
+		DD0DDFF12953677B0024B7EA /* magic-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "magic-font.ttf"; sourceTree = "<group>"; };
+		DD0DDFF32953682A0024B7EA /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,14 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				DD0DDFD2295347DC0024B7EA /* Constants */,
-				DD0DDFCE295345CE0024B7EA /* Info.plist */,
 				DD0DDFC5295343E90024B7EA /* Resources */,
 				DD0DDFBC29531FB40024B7EA /* Extensions */,
-				DD0DDFB02953052D0024B7EA /* CardReviewScreen */,
 				DD0DDFB5295306A60024B7EA /* Model */,
+				DD0DDFDD295360FA0024B7EA /* Content */,
 				DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */,
 				DD0DDF7E29525E570024B7EA /* ContentView.swift */,
 				DD0DDF8029525E570024B7EA /* Assets.xcassets */,
+				DD0DDFCE295345CE0024B7EA /* Info.plist */,
 				DD0DDF8229525E570024B7EA /* Preview Content */,
 			);
 			path = MagicCatalog;
@@ -241,6 +259,9 @@
 		DD0DDFC6295344140024B7EA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DDFF0295367630024B7EA /* IconsFont */,
+				DD0DDFED295367550024B7EA /* Matrix */,
+				DD0DDFEA2953672B0024B7EA /* Mplantin */,
 				DD0DDFC7295344B40024B7EA /* Beleren */,
 			);
 			path = Fonts;
@@ -260,8 +281,102 @@
 			isa = PBXGroup;
 			children = (
 				DD0DDFD3295347F80024B7EA /* MTGFontName.swift */,
+				DD0DDFF32953682A0024B7EA /* FontSize.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		DD0DDFD729535BE50024B7EA /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFE3295362B10024B7EA /* View */,
+				DD0DDFD929535BFB0024B7EA /* Coordinator.swift */,
+				DD0DDFDB29535DB70024B7EA /* AppCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DD0DDFDD295360FA0024B7EA /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFE2295361880024B7EA /* Shared views */,
+				DD0DDFD729535BE50024B7EA /* Navigation */,
+				DD0DDFE1295361690024B7EA /* Screens */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		DD0DDFDE2953611C0024B7EA /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFE02953612D0024B7EA /* ViewModel */,
+				DD0DDFDF295361280024B7EA /* View */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		DD0DDFDF295361280024B7EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0DDFE02953612D0024B7EA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD0DDFE1295361690024B7EA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFDE2953611C0024B7EA /* MainScreen */,
+				DD0DDFB02953052D0024B7EA /* CardReviewScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DD0DDFE2295361880024B7EA /* Shared views */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
+				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
+			);
+			path = "Shared views";
+			sourceTree = "<group>";
+		};
+		DD0DDFE3295362B10024B7EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFE4295362C40024B7EA /* AppCoordinatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0DDFEA2953672B0024B7EA /* Mplantin */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFEB295367470024B7EA /* Mplantin.ttf */,
+			);
+			path = Mplantin;
+			sourceTree = "<group>";
+		};
+		DD0DDFED295367550024B7EA /* Matrix */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */,
+			);
+			path = Matrix;
+			sourceTree = "<group>";
+		};
+		DD0DDFF0295367630024B7EA /* IconsFont */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFF12953677B0024B7EA /* magic-font.ttf */,
+			);
+			path = IconsFont;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +488,9 @@
 				DD0DDFCC295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf in Resources */,
 				DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */,
 				DD0DDFCB295344CC0024B7EA /* Beleren2016-Bold.ttf in Resources */,
+				DD0DDFEC295367470024B7EA /* Mplantin.ttf in Resources */,
+				DD0DDFEF2953675F0024B7EA /* Matrix-Bold.ttf in Resources */,
+				DD0DDFF22953677B0024B7EA /* magic-font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +516,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
+				DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */,
+				DD0DDFE7295364750024B7EA /* LazyNavigationLink.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
+				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
 				DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */,
 				DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */,
+				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
+				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
 				DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
@@ -409,6 +532,7 @@
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */,
+				DD0DDFE5295362C40024B7EA /* AppCoordinatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

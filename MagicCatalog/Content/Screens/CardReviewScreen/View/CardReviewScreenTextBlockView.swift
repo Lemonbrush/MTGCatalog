@@ -27,9 +27,10 @@ struct CardReviewScreenTextBlockView: View {
         VStack {
             HStack {
                 Text(title)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.custom(MTGFontName.matrixBold, fixedSize: FontSize.pt24))
                     .padding([.bottom], 10)
                     .multilineTextAlignment(.leading)
+                    .foregroundColor(.gray)
                 Spacer()
             }
             
