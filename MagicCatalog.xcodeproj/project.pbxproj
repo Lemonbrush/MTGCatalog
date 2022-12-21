@@ -36,6 +36,7 @@
 		DD0DDFEF2953675F0024B7EA /* Matrix-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */; };
 		DD0DDFF22953677B0024B7EA /* magic-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFF12953677B0024B7EA /* magic-font.ttf */; };
 		DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF32953682A0024B7EA /* FontSize.swift */; };
+		DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matrix-Bold.ttf"; sourceTree = "<group>"; };
 		DD0DDFF12953677B0024B7EA /* magic-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "magic-font.ttf"; sourceTree = "<group>"; };
 		DD0DDFF32953682A0024B7EA /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 		DD0DDFE2295361880024B7EA /* Shared views */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DDFF5295395E70024B7EA /* ScrallViewOffset */,
 				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
 				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
 			);
@@ -377,6 +380,14 @@
 				DD0DDFF12953677B0024B7EA /* magic-font.ttf */,
 			);
 			path = IconsFont;
+			sourceTree = "<group>";
+		};
+		DD0DDFF5295395E70024B7EA /* ScrallViewOffset */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */,
+			);
+			path = ScrallViewOffset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +532,7 @@
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
+				DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */,
 				DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */,
 				DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,

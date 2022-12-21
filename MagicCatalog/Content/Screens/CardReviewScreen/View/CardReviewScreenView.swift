@@ -13,7 +13,9 @@ struct CardReviewScreenView: View {
     
     @StateObject private var viewModel = CardReviewScreenViewModel()
     
-    private let contentEdgeInsets = EdgeInsets(top: 0, leading: 20, bottom: 100, trailing: 20)
+    @State private var scrollOffset: CGFloat = .zero
+    
+    private let contentEdgeInsets = EdgeInsets(top: 20, leading: 20, bottom: 100, trailing: 20)
     private var navBarLinearGradient: LinearGradient = {
         let gradient = Gradient(stops: [.init(color: Color(UIColor.systemGray5).opacity(0.01), location: 0),
                                         .init(color: Color(UIColor.systemGray3), location: 1)])
@@ -46,7 +48,7 @@ struct CardReviewScreenView: View {
         ZStack {
             Rectangle()
                 .fill(Color(UIColor.systemGray5))
-                .frame(width: UIScreen.main.bounds.size.width, height: 720, alignment: .center)
+                .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
                 .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
             InteractiveCardView(cardImage: $viewModel.cardImage)
                 .frame(maxWidth: .infinity)
@@ -68,6 +70,10 @@ struct CardReviewScreenView: View {
                     .multilineTextAlignment(.center)
             }.padding([.bottom], 20)
             
+            if scrollOffset >= 0 {
+                Spacer(minLength: 50)
+            }
+            
             if let cardText = viewModel.cardModel.cardText {
                 CardReviewScreenTextBlockView(title: "Card text", text: cardText)
             }
@@ -85,9 +91,13 @@ struct CardReviewScreenView: View {
     }
     
     private var cardReviewScrollView: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollViewOffset(showsIndicators: false) {
             interactiveCardBlockView
             cardReviewContentBlockView.padding(contentEdgeInsets)
+        } onOffsetChange: { value in
+            withAnimation(Animation.easeInOut.speed(1)) {
+                scrollOffset = value
+            }
         }.edgesIgnoringSafeArea(.all)
     }
 }
