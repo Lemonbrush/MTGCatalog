@@ -7,8 +7,6 @@
 
 import Foundation
 
-// A Magic set is how cards are released in reality.
-// It contains no cards in Swiftfall or Scryfall.
 struct ScryfallSet: Codable, CustomStringConvertible {
     
     // The unique three or four-letter code for this set.
@@ -20,7 +18,7 @@ struct ScryfallSet: Codable, CustomStringConvertible {
     //The English name of the set.
     let name: String
     
-    //
+    // A URI where you can retrieve a full object describing this card on Scryfall’s API.
     let uri: String
     
     // Scryfall API URI

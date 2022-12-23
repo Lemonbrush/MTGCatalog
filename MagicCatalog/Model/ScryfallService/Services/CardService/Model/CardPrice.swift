@@ -8,7 +8,6 @@
 import Foundation
 
 struct CardPrice: Codable, CustomStringConvertible {
-    
     let usd: String?
     let usdFoil: String?
     let eur: String?

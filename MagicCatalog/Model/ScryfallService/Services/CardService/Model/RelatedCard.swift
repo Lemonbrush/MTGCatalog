@@ -12,8 +12,6 @@ struct RelatedCard: Codable, CustomStringConvertible {
     
     // An unique ID for this card in Scryfall’s database.
     let id: String
-    
-    // The name of this particular related card.
     let name: String
     
     // A URI where you can retrieve a full object describing this card on Scryfall’s API.

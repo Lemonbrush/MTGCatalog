@@ -7,13 +7,10 @@
 
 import Foundation
 
-// struct which contrains a list of cards
 public struct CardList: Codable, CustomStringConvertible {
-    // an array of Cards
+
     let data: [Card]
-    
     let hasMore: Bool
-    
     let nextPage: String?
     
     // prints each set

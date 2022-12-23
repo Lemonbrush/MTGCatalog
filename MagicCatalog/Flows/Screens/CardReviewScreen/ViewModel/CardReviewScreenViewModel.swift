@@ -48,7 +48,7 @@ class CardReviewScreenViewModel: ObservableObject {
     // MARK: - Private functions
     
     private func fetchRandomCardData() {
-        guard let cardData = try? Swiftfall().getRandomCard() else {
+        guard let cardData = try? SwiftFallCardService(jsonParser: SwiftFallJSONParser()).getRandomCard() else {
             return
         }
             

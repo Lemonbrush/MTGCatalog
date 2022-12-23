@@ -7,7 +7,11 @@
 
 import Foundation
 
-// A Catalog object contains an array of Magic datapoints (words, card values, etc). Catalog objects are provided by the API as aids for building other Magic software and understanding possible values for a field on Card objects.
+// A Catalog object contains an array of Magic datapoints (words, card values, etc).
+
+// Catalog objects are provided by the API as aids for building other Magic software
+// and understanding possible values for a field on Card objects.
+
 struct Catalog: Codable, CustomStringConvertible {
     let uri: String?
     let totalValues: Int?

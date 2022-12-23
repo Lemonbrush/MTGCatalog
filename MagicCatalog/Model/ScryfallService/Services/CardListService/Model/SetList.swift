@@ -9,9 +9,8 @@ import Foundation
 
 // struct which contains all sets
 struct SetList: Codable, CustomStringConvertible {
-    // data is an array of Sets
+
     let data: [ScryfallSet]
-    
     let hasMore: Bool
     
     // prints each set

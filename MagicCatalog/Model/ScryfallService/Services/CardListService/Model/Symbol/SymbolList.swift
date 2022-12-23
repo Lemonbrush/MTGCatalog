@@ -11,8 +11,6 @@ struct SymbolList: Codable, CustomStringConvertible {
     
     // if there are more pages, should always be false
     let hasMore: Bool
-    
-    // the symbols
     let data: [Symbol]
     
     public var description: String {
