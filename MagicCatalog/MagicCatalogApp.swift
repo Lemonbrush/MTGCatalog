@@ -11,7 +11,7 @@ import SwiftUI
 struct MagicCatalogApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppCoordinatorView(coordinator: AppCoordinator())
         }
     }
 }
