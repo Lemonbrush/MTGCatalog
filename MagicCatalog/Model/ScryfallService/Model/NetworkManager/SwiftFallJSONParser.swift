@@ -17,7 +17,11 @@ struct SwiftFallJSONParser: SwiftFallJSONParserProtocol {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let request = URLRequest(url: url)
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForResource = 15
+
+        URLSession(configuration: config).dataTask(with: request) { data, response, error in
             guard let receivedData = data else {
                 print("Error: There was no data returned from JSON file.")
                 return
@@ -34,9 +38,7 @@ struct SwiftFallJSONParser: SwiftFallJSONParserProtocol {
             } catch {
                 completion(.failure(error))
             }
-        }
-        
-        task.resume()
+        }.resume()
     }
     
     // MARK: - Private func
