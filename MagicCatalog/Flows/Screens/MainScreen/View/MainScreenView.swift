@@ -57,26 +57,51 @@ struct MainScreenView: View {
         }
     }
     
+    private var menuButton: some View {
+        Menu {
+            Button(action: {
+                // Action
+            }) {
+                Label("Key words dictionary", systemImage: "questionmark.circle")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
+                Label("Advanced search", systemImage: "list.bullet.rectangle")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
+                Label("All Sets", systemImage: "crown")
+            }
+        } label: {
+            Image(systemName: "ellipsis.circle")
+        }
+    }
+    
     var body: some View {
-            VStack(spacing: 50) {
-                searchTextField
+        VStack(spacing: 10) {
+                Text("Find a card").font(.title.weight(.bold))
+            
+            VStack(spacing: 5) {
+                Text("Start searching for an mtg card or get a ").multilineTextAlignment(.center)
+                Button(action: {
+                    viewModel.didPressRandomCardButton()
+                }) {
+                    Text("Random card")
+                }.foregroundColor(.blue)
+            }
                 
-                VStack(spacing: 10) {
-                    MainScreenButton(text: "All Sets",
-                                     backgroundButtonColor: .blue) {
-                        viewModel.didPressRandomCardButton()
-                    }
-                    
-                    MainScreenButton(text: "Random Card",
-                                     backgroundButtonColor: .pink) {
-                        viewModel.didPressRandomCardButton()
-                    }
-                    
-                    MainScreenButton(text: "Key Words Guide",
-                                     backgroundButtonColor: .green) {
-                        viewModel.didPressRandomCardButton()
-                    }
+            }.padding()
+                .foregroundColor(.gray)
+                .navigationTitle("Magic cards")
+                .toolbar {
+                    menuButton
+                }.searchable(text: $searchCardText){
+                    // last searches
+                    // Cards collectionview
                 }
-            }.padding([.leading, .trailing], 20)
     }
 }
