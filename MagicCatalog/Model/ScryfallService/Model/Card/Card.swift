@@ -9,89 +9,7 @@ import Foundation
 
 struct Card: Codable, CustomStringConvertible {
     
-    // Some cards have cards closely related to them. They will contain an array of RelatedCards.
-    struct RelatedCard: Codable, CustomStringConvertible {
-        
-        // An unique ID for this card in Scryfall’s database.
-        let id: String
-        
-        // The name of this particular related card.
-        let name: String
-        
-        // A URI where you can retrieve a full object describing this card on Scryfall’s API.
-        let uri: String
-        
-        var description: String {
-            return "Name: \(name)\nURI: \(uri)"
-        }
-    }
-    
-    struct Face: Codable, CustomStringConvertible {
-        
-        // All of these variables are the same as a normal card.
-        
-        let name: String?
-        let manaCost: String?
-        let typeLine: String?
-        let oracleText: String?
-        let colors: [String]?
-        let power: String?
-        let toughness: String?
-        let loyalty: String?
-        let flavorText: String?
-        let illustrationId: String?
-        let imageUris: [String: String]?
-        var description: String {
-            var text = ""
-            // Each variable is tested to see if printing it makes sense.
-            text += "Name: \(name!)\n"
-            
-            if self.manaCost != nil {
-                text += "Cost: \(manaCost!)\n"
-            }
-            if self.typeLine != nil {
-                text += "Type Line: \(typeLine!)\n"
-            }
-            if self.oracleText != nil {
-                text += "Oracle Text:\n\(oracleText!)\n"
-            }
-            if self.power != nil && self.toughness != nil {
-                text += "Power: \(power!)\nToughness: \(toughness!)\n"
-            }
-            if self.loyalty != nil {
-                text += "Loyalty: \(loyalty!)\n"
-            }
-            return text
-        }
-    }
-    
-    struct Prices: Codable, CustomStringConvertible {
-        
-        let usd: String?
-        let usdFoil: String?
-        let eur: String?
-        let tix: String?
-        
-        var description: String {
-            var text = ""
-            if let usd = self.usd {
-                text += "usd: \(usd)"
-            }
-            if let usdFoil = self.usdFoil {
-                text += "usdFoil: \(usdFoil)"
-            }
-            if let eur = self.eur {
-                text += "eur: \(eur)"
-            }
-            if let tix = self.tix {
-                text += "tix: \(tix)"
-            }
-            return text
-        }
-        
-    }
-    
-    let prices: Prices?
+    let prices: CardPrice?
     
     /// A unique ID for this card in Scryfall’s database.
     let id: String
@@ -118,7 +36,7 @@ struct Card: Codable, CustomStringConvertible {
     let scryfallUri: String
     
     /// If the card has multiple face this is an array of the card faces
-    let cardFaces: [Face]?
+    let cardFaces: [CardFace]?
     
     /// A link to where you can begin paginating all re/prints for this card on Scryfall’s API.
     let printsSearchUri: String
