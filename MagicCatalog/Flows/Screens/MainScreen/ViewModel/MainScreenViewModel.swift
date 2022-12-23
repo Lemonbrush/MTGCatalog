@@ -48,7 +48,7 @@ class MainScreenViewModel: ObservableObject {
 }
 
 extension MainScreenViewModel: CardSearchManagerDelegate {
-    func didReceiveCardData(_ cardModel: Swiftfall.Card) {
+    func didReceiveCardData(_ cardModel: Card) {
         
     }
     
@@ -56,7 +56,7 @@ extension MainScreenViewModel: CardSearchManagerDelegate {
 }
 
 protocol CardSearchManagerDelegate: AnyObject {
-    func didReceiveCardData(_ cardModel: Swiftfall.Card)
+    func didReceiveCardData(_ cardModel: Card)
     func didReceiveError(error: MainScreenStateError)
 }
 
@@ -70,7 +70,7 @@ class CardSearchManager {
     
     func requestCardsSerach(cardName: String) {
         do {
-            delegate?.didReceiveCardData(try Swiftfall.getCard(exact: cardName))
+            delegate?.didReceiveCardData(try Swiftfall().getCard(exact: cardName))
         } catch {
             print(error.localizedDescription)
         }
