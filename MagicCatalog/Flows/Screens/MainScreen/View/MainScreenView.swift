@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import QGrid
 
 struct MainScreenView: View {
     
@@ -15,6 +16,7 @@ struct MainScreenView: View {
     
     @State var searchCardText: String = ""
     @State var shouldShowSearchButton = false
+    @State var isSearchEmpty = true
     
     var backgroundGradient: LinearGradient = {
         let gradient = Gradient(colors: [Color(UIColor.brandDarkPurple),
@@ -24,46 +26,45 @@ struct MainScreenView: View {
                               endPoint: .bottom)
     }()
     
+    // MARK: - Private properties
+    
+    private let cardViewModels: [CardCellViewModel] = [CardCellViewModel(id: 1)]
+    
     // MARK: - Body view
     
-    private var searchTextField: some View {
-        HStack(spacing: 10) {
-            TextField("", text: $searchCardText)
-                .placeholder(when: searchCardText.isEmpty) {
-                    Text("Search card").foregroundColor(Color(UIColor.systemGray3))
-                }
-                .padding([.leading, .trailing], 30)
-                .padding([.top, .bottom], 15)
-                .background(Color(UIColor.systemGray6))
-                .foregroundColor(.black)
-                .cornerRadius(10)
-                .onChange(of: searchCardText) { newValue in
-                    withAnimation(Animation.easeOut(duration: 0.2)) {
-                        shouldShowSearchButton = !newValue.isEmpty
-                    }
-                }
-            
-            if shouldShowSearchButton {
-                Button(action: {
+    var body: some View {
+        ZStack {
+            QGrid(cardViewModels, columns: 1) { _ in
+                CardCell(didPressButton: {
                     viewModel.didPressRandomCardButton()
-                }, label: {
-                    Image(systemName: "magnifyingglass").foregroundColor(.white)
-                }) .transition(.move(edge: .trailing))
-                    .padding(15)
-                    .background(.blue)
-                    .cornerRadius(10)
+                })
             }
-            
+            .navigationTitle(viewModel.navigationTitle)
+            .toolbar { menuButton }
+            .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))
+            .onSubmit {
+                viewModel.didPressSearch(query: searchCardText)
+            }
         }
     }
+    
+    // MARK: - Private body views
     
     private var menuButton: some View {
         Menu {
             Button(action: {
                 // Action
             }) {
+                Label("All Sets", systemImage: "crown")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
                 Label("Key words dictionary", systemImage: "questionmark.circle")
             }
+            
+            Divider()
             
             Button(action: {
                 // Action
@@ -71,37 +72,47 @@ struct MainScreenView: View {
                 Label("Advanced search", systemImage: "list.bullet.rectangle")
             }
             
-            Button(action: {
-                // Action
-            }) {
-                Label("All Sets", systemImage: "crown")
-            }
         } label: {
             Image(systemName: "ellipsis.circle")
         }
     }
+}
+
+struct CardCellViewModel : Codable, Identifiable {
+  var id: Int
+}
+
+struct CardCell: View {
     
-    var body: some View {
-        VStack(spacing: 10) {
-                Text("Find a card").font(.title.weight(.bold))
-            
-            VStack(spacing: 5) {
-                Text("Start searching for an mtg card or get a ").multilineTextAlignment(.center)
-                Button(action: {
-                    viewModel.didPressRandomCardButton()
-                }) {
-                    Text("Random card")
-                }.foregroundColor(.blue)
-            }
-                
-            }.padding()
-                .foregroundColor(.gray)
-                .navigationTitle("Magic cards")
-                .toolbar {
-                    menuButton
-                }.searchable(text: $searchCardText){
-                    // last searches
-                    // Cards collectionview
-                }
-    }
+    // MARK: - Properties
+    
+    var didPressButton: () -> Void
+    
+    // MARK: - Body view
+    
+      var body: some View {
+          VStack(spacing: 30) {
+              Image(systemName:"rectangle.portrait.on.rectangle.portrait.fill")
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 60, height: 60)
+                  .foregroundColor(Color(UIColor.systemGray5))
+              
+              VStack(spacing: 10) {
+                  Text("Find a card")
+                      .font(.title.weight(.bold))
+                  
+                  VStack(spacing: 5) {
+                      Text("Start searching for an mtg card or get a ")
+                          .multilineTextAlignment(.center)
+                          .foregroundColor(.gray)
+                      Button(action: {
+                          didPressButton()
+                      }) {
+                          Text("Random card")
+                      }.foregroundColor(.blue)
+                  }
+              }
+          }.frame(height: UIScreen.main.bounds.size.height / 1.5)
+      }
 }
