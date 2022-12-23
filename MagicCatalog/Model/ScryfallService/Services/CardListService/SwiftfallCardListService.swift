@@ -1,5 +1,5 @@
 //
-//  CardListService.swift
+//  SwiftfallCardListService.swift
 //  MagicCatalog
 //
 //  Created by Alexander Rubtsov on 24.12.2022.
@@ -7,19 +7,17 @@
 
 import Foundation
 
-class CardListService {
+class SwiftfallCardListService {
     
     // MARK: - Private properties
     
-    private let jsonParser: SwiftFallJSONParserProtocol
-    private lazy var networkService = SwiftfallNetworkService(jsonParser: jsonParser)
-    
+    private let networkService: SwiftfallNetworkServiceProtocol
     private let urlBase = SwiftFallConstants.scryfall + "cards"
     
     // MARK: - Construction
     
-    init(jsonParser: SwiftFallJSONParserProtocol) {
-        self.jsonParser = jsonParser
+    init(_ networkService: SwiftfallNetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     // MARK: - Functions

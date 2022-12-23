@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct SwiftfallNetworkService {
+protocol SwiftfallNetworkServiceProtocol {
+    func requestData<T: Decodable>(_ params: String, type: T.Type) throws -> T
+}
+
+struct SwiftfallNetworkService: SwiftfallNetworkServiceProtocol {
     
     // MARK: - Private properties
     

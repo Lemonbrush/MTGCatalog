@@ -70,7 +70,7 @@ class CardSearchManager {
     
     func requestCardsSerach(cardName: String) {
         do {
-            delegate?.didReceiveCardData(try SwiftFallCardService(jsonParser: SwiftFallJSONParser()).getCard(exact: cardName))
+            delegate?.didReceiveCardData(try Swiftfall().getCardWithFuzzyName(cardName))
         } catch {
             print(error.localizedDescription)
         }

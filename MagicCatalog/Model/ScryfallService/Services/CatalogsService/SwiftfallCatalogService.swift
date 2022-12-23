@@ -1,5 +1,5 @@
 //
-//  SwiftFallCatalogsService.swift
+//  SwiftfallCatalogService.swift
 //  MagicCatalog
 //
 //  Created by Alexander Rubtsov on 23.12.2022.
@@ -7,17 +7,16 @@
 
 import Foundation
 
-class SwiftFallCatalogService {
+class SwiftfallCatalogService {
     
     // MARK: - Private properties
     
-    private let jsonParser: SwiftFallJSONParserProtocol
-    private lazy var networkService = SwiftfallNetworkService(jsonParser: jsonParser)
+    private let networkService: SwiftfallNetworkServiceProtocol
     
     // MARK: - Construction
     
-    init(jsonParser: SwiftFallJSONParserProtocol) {
-        self.jsonParser = jsonParser
+    init(_ networkService: SwiftfallNetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     // MARK: - Functions
