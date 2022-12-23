@@ -4,11 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Matrix-Bold.ttf</string>
-		<string>Mplantin.ttf</string>
-		<string>Beleren2016SmallCaps-BoldItalic.ttf</string>
-		<string>Beleren2016SmallCaps-Bold.ttf</string>
-		<string>Beleren2016-Bold.ttf</string>
+		<string></string>
 	</array>
 </dict>
 </plist>

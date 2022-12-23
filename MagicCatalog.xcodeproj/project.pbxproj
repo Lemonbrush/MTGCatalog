@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */; };
-		DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF7E29525E570024B7EA /* ContentView.swift */; };
 		DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDF8029525E570024B7EA /* Assets.xcassets */; };
 		DD0DDF8429525E570024B7EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDF8329525E570024B7EA /* Preview Assets.xcassets */; };
 		DD0DDF8E29525E580024B7EA /* MagicCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDF8D29525E580024B7EA /* MagicCatalogTests.swift */; };
@@ -43,6 +42,10 @@
 		DD0DE0012953BCC40024B7EA /* CardReviewScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0002953BCC40024B7EA /* CardReviewScreenCoordinator.swift */; };
 		DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */; };
 		DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */; };
+		DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0062954991B0024B7EA /* UIColor+extension.swift */; };
+		DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */; };
+		DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE00B2954E5240024B7EA /* Placeholder.swift */; };
+		DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +68,6 @@
 /* Begin PBXFileReference section */
 		DD0DDF7929525E570024B7EA /* MagicCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCatalogApp.swift; sourceTree = "<group>"; };
-		DD0DDF7E29525E570024B7EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD0DDF8029525E570024B7EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD0DDF8329525E570024B7EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD0DDF8929525E580024B7EA /* MagicCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,10 @@
 		DD0DE0002953BCC40024B7EA /* CardReviewScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCoordinator.swift; sourceTree = "<group>"; };
 		DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCoordinatorView.swift; sourceTree = "<group>"; };
 		DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinatorView.swift; sourceTree = "<group>"; };
+		DD0DE0062954991B0024B7EA /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenButton.swift; sourceTree = "<group>"; };
+		DD0DE00B2954E5240024B7EA /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,11 +163,12 @@
 				DD0DDFC5295343E90024B7EA /* Resources */,
 				DD0DDFBC29531FB40024B7EA /* Extensions */,
 				DD0DDFB5295306A60024B7EA /* Model */,
-				DD0DDFDD295360FA0024B7EA /* Content */,
+				DD0DDFDD295360FA0024B7EA /* Flows */,
 				DD0DDF7C29525E570024B7EA /* MagicCatalogApp.swift */,
 				DD0DDF8029525E570024B7EA /* Assets.xcassets */,
 				DD0DDFCE295345CE0024B7EA /* Info.plist */,
 				DD0DDF8229525E570024B7EA /* Preview Content */,
+				DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */,
 			);
 			path = MagicCatalog;
 			sourceTree = "<group>";
@@ -258,6 +265,7 @@
 			children = (
 				DD0DDFBD29531FE00024B7EA /* View+CornerRadius.swift */,
 				DD0DDFBF2953201E0024B7EA /* RoundedCornerShape.swift */,
+				DD0DE0062954991B0024B7EA /* UIColor+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,7 +311,6 @@
 		DD0DDFD729535BE50024B7EA /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				DD0DDF7E29525E570024B7EA /* ContentView.swift */,
 				DD0DDFD929535BFB0024B7EA /* Coordinator.swift */,
 				DD0DDFDB29535DB70024B7EA /* AppCoordinator.swift */,
 				DD0DDFE4295362C40024B7EA /* AppCoordinatorView.swift */,
@@ -311,14 +318,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		DD0DDFDD295360FA0024B7EA /* Content */ = {
+		DD0DDFDD295360FA0024B7EA /* Flows */ = {
 			isa = PBXGroup;
 			children = (
 				DD0DDFE2295361880024B7EA /* Shared views */,
 				DD0DDFD729535BE50024B7EA /* Navigation */,
 				DD0DDFE1295361690024B7EA /* Screens */,
 			);
-			path = Content;
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		DD0DDFDE2953611C0024B7EA /* MainScreen */ = {
@@ -335,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0DDFF82953B9F50024B7EA /* MainScreenView.swift */,
+				DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +367,7 @@
 		DD0DDFE2295361880024B7EA /* Shared views */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DE00A2954E5150024B7EA /* Placeholder */,
 				DD0DDFF5295395E70024B7EA /* ScrallViewOffset */,
 				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
 				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
@@ -414,6 +423,14 @@
 				DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DD0DE00A2954E5150024B7EA /* Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				DD0DE00B2954E5240024B7EA /* Placeholder.swift */,
+			);
+			path = Placeholder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +540,7 @@
 				DD0DDFCD295344CC0024B7EA /* Beleren2016SmallCaps-BoldItalic.ttf in Resources */,
 				DD0DDF8429525E570024B7EA /* Preview Assets.xcassets in Resources */,
 				DD0DDFCC295344CC0024B7EA /* Beleren2016SmallCaps-Bold.ttf in Resources */,
+				DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */,
 				DD0DDF8129525E570024B7EA /* Assets.xcassets in Resources */,
 				DD0DDFCB295344CC0024B7EA /* Beleren2016-Bold.ttf in Resources */,
 				DD0DDFEC295367470024B7EA /* Mplantin.ttf in Resources */,
@@ -555,6 +573,7 @@
 				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
 				DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */,
 				DD0DDFE7295364750024B7EA /* LazyNavigationLink.swift in Sources */,
+				DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
@@ -567,16 +586,17 @@
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
 				DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */,
-				DD0DDF7F29525E570024B7EA /* ContentView.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
+				DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
 				DD0DE0012953BCC40024B7EA /* CardReviewScreenCoordinator.swift in Sources */,
 				DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */,
 				DD0DDFE5295362C40024B7EA /* AppCoordinatorView.swift in Sources */,
+				DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
@@ -740,7 +761,7 @@
 				INFOPLIST_FILE = MagicCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -761,6 +782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
@@ -769,7 +791,7 @@
 				INFOPLIST_FILE = MagicCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

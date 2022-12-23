@@ -59,18 +59,6 @@ struct MainScreenView: View {
     
     var body: some View {
             VStack(spacing: 50) {
-                Spacer()
-                LinearGradient(
-                    colors: [.red, .yellow],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .mask(
-                    // 1
-                Text("Magic\n   Catalog")
-                    .font(.custom(MTGFontName.mtgBold, size: FontSize.pt72)))
-                Spacer()
-                
                 searchTextField
                 
                 VStack(spacing: 10) {
