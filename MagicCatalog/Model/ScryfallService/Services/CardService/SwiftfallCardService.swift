@@ -32,21 +32,23 @@ class SwiftfallCardService {
         requestData(call, completion: completion)
     }
     
-     func getRandomCard(completion: @escaping (SwiftfalResult<Card>) -> Void) {
+    func getRandomCard(completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let call = urlBase + "/random"
-         requestData(call, completion: completion)
+        requestData(call, completion: completion)
     }
     
-     func getCard(fuzzy: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
-        let encodeFuzz = fuzzy.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let call = urlBase + "/named?fuzzy=\(encodeFuzz)"
-         requestData(call, completion: completion)
+    func getCard(fuzzy: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        if let encodeFuzz = fuzzy.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            let call = urlBase + "/named?fuzzy=\(encodeFuzz)"
+            requestData(call, completion: completion)
+        }
     }
     
-     func getCard(exact: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
-        let encodeExactly = exact.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let call = urlBase + "/named?exact=\(encodeExactly)"
-         requestData(call, completion: completion)
+    func getCard(exact: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        if let encodeExactly = exact.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            let call = urlBase + "/named?exact=\(encodeExactly)"
+            requestData(call, completion: completion)
+        }
     }
     
     // MARK: - Private functions

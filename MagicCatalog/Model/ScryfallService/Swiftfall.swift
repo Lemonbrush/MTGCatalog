@@ -15,19 +15,19 @@ protocol SwiftfallProtocol {
     
     func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ())
     
-    func getCatalogCardNames() throws -> Catalog
-    func getCatalogWordBank() throws -> Catalog
-    func getCatalogCreatureTypes() throws -> Catalog
-    func getCatalogPlaneswalkerTypes() throws -> Catalog
-    func getCatalogLandTypes() throws -> Catalog
-    func getCatalogSpellTypes() throws -> Catalog
-    func getCatalogArtifactTypes() throws -> Catalog
-    func getCatalogPowers() throws -> Catalog
-    func getCatalogToughnesses() throws -> Catalog
-    func getCatalogLoyalties() throws -> Catalog
-    func getCatalogWatermarks() throws -> Catalog
+    func getCatalogCardNames(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogWordBank(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogCreatureTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogPlaneswalkerTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogLandTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogSpellTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogArtifactTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogPowers(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogToughnesses(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogLoyalties(completion: @escaping (SwiftfalResult<Catalog>) -> ())
+    func getCatalogWatermarks(completion: @escaping (SwiftfalResult<Catalog>) -> ())
     
-    func getAutocomplete(_ cardNamePart: String) throws -> Catalog
+    func getAutocomplete(_ cardNamePart: String, completion: @escaping (SwiftfalResult<Catalog>) -> ())
 }
 
 class Swiftfall: SwiftfallProtocol {
@@ -48,7 +48,7 @@ class Swiftfall: SwiftfallProtocol {
         networkService = SwiftfallNetworkService(coreNetworkService: jsonParser)
         
         setService = SwiftfallCardSetService(NetworkService())
-        catalogService = SwiftfallCatalogService(networkService)
+        catalogService = SwiftfallCatalogService(NetworkService())
         cardService = SwiftfallCardService(NetworkService())
         listService = SwiftfallCardListService(NetworkService())
     }
@@ -99,51 +99,51 @@ class Swiftfall: SwiftfallProtocol {
         setService.getSet(code: code, completion: completion)
     }
     
-    func getCatalogCardNames() throws -> Catalog {
-        return try catalogService.cardNames()
+    func getCatalogCardNames(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.cardNames(completion: completion)
     }
     
-    func getCatalogWordBank() throws -> Catalog {
-        return try catalogService.wordBank()
+    func getCatalogWordBank(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.wordBank(completion: completion)
     }
     
-    func getCatalogCreatureTypes() throws -> Catalog {
-        return try catalogService.creatureTypes()
+    func getCatalogCreatureTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.creatureTypes(completion: completion)
     }
     
-    func getCatalogPlaneswalkerTypes() throws -> Catalog {
-        return try catalogService.planeswalkerTypes()
+    func getCatalogPlaneswalkerTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.planeswalkerTypes(completion: completion)
     }
     
-    func getCatalogLandTypes() throws -> Catalog {
-        return try catalogService.landTypes()
+    func getCatalogLandTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.landTypes(completion: completion)
     }
     
-    func getCatalogSpellTypes() throws -> Catalog {
-        return try catalogService.spellTypes()
+    func getCatalogSpellTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.spellTypes(completion: completion)
     }
     
-    func getCatalogArtifactTypes() throws -> Catalog {
-        return try catalogService.artifactTypes()
+    func getCatalogArtifactTypes(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.artifactTypes(completion: completion)
     }
     
-    func getCatalogPowers() throws -> Catalog {
-        return try catalogService.powers()
+    func getCatalogPowers(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.powers(completion: completion)
     }
     
-    func getCatalogToughnesses() throws -> Catalog {
-        return try catalogService.toughnesses()
+    func getCatalogToughnesses(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.toughnesses(completion: completion)
     }
     
-    func getCatalogLoyalties() throws -> Catalog {
-        return try catalogService.loyalties()
+    func getCatalogLoyalties(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.loyalties(completion: completion)
     }
     
-    func getCatalogWatermarks() throws -> Catalog {
-        return try catalogService.watermarks()
+    func getCatalogWatermarks(completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.watermarks(completion: completion)
     }
     
-    func getAutocomplete(_ cardNamePart: String) throws -> Catalog {
-        return try catalogService.autocomplete(cardNamePart)
+    func getAutocomplete(_ cardNamePart: String, completion: @escaping (SwiftfalResult<Catalog>) -> ()) {
+        catalogService.autocomplete(cardNamePart, completion: completion)
     }
 }
