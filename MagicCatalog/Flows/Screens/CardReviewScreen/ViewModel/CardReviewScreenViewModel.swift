@@ -48,19 +48,25 @@ class CardReviewScreenViewModel: ObservableObject {
     // MARK: - Private functions
     
     private func fetchRandomCardData() {
-        guard let cardData = try? Swiftfall().getRandomCard() else {
-            return
-        }
+        Swiftfall().getRandomCard { [weak self] result in
+            guard let self = self else {
+                return
+            }
             
-        cardModel = CardModel(cardTitle: cardData.name ?? "",
-                              cardText: cardData.oracleText ?? "",
-                              cardArtist: cardData.artist ?? "",
-                              creatureType: cardData.typeLine ?? "",
-                              flavourText: cardData.flavorText)
-            
-        if let cardURLs = cardData.imageUris,
-           let imageURLString = cardURLs["normal"] {
-            imageDownloader.getImageByURL(imageURLString)
+            if case .success(let cardData) = result {
+                DispatchQueue.main.async {
+                    self.cardModel = CardModel(cardTitle: cardData.name ?? "",
+                                          cardText: cardData.oracleText ?? "",
+                                          cardArtist: cardData.artist ?? "",
+                                          creatureType: cardData.typeLine ?? "",
+                                          flavourText: cardData.flavorText)
+                }
+                
+                    
+                if let cardURLs = cardData.imageUris, let imageURLString = cardURLs["normal"] {
+                    self.imageDownloader.getImageByURL(imageURLString)
+                }
+            }
         }
     }
 }

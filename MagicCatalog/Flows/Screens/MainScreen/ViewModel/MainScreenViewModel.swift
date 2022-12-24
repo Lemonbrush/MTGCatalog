@@ -69,10 +69,15 @@ class CardSearchManager {
     // MARK: - Functions
     
     func requestCardsSerach(cardName: String) {
-        do {
-            delegate?.didReceiveCardData(try Swiftfall().getCardWithFuzzyName(cardName))
-        } catch {
-            print(error.localizedDescription)
+        
+        Swiftfall().getCardWithFuzzyName(cardName) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            if case .success(let cards) = result {
+                self.delegate?.didReceiveCardData(cards)
+            }
         }
     }
 }

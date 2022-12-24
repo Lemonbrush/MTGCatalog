@@ -1,11 +1,11 @@
 import Foundation
 
 protocol SwiftfallProtocol {
-    func getCardByCode(_ cardName: String, number: Int) throws -> Card
-    func getCardByArenaId(_ arenaId: Int) throws -> Card
-    func getRandomCard() throws -> Card
-    func getCardWithFuzzyName(_ cardName: String) throws -> Card
-    func getCardByExactName(_ cardName: String) throws -> Card
+    func getCardByCode(_ code: String, number: Int, completion: @escaping (SwiftfalResult<Card>) -> Void)
+    func getCardByArenaId(_ arenaId: Int, completion: @escaping (SwiftfalResult<Card>) -> Void)
+    func getRandomCard(completion: @escaping (SwiftfalResult<Card>) -> Void)
+    func getCardWithFuzzyName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void)
+    func getCardByExactName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void)
     
     func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ())
     func getCardsList(page: Int, completion: @escaping (SwiftfalResult<CardList>) -> ())
@@ -49,30 +49,30 @@ class Swiftfall: SwiftfallProtocol {
         
         setService = SwiftfallCardSetService(NetworkService())
         catalogService = SwiftfallCatalogService(networkService)
-        cardService = SwiftfallCardService(networkService)
+        cardService = SwiftfallCardService(NetworkService())
         listService = SwiftfallCardListService(NetworkService())
     }
     
     // MARK: - Functions
     
-    func getCardByCode(_ cardName: String, number: Int) throws -> Card {
-        return try cardService.getCard(code: cardName, number: number)
+    func getCardByCode(_ code: String, number: Int, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        cardService.getCard(code: code, number: number, completion: completion)
     }
     
-    func getCardByArenaId(_ arenaId: Int) throws -> Card {
-        return try cardService.getCard(arena: arenaId)
+    func getCardByArenaId(_ arenaId: Int, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        cardService.getCard(arena: arenaId, completion: completion)
     }
     
-    func getRandomCard() throws -> Card {
-        return try cardService.getRandomCard()
+    func getRandomCard(completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        cardService.getRandomCard(completion: completion)
     }
     
-    func getCardWithFuzzyName(_ cardName: String) throws -> Card {
-        return try cardService.getCard(fuzzy: cardName)
+    func getCardWithFuzzyName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        cardService.getCard(fuzzy: cardName, completion: completion)
     }
     
-    func getCardByExactName(_ cardName: String) throws -> Card {
-        return try cardService.getCard(exact: cardName)
+    func getCardByExactName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        cardService.getCard(exact: cardName, completion: completion)
     }
     
     func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ()) {

@@ -11,47 +11,47 @@ class SwiftfallCardService {
     
     // MARK: - Private properties
     
-    private let networkService: SwiftfallNetworkServiceProtocol
+    private let networkService: SwiftFallCoreNetworkServiceProtocol
     private let urlBase = SwiftFallConstants.scryfall + "cards"
     
     // MARK: - Construction
     
-    init(_ networkService: SwiftfallNetworkServiceProtocol) {
+    init(_ networkService: SwiftFallCoreNetworkServiceProtocol) {
         self.networkService = networkService
     }
     
     // MARK: - Functions
     
-    func getCard(code: String, number: Int) throws -> Card {
+    func getCard(code: String, number: Int, completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let call = urlBase + "/\(code)/\(number)"
-        return try requestData(call)
+        requestData(call, completion: completion)
     }
     
-    func getCard(arena: Int) throws -> Card {
+    func getCard(arena: Int, completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let call = urlBase + "/arena/\(arena)"
-        return try requestData(call)
+        requestData(call, completion: completion)
     }
     
-    func getRandomCard() throws -> Card {
+     func getRandomCard(completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let call = urlBase + "/random"
-        return try requestData(call)
+         requestData(call, completion: completion)
     }
     
-    func getCard(fuzzy: String) throws -> Card {
+     func getCard(fuzzy: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let encodeFuzz = fuzzy.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let call = urlBase + "/named?fuzzy=\(encodeFuzz)"
-        return try requestData(call)
+         requestData(call, completion: completion)
     }
     
-    func getCard(exact: String) throws -> Card {
+     func getCard(exact: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
         let encodeExactly = exact.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let call = urlBase + "/named?exact=\(encodeExactly)"
-        return try requestData(call)
+         requestData(call, completion: completion)
     }
     
     // MARK: - Private functions
     
-    private func requestData(_ call: String) throws -> Card {
-        return try networkService.requestData(call, type: Card.self)
+    private func requestData(_ call: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
+        networkService.request(call: call, timeout: 15, completion: completion)
     }
 }
