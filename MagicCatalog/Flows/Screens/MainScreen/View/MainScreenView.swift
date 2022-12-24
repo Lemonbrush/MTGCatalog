@@ -33,10 +33,9 @@ struct MainScreenView: View {
     
     var body: some View {
         VStack {
-            QGrid(viewModel.cardViewModels, columns:
-                    viewModel.contentGridColumns) { cellModel in
+            QGrid(viewModel.cardViewModels, columns: viewModel.contentGridColumns) { cellModel in
                 contentAdapter.getCell(cellModel)
-            }.ignoresSafeArea(.all, edges: .bottom)
+            }.ignoresSafeArea(.all, edges: [.bottom, .leading, .trailing])
             .navigationTitle(viewModel.navigationTitle)
             .toolbar { menuButton }
             .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))

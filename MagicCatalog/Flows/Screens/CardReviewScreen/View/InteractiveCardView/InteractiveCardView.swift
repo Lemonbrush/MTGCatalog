@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum InteractiveCardViewSize {
+    case large, medium, small
+}
+
 struct InteractiveCardView: View {
     
     // MARK: - Private properties
@@ -35,9 +39,28 @@ struct InteractiveCardView: View {
     
     @GestureState private var magnifyBy = 1.0
     
-    private let width: CGFloat = 350
-    private let height: CGFloat = 490
+    
+    private let width: CGFloat //= 350
+    private let height: CGFloat// = 490
     private let durationAndDelay: CGFloat = 0.3
+    
+    // MARK: - Construction
+    
+    init(image: UIImage, cardSize: InteractiveCardViewSize) {
+        self.cardImage = image
+        
+        switch cardSize {
+        case .large:
+            width = 350
+            height = 490
+        case .medium:
+            width = 80
+            height = 110
+        case .small:
+            width = 50
+            height = 190
+        }
+    }
     
     // MARK: - View body
     

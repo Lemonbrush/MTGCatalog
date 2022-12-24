@@ -62,8 +62,10 @@ class MainScreenViewModel: ObservableObject {
     private func updateContentCells() {
         switch currentState {
         case .emptySearch:
+            contentGridColumns = 1
             cardViewModels = contentCellsManager.createEmptySearchStateCellModels()
         case .loaded:
+            contentGridColumns = 3
             cardViewModels = contentCellsManager.createCardSearchResultsCellModels(cardsSearchResults)
         case .loding:
             break
@@ -78,7 +80,9 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
         DispatchQueue.main.async { [weak self] in
             var cardCellModels: [MainScreenCardCellModel] = []
             for cardModel in cardListModel.data {
-                cardCellModels.append(MainScreenCardCellModel(imageName: "", cardTitle: cardModel.name ?? ""))
+                cardCellModels.append(MainScreenCardCellModel(imageName: "",
+                                                              cardTitle: cardModel.name ?? "",
+                                                              cardType: cardModel.typeLine ?? ""))
             }
             
             self?.cardsSearchResults = cardCellModels

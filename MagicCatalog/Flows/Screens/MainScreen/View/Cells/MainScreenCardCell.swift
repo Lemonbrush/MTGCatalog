@@ -18,16 +18,29 @@ struct MainScreenCardCell: View {
     weak var delegate: MainScreenCardCellDelegate?
     
     let cardTitle: String
+    let cardType: String
     
     // MARK: - Body view
     
     var body: some View {
         VStack {
             if let image = UIImage(named: "mtgBackImage") {
-                InteractiveCardView(cardImage: image).padding(20)
+                InteractiveCardView(image: image, cardSize: .medium)
+                    .padding(.bottom, 10)
             }
             
-            Text(cardTitle)
-        }
+            VStack(spacing: 5) {
+                Text(cardTitle)
+                    .font(.system(size: FontSize.pt14))
+                    .multilineTextAlignment(.center)
+                
+                Text(cardType)
+                    .font(.system(size: FontSize.pt10))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.gray)
+            }
+            
+            Spacer()
+        }.padding(.bottom, 10)
     }
 }
