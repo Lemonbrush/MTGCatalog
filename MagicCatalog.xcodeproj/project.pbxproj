@@ -46,6 +46,28 @@
 		DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */; };
 		DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE00B2954E5240024B7EA /* Placeholder.swift */; };
 		DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */; };
+		DD360D252957324500DDA30F /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = DD360D242957324500DDA30F /* QGrid */; };
+		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
+		DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */; };
+		DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */; };
+		DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2B2957326E00DDA30F /* SwiftfallError.swift */; };
+		DD360D4D2957326E00DDA30F /* SwiftFallConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */; };
+		DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */; };
+		DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D332957326E00DDA30F /* RulingList.swift */; };
+		DD360D502957326E00DDA30F /* Ruling.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D342957326E00DDA30F /* Ruling.swift */; };
+		DD360D512957326E00DDA30F /* SetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D352957326E00DDA30F /* SetList.swift */; };
+		DD360D522957326E00DDA30F /* SymbolList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D372957326E00DDA30F /* SymbolList.swift */; };
+		DD360D532957326E00DDA30F /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D382957326E00DDA30F /* Symbol.swift */; };
+		DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D3B2957326E00DDA30F /* ScryFallSet.swift */; };
+		DD360D552957326E00DDA30F /* SwiftfallCardSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D3C2957326E00DDA30F /* SwiftfallCardSetService.swift */; };
+		DD360D562957326E00DDA30F /* SwiftfallCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */; };
+		DD360D572957326E00DDA30F /* RelatedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D402957326E00DDA30F /* RelatedCard.swift */; };
+		DD360D582957326E00DDA30F /* CardFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D412957326E00DDA30F /* CardFace.swift */; };
+		DD360D592957326E00DDA30F /* CardPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D422957326E00DDA30F /* CardPrice.swift */; };
+		DD360D5A2957326E00DDA30F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D432957326E00DDA30F /* Card.swift */; };
+		DD360D5B2957326E00DDA30F /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D442957326E00DDA30F /* CardList.swift */; };
+		DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D462957326E00DDA30F /* SwiftfallCatalogService.swift */; };
+		DD360D5D2957326E00DDA30F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D482957326E00DDA30F /* Catalog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +131,27 @@
 		DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenButton.swift; sourceTree = "<group>"; };
 		DD0DE00B2954E5240024B7EA /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD360D272957326E00DDA30F /* SwiftFallResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallResult.swift; sourceTree = "<group>"; };
+		DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallNetworkService.swift; sourceTree = "<group>"; };
+		DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallJSONParser.swift; sourceTree = "<group>"; };
+		DD360D2B2957326E00DDA30F /* SwiftfallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallError.swift; sourceTree = "<group>"; };
+		DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallConstants.swift; sourceTree = "<group>"; };
+		DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCardListService.swift; sourceTree = "<group>"; };
+		DD360D332957326E00DDA30F /* RulingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulingList.swift; sourceTree = "<group>"; };
+		DD360D342957326E00DDA30F /* Ruling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ruling.swift; sourceTree = "<group>"; };
+		DD360D352957326E00DDA30F /* SetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetList.swift; sourceTree = "<group>"; };
+		DD360D372957326E00DDA30F /* SymbolList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolList.swift; sourceTree = "<group>"; };
+		DD360D382957326E00DDA30F /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		DD360D3B2957326E00DDA30F /* ScryFallSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScryFallSet.swift; sourceTree = "<group>"; };
+		DD360D3C2957326E00DDA30F /* SwiftfallCardSetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCardSetService.swift; sourceTree = "<group>"; };
+		DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCardService.swift; sourceTree = "<group>"; };
+		DD360D402957326E00DDA30F /* RelatedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatedCard.swift; sourceTree = "<group>"; };
+		DD360D412957326E00DDA30F /* CardFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFace.swift; sourceTree = "<group>"; };
+		DD360D422957326E00DDA30F /* CardPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPrice.swift; sourceTree = "<group>"; };
+		DD360D432957326E00DDA30F /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		DD360D442957326E00DDA30F /* CardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
+		DD360D462957326E00DDA30F /* SwiftfallCatalogService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCatalogService.swift; sourceTree = "<group>"; };
+		DD360D482957326E00DDA30F /* Catalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD360D252957324500DDA30F /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +245,9 @@
 		DD0DDFAB295270110024B7EA /* ScryfallService */ = {
 			isa = PBXGroup;
 			children = (
+				DD360D2C2957326E00DDA30F /* Constants */,
+				DD360D262957326E00DDA30F /* Model */,
+				DD360D2E2957326E00DDA30F /* Services */,
 				DD0DDFAC295270340024B7EA /* Swiftfall.swift */,
 			);
 			path = ScryfallService;
@@ -433,6 +480,136 @@
 			path = Placeholder;
 			sourceTree = "<group>";
 		};
+		DD360D262957326E00DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D272957326E00DDA30F /* SwiftFallResult.swift */,
+				DD360D282957326E00DDA30F /* NetworkManager */,
+				DD360D2B2957326E00DDA30F /* SwiftfallError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD360D282957326E00DDA30F /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */,
+				DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		DD360D2C2957326E00DDA30F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		DD360D2E2957326E00DDA30F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D2F2957326E00DDA30F /* CardListService */,
+				DD360D392957326E00DDA30F /* CardSetService */,
+				DD360D3D2957326E00DDA30F /* CardService */,
+				DD360D452957326E00DDA30F /* CatalogsService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD360D2F2957326E00DDA30F /* CardListService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */,
+				DD360D312957326E00DDA30F /* Model */,
+			);
+			path = CardListService;
+			sourceTree = "<group>";
+		};
+		DD360D312957326E00DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D322957326E00DDA30F /* Ruling */,
+				DD360D352957326E00DDA30F /* SetList.swift */,
+				DD360D362957326E00DDA30F /* Symbol */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD360D322957326E00DDA30F /* Ruling */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D332957326E00DDA30F /* RulingList.swift */,
+				DD360D342957326E00DDA30F /* Ruling.swift */,
+			);
+			path = Ruling;
+			sourceTree = "<group>";
+		};
+		DD360D362957326E00DDA30F /* Symbol */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D372957326E00DDA30F /* SymbolList.swift */,
+				DD360D382957326E00DDA30F /* Symbol.swift */,
+			);
+			path = Symbol;
+			sourceTree = "<group>";
+		};
+		DD360D392957326E00DDA30F /* CardSetService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D3A2957326E00DDA30F /* Model */,
+				DD360D3C2957326E00DDA30F /* SwiftfallCardSetService.swift */,
+			);
+			path = CardSetService;
+			sourceTree = "<group>";
+		};
+		DD360D3A2957326E00DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D3B2957326E00DDA30F /* ScryFallSet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD360D3D2957326E00DDA30F /* CardService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */,
+				DD360D3F2957326E00DDA30F /* Model */,
+			);
+			path = CardService;
+			sourceTree = "<group>";
+		};
+		DD360D3F2957326E00DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D402957326E00DDA30F /* RelatedCard.swift */,
+				DD360D412957326E00DDA30F /* CardFace.swift */,
+				DD360D422957326E00DDA30F /* CardPrice.swift */,
+				DD360D432957326E00DDA30F /* Card.swift */,
+				DD360D442957326E00DDA30F /* CardList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD360D452957326E00DDA30F /* CatalogsService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D462957326E00DDA30F /* SwiftfallCatalogService.swift */,
+				DD360D472957326E00DDA30F /* Model */,
+			);
+			path = CatalogsService;
+			sourceTree = "<group>";
+		};
+		DD360D472957326E00DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D482957326E00DDA30F /* Catalog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +626,9 @@
 			dependencies = (
 			);
 			name = MagicCatalog;
+			packageProductDependencies = (
+				DD360D242957324500DDA30F /* QGrid */,
+			);
 			productName = MagicCatalog;
 			productReference = DD0DDF7929525E570024B7EA /* MagicCatalog.app */;
 			productType = "com.apple.product-type.application";
@@ -521,6 +701,9 @@
 				Base,
 			);
 			mainGroup = DD0DDF7029525E570024B7EA;
+			packageReferences = (
+				DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
 			productRefGroup = DD0DDF7A29525E570024B7EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -572,29 +755,50 @@
 			files = (
 				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
 				DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */,
+				DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */,
+				DD360D5D2957326E00DDA30F /* Catalog.swift in Sources */,
+				DD360D552957326E00DDA30F /* SwiftfallCardSetService.swift in Sources */,
+				DD360D582957326E00DDA30F /* CardFace.swift in Sources */,
 				DD0DDFE7295364750024B7EA /* LazyNavigationLink.swift in Sources */,
 				DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */,
+				DD360D532957326E00DDA30F /* Symbol.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
 				DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */,
+				DD360D562957326E00DDA30F /* SwiftfallCardService.swift in Sources */,
+				DD360D502957326E00DDA30F /* Ruling.swift in Sources */,
 				DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */,
 				DD0DDFFB2953BA440024B7EA /* MainScreenViewModel.swift in Sources */,
 				DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */,
+				DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */,
 				DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
+				DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */,
 				DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */,
+				DD360D512957326E00DDA30F /* SetList.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
+				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
+				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
+				DD360D572957326E00DDA30F /* RelatedCard.swift in Sources */,
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
+				DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */,
+				DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */,
+				DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */,
+				DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
 				DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
+				DD360D5A2957326E00DDA30F /* Card.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
+				DD360D522957326E00DDA30F /* SymbolList.swift in Sources */,
 				DD0DE0012953BCC40024B7EA /* CardReviewScreenCoordinator.swift in Sources */,
+				DD360D4D2957326E00DDA30F /* SwiftFallConstants.swift in Sources */,
 				DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */,
+				DD360D5B2957326E00DDA30F /* CardList.swift in Sources */,
 				DD0DDFE5295362C40024B7EA /* AppCoordinatorView.swift in Sources */,
 				DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */,
 			);
@@ -919,6 +1123,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD360D242957324500DDA30F /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD0DDF7129525E570024B7EA /* Project object */;
 }
