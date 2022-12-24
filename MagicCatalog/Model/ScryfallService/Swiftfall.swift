@@ -34,8 +34,6 @@ class Swiftfall: SwiftfallProtocol {
     
     // MARK: - Private properties
     
-    private let networkService: SwiftfallNetworkServiceProtocol
-    
     private let setService: SwiftfallCardSetService
     private let catalogService: SwiftfallCatalogService
     private let cardService: SwiftfallCardService
@@ -43,14 +41,11 @@ class Swiftfall: SwiftfallProtocol {
     
     // MARK: - Construction
     
-    init() {
-        let jsonParser = NetworkService()
-        networkService = SwiftfallNetworkService(coreNetworkService: jsonParser)
-        
-        setService = SwiftfallCardSetService(NetworkService())
-        catalogService = SwiftfallCatalogService(NetworkService())
-        cardService = SwiftfallCardService(NetworkService())
-        listService = SwiftfallCardListService(NetworkService())
+    init(networkService: SwiftFallCoreNetworkServiceProtocol) {
+        setService = SwiftfallCardSetService(networkService)
+        catalogService = SwiftfallCatalogService(networkService)
+        cardService = SwiftfallCardService(networkService)
+        listService = SwiftfallCardListService(networkService)
     }
     
     // MARK: - Functions

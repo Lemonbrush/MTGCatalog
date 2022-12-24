@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct CardModel {
-    var cardTitle: String = ""
-    var cardText: String = ""
-    var cardArtist: String = ""
-    var creatureType: String = ""
-    var flavourText: String?
-}
-
 enum CardReviewScreenViewNavigation {
     case back
 }
@@ -26,15 +18,19 @@ class CardReviewScreenViewModel: ObservableObject {
     var onNavigation: ((CardReviewScreenViewNavigation) -> Void)?
     
     @Published var cardImage: UIImage = UIImage()
-    @Published var cardModel = CardModel()
+    @Published var cardModel = CardReviewScreenCardModel()
     
     // MARK: - Private properties
     
+    private let randomCardReviewScreenManager: RandomCardReviewScreenSearchManager
     private let imageDownloader = ImageDownloaderManager()
     
     // MARK: - Construction
     
     init() {
+        randomCardReviewScreenManager = RandomCardReviewScreenSearchManager()
+        randomCardReviewScreenManager.delegate = self
+        
         imageDownloader.delegate = self
         fetchRandomCardData()
     }
@@ -48,26 +44,29 @@ class CardReviewScreenViewModel: ObservableObject {
     // MARK: - Private functions
     
     private func fetchRandomCardData() {
-        Swiftfall().getRandomCard { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
-            if case .success(let cardData) = result {
-                DispatchQueue.main.async {
-                    self.cardModel = CardModel(cardTitle: cardData.name ?? "",
-                                          cardText: cardData.oracleText ?? "",
-                                          cardArtist: cardData.artist ?? "",
-                                          creatureType: cardData.typeLine ?? "",
-                                          flavourText: cardData.flavorText)
-                }
-                
-                    
-                if let cardURLs = cardData.imageUris, let imageURLString = cardURLs["normal"] {
-                    self.imageDownloader.getImageByURL(imageURLString)
-                }
-            }
+        randomCardReviewScreenManager.requestCardsSerach()
+    }
+}
+
+extension CardReviewScreenViewModel: RandomCardReviewScreenSearchManagerDelegate {
+    func didReceiveCardData(_ cardModel: Card) {
+        let cardViewModel = CardReviewScreenCardModel(cardTitle: cardModel.name ?? "",
+                                  cardText: cardModel.oracleText ?? "",
+                                  cardArtist: cardModel.artist ?? "",
+                                  creatureType: cardModel.typeLine ?? "",
+                                  flavourText: cardModel.flavorText)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.cardModel = cardViewModel
         }
+        
+        if let cardURLs = cardModel.imageUris, let imageURLString = cardURLs["normal"] {
+            self.imageDownloader.getImageByURL(imageURLString)
+        }
+    }
+    
+    func didReceiveError(error: MainScreenStateError) {
+        
     }
 }
 
