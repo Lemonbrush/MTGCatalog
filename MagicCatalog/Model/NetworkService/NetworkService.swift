@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkService: NSObject {
     
-    typealias NetworkCompletionBlock = (_ data: NSMutableData?, _ response: URLResponse?, _ error: NSError?) -> (Void)
+    typealias NetworkCompletionBlock = (_ result: Result<Data, NetworkServiceError>) -> (Void)
     
     // MARK: - Private properties
     
@@ -17,7 +17,7 @@ class NetworkService: NSObject {
     
     // MARK: - Functions
     
-    func get(_ postData: Data?, _ request: URLRequest, completionBlock: @escaping NetworkCompletionBlock) {
+    func get(_ postData: Data?, _ request: URLRequest, completion: @escaping NetworkCompletionBlock) {
         var request = request
         request.httpMethod = "GET"
         
@@ -25,20 +25,20 @@ class NetworkService: NSObject {
             request.httpBody = strongPostData
         }
         
-        networkCall(request, completionBlock: completionBlock)
+        networkCall(request, completion: completion)
     }
     
-    func post(_ postData: Data, request: URLRequest, completionBlock: @escaping NetworkCompletionBlock) {
+    func post(_ postData: Data, request: URLRequest, completion: @escaping NetworkCompletionBlock) {
         var request = request
         request.httpBody = postData as Data
         request.httpMethod = "POST"
         
-        networkCall(request, completionBlock: completionBlock)
+        networkCall(request, completion: completion)
     }
     
     // MARK: - With timeout
     
-    func get(_ postData: Data?, _ urlSring: String, timeout: TimeInterval, completionBlock: @escaping NetworkCompletionBlock) {
+    func get(_ postData: Data?, _ urlSring: String, timeout: TimeInterval, completion: @escaping NetworkCompletionBlock) {
         guard let url = URL(string: urlSring) else {
             return
         }
@@ -50,21 +50,21 @@ class NetworkService: NSObject {
             request.httpBody = strongPostData
         }
         
-        networkCall(request, completionBlock: completionBlock)
+        networkCall(request, completion: completion)
     }
     
-    func post(_ urlSring: String, body: Data, timeout: TimeInterval, completionBlock: @escaping NetworkCompletionBlock) {
+    func post(_ urlSring: String, body: Data, timeout: TimeInterval, completion: @escaping NetworkCompletionBlock) {
         guard let url = URL(string: urlSring) else {
             return
         }
         
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
-        post(body, request: request, completionBlock: completionBlock)
+        post(body, request: request, completion: completion)
     }
     
     // MARK: - With headers
     
-    func get(_ postData: Data?, _ urlSring: String, headers: [String:String], timeout: TimeInterval, completionBlock: @escaping NetworkCompletionBlock) {
+    func get(_ postData: Data?, _ urlSring: String, headers: [String:String], timeout: TimeInterval, completion: @escaping NetworkCompletionBlock) {
         guard let url = URL(string: urlSring) else {
             return
         }
@@ -75,10 +75,10 @@ class NetworkService: NSObject {
             request.setValue(headers[key], forHTTPHeaderField: key)
         }
         
-        get(postData, request, completionBlock: completionBlock)
+        get(postData, request, completion: completion)
     }
     
-    func post(_ urlSring: String, body: Data, headers: [String:String], timeout: TimeInterval, completionBlock: @escaping NetworkCompletionBlock) {
+    func post(_ urlSring: String, body: Data, headers: [String:String], timeout: TimeInterval, completion: @escaping NetworkCompletionBlock) {
         guard let url = URL(string: urlSring) else {
             return
         }
@@ -89,12 +89,12 @@ class NetworkService: NSObject {
             request.setValue(headers[key], forHTTPHeaderField: key)
         }
         
-        post(body, request: request, completionBlock: completionBlock)
+        post(body, request: request, completion: completion)
     }
     
     // MARK: - Private functions
     
-    private func networkCall(_ request: URLRequest, completionBlock: @escaping NetworkCompletionBlock) {
+    private func networkCall(_ request: URLRequest, completion: @escaping NetworkCompletionBlock) {
         let configurationId = String(format: "Network%d", arc4random())
         let configuration = URLSessionConfiguration.background(withIdentifier: configurationId)
         configuration.timeoutIntervalForRequest = request.timeoutInterval
@@ -113,32 +113,49 @@ class NetworkService: NSObject {
         
         let param = NetworkParams()
         param.urlSession = session
-        param.completionBlock = completionBlock
+        param.completion = completion
         param.request = request
         networkParams.append(param)
         
-        let newtask = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("handleClientError: \(error)")
+        let newtask = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            if let error = error, let self = self {
+                let convertedError = self.convertError(error)
+                completion(.failure(convertedError))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("handleClient response: \(String(describing: response))")
+            guard let receivedData = data else {
+                completion(.failure(.failedToRecognizeData))
                 return
             }
             
-            if let mimeType = httpResponse.mimeType, mimeType == "text/html",
-                let data = data,
-                let string = String(data: data, encoding: .utf8) {
-                print("response:\(string)")
+            guard let strongResponse = response as? HTTPURLResponse else {
+                completion(.failure(.noResponse))
+                return
             }
+            
+            guard (200...299).contains(strongResponse.statusCode) else {
+                completion(.failure(.filedWithStatusCode(strongResponse.statusCode)))
+                return
+            }
+            
+            completion(.success(receivedData))
         }
-        
         newtask.resume()
     }
     
-    private func getNetworkParams(_ session: URLSession) -> NetworkParams? {
+    private func convertError(_ error: Error?) -> NetworkServiceError {
+        switch (error as? URLError)?.code {
+        case .some(.timedOut):
+            return .timeOut
+        case .some(.notConnectedToInternet):
+            return .notConnectedToInternet
+        default:
+            return .unknown(error)
+        }
+    }
+    
+    func getNetworkParams(_ session: URLSession) -> NetworkParams? {
         let params = networkParams.filter {
             $0.urlSession == session
         }
@@ -159,7 +176,12 @@ extension NetworkService: URLSessionDelegate, URLSessionTaskDelegate, URLSession
         guard let param = getNetworkParams(session) else {
             return
         }
-        param.completionBlock?(param.responseData, task.response, error as NSError?)
+        guard let responseData = param.responseData else {
+            param.completion?(Result.failure(.unknown(error)))
+            return
+        }
+        
+        param.completion?(.success(responseData as Data))
     }
     
     func urlSession(_ session: URLSession,

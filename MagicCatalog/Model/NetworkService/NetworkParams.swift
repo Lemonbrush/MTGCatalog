@@ -16,7 +16,7 @@ class NetworkParams {
     var request: URLRequest?
     
     // server response block
-    var completionBlock: NetworkService.NetworkCompletionBlock?
+    var completion: NetworkService.NetworkCompletionBlock?
     
     // responseData is binary data, when status is SUCCESS/200
     var responseData: NSMutableData?
