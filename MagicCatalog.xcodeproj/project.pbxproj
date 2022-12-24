@@ -68,6 +68,10 @@
 		DD360D5B2957326E00DDA30F /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D442957326E00DDA30F /* CardList.swift */; };
 		DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D462957326E00DDA30F /* SwiftfallCatalogService.swift */; };
 		DD360D5D2957326E00DDA30F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D482957326E00DDA30F /* Catalog.swift */; };
+		DD360D64295732F000DDA30F /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D5F295732F000DDA30F /* ReachabilityService.swift */; };
+		DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D61295732F000DDA30F /* NetworkServiceError.swift */; };
+		DD360D66295732F000DDA30F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D62295732F000DDA30F /* NetworkService.swift */; };
+		DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D63295732F000DDA30F /* NetworkParams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +156,10 @@
 		DD360D442957326E00DDA30F /* CardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
 		DD360D462957326E00DDA30F /* SwiftfallCatalogService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCatalogService.swift; sourceTree = "<group>"; };
 		DD360D482957326E00DDA30F /* Catalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		DD360D5F295732F000DDA30F /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		DD360D61295732F000DDA30F /* NetworkServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
+		DD360D62295732F000DDA30F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DD360D63295732F000DDA30F /* NetworkParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +292,8 @@
 		DD0DDFB5295306A60024B7EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD360D60295732F000DDA30F /* NetworkService */,
+				DD360D5E295732F000DDA30F /* ReachabilityService */,
 				DD0DDFB629530EE60024B7EA /* ImageDownloader */,
 				DD0DDFAB295270110024B7EA /* ScryfallService */,
 			);
@@ -610,6 +620,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DD360D5E295732F000DDA30F /* ReachabilityService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D5F295732F000DDA30F /* ReachabilityService.swift */,
+			);
+			path = ReachabilityService;
+			sourceTree = "<group>";
+		};
+		DD360D60295732F000DDA30F /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D61295732F000DDA30F /* NetworkServiceError.swift */,
+				DD360D62295732F000DDA30F /* NetworkService.swift */,
+				DD360D63295732F000DDA30F /* NetworkParams.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -765,6 +793,7 @@
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
+				DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */,
 				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
 				DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */,
 				DD360D562957326E00DDA30F /* SwiftfallCardService.swift in Sources */,
@@ -774,6 +803,8 @@
 				DD0DDFC229532DB70024B7EA /* CardReviewScreenView.swift in Sources */,
 				DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */,
 				DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */,
+				DD360D64295732F000DDA30F /* ReachabilityService.swift in Sources */,
+				DD360D66295732F000DDA30F /* NetworkService.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
 				DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */,
@@ -787,6 +818,7 @@
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */,
 				DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */,
+				DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */,
 				DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */,
 				DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
