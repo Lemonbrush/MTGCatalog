@@ -25,7 +25,7 @@ struct InteractiveCardView: View {
         }
     }
     
-    @Binding var cardImage: UIImage
+    var cardImage: UIImage
 
     @State private var backDegree = 0.0
     @State private var frontDegree = -90.0

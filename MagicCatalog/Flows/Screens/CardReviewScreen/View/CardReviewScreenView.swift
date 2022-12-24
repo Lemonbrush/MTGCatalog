@@ -51,7 +51,7 @@ struct CardReviewScreenView: View {
                 .fill(Color(UIColor.systemGray5))
                 .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
                 .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
-            InteractiveCardView(cardImage: $viewModel.cardImage)
+            InteractiveCardView(cardImage: viewModel.cardImage)
                 .frame(maxWidth: .infinity)
                 .padding([.top], 70)
                 .padding([.bottom], 40)

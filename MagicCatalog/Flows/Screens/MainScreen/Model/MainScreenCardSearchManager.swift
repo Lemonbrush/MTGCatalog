@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainScreenCardSearchManagerDelegate: AnyObject {
-    func didReceiveCardData(_ cardModel: Card)
+    func didReceiveCardData(_ cardListModel: CardList)
     func didReceiveError(error: MainScreenStateError)
 }
 
@@ -25,14 +25,15 @@ class MainScreenCardSearchManager {
     // MARK: - Functions
     
     func requestCardsSerach(cardName: String) {
-        cardSearchService.getCardWithFuzzyName(cardName) { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
-            if case .success(let cards) = result {
-                self.delegate?.didReceiveCardData(cards)
-            }
+        cardSearchService.getCardListWithText(cardText: cardName) {
+            [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                
+                if case .success(let cards) = result {
+                    self.delegate?.didReceiveCardData(cards)
+                }
         }
     }
 }

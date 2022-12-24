@@ -18,7 +18,7 @@ enum MainScreenStateError: String {
 }
 
 enum MainScreenState {
-    case none
+    case emptySearch
     case loaded
     case loding
     case error(MainScreenStateError)
@@ -28,35 +28,71 @@ class MainScreenViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    @State var navigationTitle: String = "Magic cards"
+    @Published var navigationTitle: String = "Magic cards"
+    @Published var contentGridColumns = 3
+    @Published var cardViewModels: [MainScreenCellModel] = []
     
     var onNavigation: ((MainScreenNavigation) -> Void)?
     
     // MARK: - Private properties
     
     private let cardSerachManager: MainScreenCardSearchManager
-    private var currentState: MainScreenState = .none
+    
+    private let contentCellsManager = MainScreenContentCellsManager()
+    private var currentState: MainScreenState = .emptySearch
+    
+    private var cardsSearchResults: [MainScreenCardCellModel] = []
     
     init() {
         cardSerachManager = MainScreenCardSearchManager()
         cardSerachManager.delegate = self
+        
+        updateContentCells()
     }
     
     // MARK: - Functions
     
-    func didPressRandomCardButton() {
-        onNavigation?(.cardReview)
+    func didPressSearch(query: String) {
+        navigationTitle = query
+        cardSerachManager.requestCardsSerach(cardName: query)
     }
     
-    func didPressSearch(query: String) {
-        cardSerachManager.requestCardsSerach(cardName: query)
+    // MARK: - Private functions
+    
+    private func updateContentCells() {
+        switch currentState {
+        case .emptySearch:
+            cardViewModels = contentCellsManager.createEmptySearchStateCellModels()
+        case .loaded:
+            cardViewModels = contentCellsManager.createCardSearchResultsCellModels(cardsSearchResults)
+        case .loding:
+            break
+        case .error(_):
+            break
+        }
     }
 }
 
 extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
-    func didReceiveCardData(_ cardModel: Card) {
-        navigationTitle = cardModel.name ?? ""
+    func didReceiveCardData(_ cardListModel: CardList) {
+        DispatchQueue.main.async { [weak self] in
+            var cardCellModels: [MainScreenCardCellModel] = []
+            for cardModel in cardListModel.data {
+                cardCellModels.append(MainScreenCardCellModel(imageName: "", cardTitle: cardModel.name ?? ""))
+            }
+            
+            self?.cardsSearchResults = cardCellModels
+            
+            self?.currentState = .loaded
+            self?.updateContentCells()
+        }
     }
     
     func didReceiveError(error: MainScreenStateError) { }
+}
+
+extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
+    func didPressErrorCellButton() {
+        onNavigation?(.cardReview)
+    }
 }

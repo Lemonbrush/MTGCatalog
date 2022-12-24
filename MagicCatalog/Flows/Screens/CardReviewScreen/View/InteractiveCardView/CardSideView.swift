@@ -24,7 +24,6 @@ struct CardSideView: View {
             Image(uiImage: cardImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 .shadow(color: .gray, radius: 10, x: 0, y: 10)
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))

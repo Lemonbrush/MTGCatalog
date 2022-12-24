@@ -18,31 +18,29 @@ struct MainScreenView: View {
     @State var shouldShowSearchButton = false
     @State var isSearchEmpty = true
     
-    var backgroundGradient: LinearGradient = {
-        let gradient = Gradient(colors: [Color(UIColor.brandDarkPurple),
-                                         Color(UIColor.brandPurple)])
-        return LinearGradient(gradient: gradient,
-                              startPoint: .top,
-                              endPoint: .bottom)
-    }()
-    
     // MARK: - Private properties
     
-    private let cardViewModels: [CardCellViewModel] = [CardCellViewModel(id: 1)]
+    private let contentAdapter = MainScreenCollectionViewAdapter()
+    
+    // MARK: - Construction
+    
+    init(viewModel: MainScreenViewModel) {
+        self.viewModel = viewModel
+        contentAdapter.delegate = viewModel
+    }
     
     // MARK: - Body view
     
     var body: some View {
-        ZStack {
-            QGrid(cardViewModels, columns: 1) { _ in
-                CardCell(didPressButton: {
-                    viewModel.didPressRandomCardButton()
-                })
-            }
+        VStack {
+            QGrid(viewModel.cardViewModels, columns:
+                    viewModel.contentGridColumns) { cellModel in
+                contentAdapter.getCell(cellModel)
+            }.ignoresSafeArea(.all, edges: .bottom)
             .navigationTitle(viewModel.navigationTitle)
             .toolbar { menuButton }
             .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))
-            .onSubmit {
+            .onSubmit(of: .search) {
                 viewModel.didPressSearch(query: searchCardText)
             }
         }
@@ -76,43 +74,4 @@ struct MainScreenView: View {
             Image(systemName: "ellipsis.circle")
         }
     }
-}
-
-struct CardCellViewModel : Codable, Identifiable {
-  var id: Int
-}
-
-struct CardCell: View {
-    
-    // MARK: - Properties
-    
-    var didPressButton: () -> Void
-    
-    // MARK: - Body view
-    
-      var body: some View {
-          VStack(spacing: 30) {
-              Image(systemName:"rectangle.portrait.on.rectangle.portrait.fill")
-                  .resizable()
-                  .aspectRatio(contentMode: .fit)
-                  .frame(width: 60, height: 60)
-                  .foregroundColor(Color(UIColor.systemGray5))
-              
-              VStack(spacing: 10) {
-                  Text("Find a card")
-                      .font(.title.weight(.bold))
-                  
-                  VStack(spacing: 5) {
-                      Text("Start searching for an mtg card or get a ")
-                          .multilineTextAlignment(.center)
-                          .foregroundColor(.gray)
-                      Button(action: {
-                          didPressButton()
-                      }) {
-                          Text("Random card")
-                      }.foregroundColor(.blue)
-                  }
-              }
-          }.frame(height: UIScreen.main.bounds.size.height / 1.5)
-      }
 }

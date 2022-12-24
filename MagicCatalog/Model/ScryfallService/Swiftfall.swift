@@ -7,6 +7,7 @@ protocol SwiftfallProtocol {
     func getCardWithFuzzyName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void)
     func getCardByExactName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void)
     
+    func getCardListWithText(cardText: String, completion: @escaping (SwiftfalResult<CardList>) -> ())
     func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ())
     func getCardsList(page: Int, completion: @escaping (SwiftfalResult<CardList>) -> ())
     func getCardSetsList(completion: @escaping (SwiftfalResult<SetList>) -> ())
@@ -68,6 +69,10 @@ class Swiftfall: SwiftfallProtocol {
     
     func getCardByExactName(_ cardName: String, completion: @escaping (SwiftfalResult<Card>) -> Void) {
         cardService.getCard(exact: cardName, completion: completion)
+    }
+    
+    func getCardListWithText(cardText: String, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        listService.getCardListWithText(cardText: cardText, completion: completion)
     }
     
     func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ()) {

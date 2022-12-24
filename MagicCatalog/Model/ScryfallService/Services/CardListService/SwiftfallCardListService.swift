@@ -47,6 +47,11 @@ class SwiftfallCardListService {
         networkService.request(call: call, timeout: 15, completion: completion)
     }
     
+    func getCardListWithText(cardText: String, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        let call = "\(SwiftFallConstants.scryfall)cards/search?q=\(cardText)"
+        networkService.request(call: call, timeout: 15, completion: completion)
+    }
+    
     
     // MARK: - Private functions
     
