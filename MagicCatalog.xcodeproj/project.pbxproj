@@ -49,7 +49,7 @@
 		DD360D252957324500DDA30F /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = DD360D242957324500DDA30F /* QGrid */; };
 		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
 		DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */; };
-		DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */; };
+		DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */; };
 		DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2B2957326E00DDA30F /* SwiftfallError.swift */; };
 		DD360D4D2957326E00DDA30F /* SwiftFallConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */; };
 		DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */; };
@@ -137,7 +137,7 @@
 		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD360D272957326E00DDA30F /* SwiftFallResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallResult.swift; sourceTree = "<group>"; };
 		DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallNetworkService.swift; sourceTree = "<group>"; };
-		DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallJSONParser.swift; sourceTree = "<group>"; };
+		DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkService+SwiftFallCoreNetworkServiceProtocol.swift"; sourceTree = "<group>"; };
 		DD360D2B2957326E00DDA30F /* SwiftfallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallError.swift; sourceTree = "<group>"; };
 		DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallConstants.swift; sourceTree = "<group>"; };
 		DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCardListService.swift; sourceTree = "<group>"; };
@@ -493,8 +493,8 @@
 		DD360D262957326E00DDA30F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D272957326E00DDA30F /* SwiftFallResult.swift */,
 				DD360D282957326E00DDA30F /* NetworkManager */,
+				DD360D272957326E00DDA30F /* SwiftFallResult.swift */,
 				DD360D2B2957326E00DDA30F /* SwiftfallError.swift */,
 			);
 			path = Model;
@@ -504,7 +504,6 @@
 			isa = PBXGroup;
 			children = (
 				DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */,
-				DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -631,11 +630,20 @@
 		DD360D60295732F000DDA30F /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				DD360D6829573C3D00DDA30F /* Extensions */,
 				DD360D61295732F000DDA30F /* NetworkServiceError.swift */,
 				DD360D62295732F000DDA30F /* NetworkService.swift */,
 				DD360D63295732F000DDA30F /* NetworkParams.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DD360D6829573C3D00DDA30F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -807,7 +815,7 @@
 				DD360D66295732F000DDA30F /* NetworkService.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
-				DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */,
+				DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */,
 				DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */,
 				DD360D512957326E00DDA30F /* SetList.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,

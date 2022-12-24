@@ -45,8 +45,8 @@ class Swiftfall: SwiftfallProtocol {
     // MARK: - Construction
     
     init() {
-        let jsonParser = SwiftFallJSONParser()
-        networkService = SwiftfallNetworkService(jsonParser: jsonParser)
+        let jsonParser = NetworkService()
+        networkService = SwiftfallNetworkService(coreNetworkService: jsonParser)
         
         setService = SwiftfallCardSetService(networkService)
         catalogService = SwiftfallCatalogService(networkService)
