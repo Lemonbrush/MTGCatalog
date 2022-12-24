@@ -530,8 +530,8 @@
 		DD360D2F2957326E00DDA30F /* CardListService */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */,
 				DD360D312957326E00DDA30F /* Model */,
+				DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */,
 			);
 			path = CardListService;
 			sourceTree = "<group>";
@@ -584,8 +584,8 @@
 		DD360D3D2957326E00DDA30F /* CardService */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */,
 				DD360D3F2957326E00DDA30F /* Model */,
+				DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */,
 			);
 			path = CardService;
 			sourceTree = "<group>";

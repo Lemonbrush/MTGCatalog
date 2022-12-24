@@ -14,7 +14,7 @@ protocol SwiftfallProtocol {
     func getCardSymbols() throws -> SymbolList
     func getAllCardsFromSet(searchURI:String) -> [CardList?]
     
-    func getCardSetByCode(_ code: String) throws -> ScryfallSet
+    func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ())
     
     func getCatalogCardNames() throws -> Catalog
     func getCatalogWordBank() throws -> Catalog
@@ -48,7 +48,7 @@ class Swiftfall: SwiftfallProtocol {
         let jsonParser = NetworkService()
         networkService = SwiftfallNetworkService(coreNetworkService: jsonParser)
         
-        setService = SwiftfallCardSetService(networkService)
+        setService = SwiftfallCardSetService(NetworkService())
         catalogService = SwiftfallCatalogService(networkService)
         cardService = SwiftfallCardService(networkService)
         listService = SwiftfallCardListService(networkService)
@@ -100,8 +100,8 @@ class Swiftfall: SwiftfallProtocol {
         return listService.getSetCards(searchURI: searchURI)
     }
     
-    func getCardSetByCode(_ code: String) throws -> ScryfallSet {
-        return try setService.getSet(code: code)
+    func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ()) {
+        setService.getSet(code: code, completion: completion)
     }
     
     func getCatalogCardNames() throws -> Catalog {

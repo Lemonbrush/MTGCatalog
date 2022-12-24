@@ -27,7 +27,7 @@ class SwiftfallCardListService {
         return try requestData(call)
     }
     
-    func getCardList(page:Int) throws -> CardList {
+    func getCardList(page: Int) throws -> CardList {
         let call = urlBase + "?page=\(page)"
         return try requestData(call)
     }
@@ -37,7 +37,7 @@ class SwiftfallCardListService {
         return try networkService.requestData(call, type: SetList.self)
     }
     
-    func getRulingList(code:String,number:Int) throws -> RulingList {
+    func getRulingList(code: String, number: Int) throws -> RulingList {
         let call = "\(SwiftFallConstants.scryfall)cards/\(code)/\(number)/rulings"
         return try networkService.requestData(call, type: RulingList.self)
     }
@@ -47,7 +47,7 @@ class SwiftfallCardListService {
         return try networkService.requestData(call, type: SymbolList.self)
     }
     
-    func getSetCards(searchURI:String) -> [CardList?] {
+    func getSetCards(searchURI: String) -> [CardList?] {
         guard let cardlist = try? networkService.requestData(searchURI, type: CardList.self) else {
             return []
         }
