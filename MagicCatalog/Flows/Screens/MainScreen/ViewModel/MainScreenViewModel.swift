@@ -34,7 +34,13 @@ class MainScreenViewModel: ObservableObject {
     
     // MARK: - Private properties
     
+    private let cardSerachManager: MainScreenCardSearchManager
     private var currentState: MainScreenState = .none
+    
+    init() {
+        cardSerachManager = MainScreenCardSearchManager()
+        cardSerachManager.delegate = self
+    }
     
     // MARK: - Functions
     
@@ -43,36 +49,14 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func didPressSearch(query: String) {
-        
+        cardSerachManager.requestCardsSerach(cardName: query)
     }
 }
 
-extension MainScreenViewModel: CardSearchManagerDelegate {
+extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     func didReceiveCardData(_ cardModel: Card) {
-        
+        navigationTitle = cardModel.name ?? ""
     }
     
     func didReceiveError(error: MainScreenStateError) { }
-}
-
-protocol CardSearchManagerDelegate: AnyObject {
-    func didReceiveCardData(_ cardModel: Card)
-    func didReceiveError(error: MainScreenStateError)
-}
-
-class CardSearchManager {
-    
-    // MARK: - Properties
-    
-    weak var delegate: CardSearchManagerDelegate?
-    
-    // MARK: - Functions
-    
-    func requestCardsSerach(cardName: String) {
-        do {
-            delegate?.didReceiveCardData(try Swiftfall().getCardWithFuzzyName(cardName))
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }

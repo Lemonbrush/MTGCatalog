@@ -35,7 +35,6 @@
 		DD0DDFEF2953675F0024B7EA /* Matrix-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */; };
 		DD0DDFF22953677B0024B7EA /* magic-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD0DDFF12953677B0024B7EA /* magic-font.ttf */; };
 		DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF32953682A0024B7EA /* FontSize.swift */; };
-		DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */; };
 		DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFF82953B9F50024B7EA /* MainScreenView.swift */; };
 		DD0DDFFB2953BA440024B7EA /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFFA2953BA440024B7EA /* MainScreenViewModel.swift */; };
 		DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DDFFD2953BC960024B7EA /* MainScreenCoordinator.swift */; };
@@ -49,7 +48,7 @@
 		DD360D252957324500DDA30F /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = DD360D242957324500DDA30F /* QGrid */; };
 		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
 		DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */; };
-		DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */; };
+		DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */; };
 		DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2B2957326E00DDA30F /* SwiftfallError.swift */; };
 		DD360D4D2957326E00DDA30F /* SwiftFallConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */; };
 		DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */; };
@@ -72,6 +71,10 @@
 		DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D61295732F000DDA30F /* NetworkServiceError.swift */; };
 		DD360D66295732F000DDA30F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D62295732F000DDA30F /* NetworkService.swift */; };
 		DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D63295732F000DDA30F /* NetworkParams.swift */; };
+		DD360D6B2957547100DDA30F /* MainScreenCardSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */; };
+		DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D6D295757F600DDA30F /* CardReviewScreenSearchManager.swift */; };
+		DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */; };
+		DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +127,6 @@
 		DD0DDFEE2953675F0024B7EA /* Matrix-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matrix-Bold.ttf"; sourceTree = "<group>"; };
 		DD0DDFF12953677B0024B7EA /* magic-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "magic-font.ttf"; sourceTree = "<group>"; };
 		DD0DDFF32953682A0024B7EA /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
-		DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		DD0DDFF82953B9F50024B7EA /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		DD0DDFFA2953BA440024B7EA /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		DD0DDFFD2953BC960024B7EA /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD360D272957326E00DDA30F /* SwiftFallResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallResult.swift; sourceTree = "<group>"; };
 		DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallNetworkService.swift; sourceTree = "<group>"; };
-		DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallJSONParser.swift; sourceTree = "<group>"; };
+		DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkService+SwiftFallCoreNetworkServiceProtocol.swift"; sourceTree = "<group>"; };
 		DD360D2B2957326E00DDA30F /* SwiftfallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallError.swift; sourceTree = "<group>"; };
 		DD360D2D2957326E00DDA30F /* SwiftFallConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallConstants.swift; sourceTree = "<group>"; };
 		DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallCardListService.swift; sourceTree = "<group>"; };
@@ -160,6 +162,10 @@
 		DD360D61295732F000DDA30F /* NetworkServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		DD360D62295732F000DDA30F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DD360D63295732F000DDA30F /* NetworkParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParams.swift; sourceTree = "<group>"; };
+		DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardSearchManager.swift; sourceTree = "<group>"; };
+		DD360D6D295757F600DDA30F /* CardReviewScreenSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenSearchManager.swift; sourceTree = "<group>"; };
+		DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
+		DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0DDFFF2953BCB90024B7EA /* Coordinator */,
+				DD360D6C295757B800DDA30F /* Model */,
 				DD0DDFB2295305450024B7EA /* ViewModel */,
 				DD0DDFB1295305400024B7EA /* View */,
 			);
@@ -389,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0DDFFC2953BC790024B7EA /* Coordinator */,
+				DD360D692957545000DDA30F /* Model */,
 				DD0DDFE02953612D0024B7EA /* ViewModel */,
 				DD0DDFDF295361280024B7EA /* View */,
 			);
@@ -424,10 +432,10 @@
 		DD0DDFE2295361880024B7EA /* Shared views */ = {
 			isa = PBXGroup;
 			children = (
-				DD0DE00A2954E5150024B7EA /* Placeholder */,
-				DD0DDFF5295395E70024B7EA /* ScrallViewOffset */,
-				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
+				DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */,
 				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
+				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
+				DD0DE00B2954E5240024B7EA /* Placeholder.swift */,
 			);
 			path = "Shared views";
 			sourceTree = "<group>";
@@ -456,14 +464,6 @@
 			path = IconsFont;
 			sourceTree = "<group>";
 		};
-		DD0DDFF5295395E70024B7EA /* ScrallViewOffset */ = {
-			isa = PBXGroup;
-			children = (
-				DD0DDFF6295395F70024B7EA /* ScrollViewOffset.swift */,
-			);
-			path = ScrallViewOffset;
-			sourceTree = "<group>";
-		};
 		DD0DDFFC2953BC790024B7EA /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,19 +482,11 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		DD0DE00A2954E5150024B7EA /* Placeholder */ = {
-			isa = PBXGroup;
-			children = (
-				DD0DE00B2954E5240024B7EA /* Placeholder.swift */,
-			);
-			path = Placeholder;
-			sourceTree = "<group>";
-		};
 		DD360D262957326E00DDA30F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D272957326E00DDA30F /* SwiftFallResult.swift */,
 				DD360D282957326E00DDA30F /* NetworkManager */,
+				DD360D272957326E00DDA30F /* SwiftFallResult.swift */,
 				DD360D2B2957326E00DDA30F /* SwiftfallError.swift */,
 			);
 			path = Model;
@@ -504,7 +496,6 @@
 			isa = PBXGroup;
 			children = (
 				DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */,
-				DD360D2A2957326E00DDA30F /* SwiftFallJSONParser.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -531,8 +522,8 @@
 		DD360D2F2957326E00DDA30F /* CardListService */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */,
 				DD360D312957326E00DDA30F /* Model */,
+				DD360D302957326E00DDA30F /* SwiftfallCardListService.swift */,
 			);
 			path = CardListService;
 			sourceTree = "<group>";
@@ -585,8 +576,8 @@
 		DD360D3D2957326E00DDA30F /* CardService */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */,
 				DD360D3F2957326E00DDA30F /* Model */,
+				DD360D3E2957326E00DDA30F /* SwiftfallCardService.swift */,
 			);
 			path = CardService;
 			sourceTree = "<group>";
@@ -631,11 +622,37 @@
 		DD360D60295732F000DDA30F /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				DD360D6829573C3D00DDA30F /* Extensions */,
 				DD360D61295732F000DDA30F /* NetworkServiceError.swift */,
 				DD360D62295732F000DDA30F /* NetworkService.swift */,
 				DD360D63295732F000DDA30F /* NetworkParams.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DD360D6829573C3D00DDA30F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD360D692957545000DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD360D6C295757B800DDA30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D6D295757F600DDA30F /* CardReviewScreenSearchManager.swift */,
+				DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -788,14 +805,15 @@
 				DD360D552957326E00DDA30F /* SwiftfallCardSetService.swift in Sources */,
 				DD360D582957326E00DDA30F /* CardFace.swift in Sources */,
 				DD0DDFE7295364750024B7EA /* LazyNavigationLink.swift in Sources */,
+				DD360D6B2957547100DDA30F /* MainScreenCardSearchManager.swift in Sources */,
 				DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */,
 				DD360D532957326E00DDA30F /* Symbol.swift in Sources */,
+				DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */,
 				DD0DDFBB295317410024B7EA /* InteractiveCardView.swift in Sources */,
-				DD0DDFF7295395F70024B7EA /* ScrollViewOffset.swift in Sources */,
 				DD360D562957326E00DDA30F /* SwiftfallCardService.swift in Sources */,
 				DD360D502957326E00DDA30F /* Ruling.swift in Sources */,
 				DD0DDFAD295270340024B7EA /* Swiftfall.swift in Sources */,
@@ -807,12 +825,14 @@
 				DD360D66295732F000DDA30F /* NetworkService.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
-				DD360D4B2957326E00DDA30F /* SwiftFallJSONParser.swift in Sources */,
+				DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */,
 				DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */,
 				DD360D512957326E00DDA30F /* SetList.swift in Sources */,
+				DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
 				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
 				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
+				DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
 				DD360D572957326E00DDA30F /* RelatedCard.swift in Sources */,
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,

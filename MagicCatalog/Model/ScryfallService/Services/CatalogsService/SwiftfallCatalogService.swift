@@ -11,77 +11,72 @@ class SwiftfallCatalogService {
     
     // MARK: - Private properties
     
-    private let networkService: SwiftfallNetworkServiceProtocol
+    private let networkService: SwiftFallCoreNetworkServiceProtocol
     
     // MARK: - Construction
     
-    init(_ networkService: SwiftfallNetworkServiceProtocol) {
+    init(_ networkService: SwiftFallCoreNetworkServiceProtocol) {
         self.networkService = networkService
     }
     
     // MARK: - Functions
     
-    func cardNames() throws -> Catalog {
-        return try getCatalog(catalog: "card-names")
+    func cardNames(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "card-names", completion: completion)
     }
     
-    func wordBank() throws -> Catalog {
-        return try getCatalog(catalog: "word-bank")
+    func wordBank(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "word-bank", completion: completion)
     }
     
-    func creatureTypes() throws -> Catalog {
-        return try getCatalog(catalog: "creature-types")
+    func creatureTypes(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "creature-types", completion: completion)
     }
     
-    func planeswalkerTypes() throws -> Catalog {
-        return try getCatalog(catalog: "planeswalker-types")
+    func planeswalkerTypes(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "planeswalker-types", completion: completion)
     }
     
-    func landTypes() throws -> Catalog {
-        return try getCatalog(catalog: "land-types")
+    func landTypes(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "land-types", completion: completion)
     }
     
-    func spellTypes() throws -> Catalog {
-        return try getCatalog(catalog: "spell-types")
+    func spellTypes(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "spell-types", completion: completion)
     }
     
-    func artifactTypes() throws -> Catalog {
-        return try getCatalog(catalog: "artifact-types")
+    func artifactTypes(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "artifact-types", completion: completion)
     }
     
-    func powers() throws -> Catalog {
-        return try getCatalog(catalog: "powers")
+    func powers(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "powers", completion: completion)
     }
     
-    func toughnesses() throws -> Catalog {
-        return try getCatalog(catalog: "toughnesses")
+    func toughnesses(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "toughnesses", completion: completion)
     }
     
-    func loyalties() throws -> Catalog {
-        return try getCatalog(catalog: "loyalties")
+    func loyalties(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "loyalties", completion: completion)
     }
     
-    func watermarks() throws -> Catalog {
-        return try getCatalog(catalog: "watermarks")
+    func watermarks(completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        getCatalog(catalog: "watermarks", completion: completion)
     }
     
     // give a search term and return a catalog of similar cards
-    func autocomplete(_ string: String) throws -> Catalog {
+    func autocomplete(_ string: String, completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
         let call = "\(SwiftFallConstants.scryfall)cards/autocomplete?q=\(string)"
-        return try requestData(call)
+        getCatalog(catalog: call, completion: completion)
     }
     
     // MARK: - Private functions
     
-    private func getCatalog(catalog: String) throws -> Catalog {
-        let encodeCatalog = catalog.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let call = "\(SwiftFallConstants.scryfall)catalog/\(encodeCatalog)"
-        return try requestData(call)
-    }
-    
-    // MARK: - Private functions
-    
-    private func requestData(_ call: String) throws -> Catalog {
-        return try networkService.requestData(call, type: Catalog.self)
+    private func getCatalog(catalog: String, completion: @escaping (SwiftfalResult<Catalog>) -> Void) {
+        if let encodeCatalog = catalog.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            let call = "\(SwiftFallConstants.scryfall)catalog/\(encodeCatalog)"
+            networkService.request(call: call, timeout: 15, completion: completion)
+        }
     }
 }

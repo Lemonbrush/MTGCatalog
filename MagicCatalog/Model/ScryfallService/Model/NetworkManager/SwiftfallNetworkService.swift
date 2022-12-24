@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol SwiftFallCoreNetworkServiceProtocol {
+    func request<ResultType: Decodable>(call: String, timeout: TimeInterval, completion: @escaping (SwiftfalResult<ResultType>) -> ())
+}
+
 protocol SwiftfallNetworkServiceProtocol {
     func requestData<T: Decodable>(_ params: String, type: T.Type) throws -> T
 }
@@ -15,12 +19,12 @@ struct SwiftfallNetworkService: SwiftfallNetworkServiceProtocol {
     
     // MARK: - Private properties
     
-    private let jsonParser: SwiftFallJSONParserProtocol
+    private let coreNetworkService: SwiftFallCoreNetworkServiceProtocol
     
     // MARK: - Construction
     
-    init(jsonParser: SwiftFallJSONParserProtocol) {
-        self.jsonParser = jsonParser
+    init(coreNetworkService: SwiftFallCoreNetworkServiceProtocol) {
+        self.coreNetworkService = coreNetworkService
     }
     
     // MARK: - Punctions
@@ -29,7 +33,7 @@ struct SwiftfallNetworkService: SwiftfallNetworkServiceProtocol {
         var card: SwiftfalResult<T>?
         
         let semaphore = DispatchSemaphore(value: 0)
-        jsonParser.parseResource(call: params) { (newcard: SwiftfalResult<T>) in
+        coreNetworkService.request(call: params, timeout: 15) { (newcard: SwiftfalResult<T>) in
             card = newcard
             semaphore.signal()
         }
