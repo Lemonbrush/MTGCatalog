@@ -7,12 +7,11 @@ protocol SwiftfallProtocol {
     func getCardWithFuzzyName(_ cardName: String) throws -> Card
     func getCardByExactName(_ cardName: String) throws -> Card
     
-    func getCardsList() throws -> CardList
-    func getCardsList(page:Int) throws -> CardList
-    func getCardSetsList() throws -> SetList
-    func getRulingsList(code:String,number:Int) throws -> RulingList
-    func getCardSymbols() throws -> SymbolList
-    func getAllCardsFromSet(searchURI:String) -> [CardList?]
+    func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ())
+    func getCardsList(page: Int, completion: @escaping (SwiftfalResult<CardList>) -> ())
+    func getCardSetsList(completion: @escaping (SwiftfalResult<SetList>) -> ())
+    func getRulingsList(code:String, number:Int, completion: @escaping (SwiftfalResult<RulingList>) -> ())
+    func getCardSymbols(completion: @escaping (SwiftfalResult<SymbolList>) -> ())
     
     func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ())
     
@@ -51,7 +50,7 @@ class Swiftfall: SwiftfallProtocol {
         setService = SwiftfallCardSetService(NetworkService())
         catalogService = SwiftfallCatalogService(networkService)
         cardService = SwiftfallCardService(networkService)
-        listService = SwiftfallCardListService(networkService)
+        listService = SwiftfallCardListService(NetworkService())
     }
     
     // MARK: - Functions
@@ -76,28 +75,24 @@ class Swiftfall: SwiftfallProtocol {
         return try cardService.getCard(exact: cardName)
     }
     
-    func getCardsList() throws -> CardList {
-        return try listService.getCardList()
+    func getCardsList(completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        listService.getCardList(completion: completion)
     }
     
-    func getCardsList(page: Int) throws -> CardList {
-        return try listService.getCardList(page: page)
+    func getCardsList(page: Int, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        listService.getCardList(page: page, completion: completion)
     }
     
-    func getCardSetsList() throws -> SetList {
-        return try listService.getSetList()
+    func getCardSetsList(completion: @escaping (SwiftfalResult<SetList>) -> ()) {
+        listService.getSetList(completion: completion)
     }
     
-    func getRulingsList(code: String, number: Int) throws -> RulingList {
-        return try listService.getRulingList(code: code, number: number)
+    func getRulingsList(code: String, number: Int, completion: @escaping (SwiftfalResult<RulingList>) -> ()) {
+        listService.getRulingList(code: code, number: number, completion: completion)
     }
     
-    func getCardSymbols() throws -> SymbolList {
-        return try listService.getSymbols()
-    }
-    
-    func getAllCardsFromSet(searchURI: String) -> [CardList?] {
-        return listService.getSetCards(searchURI: searchURI)
+    func getCardSymbols(completion: @escaping (SwiftfalResult<SymbolList>) -> ()) {
+        listService.getSymbols(completion: completion)
     }
     
     func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ()) {

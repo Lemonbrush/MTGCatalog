@@ -11,59 +11,46 @@ class SwiftfallCardListService {
     
     // MARK: - Private properties
     
-    private let networkService: SwiftfallNetworkServiceProtocol
+    private let networkService: SwiftFallCoreNetworkServiceProtocol
     private let urlBase = SwiftFallConstants.scryfall + "cards"
     
     // MARK: - Construction
     
-    init(_ networkService: SwiftfallNetworkServiceProtocol) {
+    init(_ networkService: SwiftFallCoreNetworkServiceProtocol) {
         self.networkService = networkService
     }
     
     // MARK: - Functions
     
-    func getCardList() throws -> CardList {
+    func getCardList(completion: @escaping (SwiftfalResult<CardList>) -> ()) {
         let call = urlBase + "/"
-        return try requestData(call)
+        requestData(call, completion: completion)
     }
     
-    func getCardList(page: Int) throws -> CardList {
+    func getCardList(page: Int, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
         let call = urlBase + "?page=\(page)"
-        return try requestData(call)
+        requestData(call, completion: completion)
     }
     
-    func getSetList() throws -> SetList {
+    func getSetList(completion: @escaping (SwiftfalResult<SetList>) -> ()) {
         let call = "\(SwiftFallConstants.scryfall)sets/"
-        return try networkService.requestData(call, type: SetList.self)
+        networkService.request(call: call, timeout: 15, completion: completion)
     }
     
-    func getRulingList(code: String, number: Int) throws -> RulingList {
+    func getRulingList(code: String, number: Int, completion: @escaping (SwiftfalResult<RulingList>) -> ()) {
         let call = "\(SwiftFallConstants.scryfall)cards/\(code)/\(number)/rulings"
-        return try networkService.requestData(call, type: RulingList.self)
+        networkService.request(call: call, timeout: 15, completion: completion)
     }
     
-    func getSymbols() throws -> SymbolList {
+    func getSymbols(completion: @escaping (SwiftfalResult<SymbolList>) -> ()) {
         let call = "\(SwiftFallConstants.scryfall)symbology"
-        return try networkService.requestData(call, type: SymbolList.self)
+        networkService.request(call: call, timeout: 15, completion: completion)
     }
     
-    func getSetCards(searchURI: String) -> [CardList?] {
-        guard let cardlist = try? networkService.requestData(searchURI, type: CardList.self) else {
-            return []
-        }
-        
-        var cardListArray: [CardList?] = []
-        if let nextPage = cardlist.nextPage, cardlist.hasMore {
-            cardListArray.append(contentsOf: getSetCards(searchURI: nextPage))
-        }
-        cardListArray.append(cardlist)
-        
-        return cardListArray
-    }
     
     // MARK: - Private functions
     
-    private func requestData(_ call: String) throws -> CardList {
-        return try networkService.requestData(call, type: CardList.self)
+    private func requestData(_ call: String, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        networkService.request(call: call, timeout: 15, completion: completion)
     }
 }
