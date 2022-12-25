@@ -17,7 +17,7 @@ struct MainScreenCardCell: View {
     
     weak var delegate: MainScreenCardCellDelegate?
     
-    let interactiveCardViewModel: InteractiveCardViewModel
+    let stateManager: InteractiveCardStateManager
     
     let cardTitle: String
     let cardType: String
@@ -26,7 +26,7 @@ struct MainScreenCardCell: View {
     
     var body: some View {
         VStack {
-            InteractiveCardView(viewModel: interactiveCardViewModel)
+            InteractiveCardView(stateManager: stateManager)
                 .padding(.bottom, 10)
             
             VStack(spacing: 5) {

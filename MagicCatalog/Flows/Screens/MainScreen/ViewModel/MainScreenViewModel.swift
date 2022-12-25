@@ -92,10 +92,12 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
             
             var cardCellModels: [MainScreenCardCellModel] = []
             for cardModel in cardListModel.data {
-                cardCellModels.append(MainScreenCardCellModel(imageURLString: cardModel.imageUris?["normal"] ?? "",
-                                                              cardViewSize: CardSizeConfiguration.medium.cardSize,
-                                                              cardTitle: cardModel.name ?? "",
-                                                              cardType: cardModel.typeLine ?? ""))
+                let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
+                                                                   cardViewSize: CardSizeConfiguration.medium.cardSize)
+                let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
+                                                        cardTitle: cardModel.name ?? "",
+                                                        cardType: cardModel.typeLine ?? "")
+                cardCellModels.append(cellModel)
             }
             
             self.cardsSearchResults = cardCellModels

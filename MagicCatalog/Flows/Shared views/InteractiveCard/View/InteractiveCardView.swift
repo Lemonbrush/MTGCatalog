@@ -11,21 +11,15 @@ struct InteractiveCardView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: InteractiveCardViewModel
+    @ObservedObject var stateManager: InteractiveCardStateManager
     
     // MARK: - Private properties
 
     private let stateViewAdapter = InteractiveCardStateViewAdapter()
     
-    // MARK: - Construction
-    
-    init(viewModel: InteractiveCardViewModel) {
-        self.viewModel = viewModel
-    }
-    
     // MARK: - Body view
     
     var body: some View {
-        stateViewAdapter.createInteractiveCardStateView(viewModel.stateModel)
+        stateViewAdapter.createInteractiveCardStateView(stateManager.stateModel)
     }
 }

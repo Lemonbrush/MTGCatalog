@@ -44,8 +44,8 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createCardCellView(_ model: MainScreenCardCellModel) -> AnyView {
-        let cellViewModel = InteractiveCardViewModel(imageURLString: model.imageURLString, cardViewSize: model.cardViewSize)
-        let cardCell = MainScreenCardCell(interactiveCardViewModel: cellViewModel, cardTitle: model.cardTitle, cardType: model.cardType)
+        let cardCell = MainScreenCardCell(stateManager: model.stateManager, cardTitle: model.cardTitle, cardType: model.cardType)
+        
         return AnyView(cardCell)
     }
 }

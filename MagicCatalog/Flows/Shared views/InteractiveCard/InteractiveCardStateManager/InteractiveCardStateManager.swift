@@ -12,20 +12,20 @@ enum InteractiveCardViewModelState {
     case loading, loaded, error
 }
 
-class InteractiveCardViewModel: ObservableObject {
+class InteractiveCardStateManager: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var stateModel: InteractiveCardStateProtocol
+    @Published var stateModel: InteractiveCardStateProtocol = InteractiveCardErrorStateModel()
     
     // MARK: - Private properties
     
+    private var cardImage = UIImage()
     private let imageDownloader = ImageDownloaderManager()
-    private var currentState: InteractiveCardViewModelState
+    private var currentState: InteractiveCardViewModelState = .loading
     
     private let imageURLString: String
     private let cardViewSize: CardViewSize
-    private var cardImage = UIImage()
     
     // MARK: - Construction
     
@@ -44,7 +44,7 @@ class InteractiveCardViewModel: ObservableObject {
     
     // MARK: - Private functions
     
-    func updateStateModel() {
+    private func updateStateModel() {
         switch currentState {
         case .loading:
             stateModel = InteractiveCardLoadingStateModel(cardSize: cardViewSize)
@@ -56,7 +56,7 @@ class InteractiveCardViewModel: ObservableObject {
     }
 }
 
-extension InteractiveCardViewModel: ImageDownloaderManagerDelegate {
+extension InteractiveCardStateManager: ImageDownloaderManagerDelegate {
     func didReceiveImage(_ image: UIImage) {
         cardImage = image
         currentState = .loaded
