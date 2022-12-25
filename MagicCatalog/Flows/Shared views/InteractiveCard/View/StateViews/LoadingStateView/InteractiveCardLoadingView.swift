@@ -13,16 +13,12 @@ struct InteractiveCardLoadingView : View {
     
     @State var show = false
     
-    var center = (UIScreen.main.bounds.width / 2) + 110
-    
-    //let cardSize: Card
-    
-    
     // MARK: - Body view
     
     var body : some View{
         RoundedRectangle(cornerRadius: 10)
             .frame(width: 80, height: 110)
-            .foregroundColor(.blue)
+            .foregroundColor(Color(UIColor.systemGray6))
+            .shimmer()
     }
 }
