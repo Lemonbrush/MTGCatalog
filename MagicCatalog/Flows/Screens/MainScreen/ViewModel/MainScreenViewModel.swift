@@ -53,8 +53,16 @@ class MainScreenViewModel: ObservableObject {
     // MARK: - Functions
     
     func didPressSearch(query: String) {
+        guard query != navigationTitle else {
+            return
+        }
+        
         navigationTitle = query
         cardSerachManager.requestCardsSerach(cardName: query)
+    }
+    
+    func showCardReviewScreen() {
+        onNavigation?(.cardReview)
     }
     
     // MARK: - Private functions
@@ -78,18 +86,22 @@ class MainScreenViewModel: ObservableObject {
 extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     func didReceiveCardData(_ cardListModel: CardList) {
         DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
             var cardCellModels: [MainScreenCardCellModel] = []
             for cardModel in cardListModel.data {
                 cardCellModels.append(MainScreenCardCellModel(imageURLString: cardModel.imageUris?["normal"] ?? "",
-                                                              cardViewSize: .medium,
+                                                              cardViewSize: CardSizeConfiguration.medium.cardSize,
                                                               cardTitle: cardModel.name ?? "",
                                                               cardType: cardModel.typeLine ?? ""))
             }
             
-            self?.cardsSearchResults = cardCellModels
+            self.cardsSearchResults = cardCellModels
             
-            self?.currentState = .loaded
-            self?.updateContentCells()
+            self.currentState = .loaded
+            self.updateContentCells()
         }
     }
     
@@ -98,6 +110,6 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
 
 extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
     func didPressErrorCellButton() {
-        onNavigation?(.cardReview)
+        showCardReviewScreen()
     }
 }

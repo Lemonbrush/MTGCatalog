@@ -9,9 +9,7 @@ import UIKit
 import SwiftUI
 
 enum InteractiveCardViewModelState {
-    case loading,
-         loaded,
-         error
+    case loading, loaded, error
 }
 
 class InteractiveCardViewModel: ObservableObject {

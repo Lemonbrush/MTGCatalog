@@ -86,6 +86,8 @@
 		DD360D952958AD5500DDA30F /* InteractiveCardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D942958AD5500DDA30F /* InteractiveCardState.swift */; };
 		DD360D972958B05400DDA30F /* InteractiveCardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */; };
 		DD360D992958BC5500DDA30F /* InteractiveCardErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */; };
+		DD360D9B2958D65E00DDA30F /* CardSizeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D9A2958D65E00DDA30F /* CardSizeConfigurator.swift */; };
+		DD360D9D2958D6AD00DDA30F /* CardViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D9C2958D6AD00DDA30F /* CardViewSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,8 @@
 		DD360D942958AD5500DDA30F /* InteractiveCardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardState.swift; sourceTree = "<group>"; };
 		DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardLoadingView.swift; sourceTree = "<group>"; };
 		DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardErrorView.swift; sourceTree = "<group>"; };
+		DD360D9A2958D65E00DDA30F /* CardSizeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSizeConfigurator.swift; sourceTree = "<group>"; };
+		DD360D9C2958D6AD00DDA30F /* CardViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -764,6 +768,8 @@
 			isa = PBXGroup;
 			children = (
 				DD360D942958AD5500DDA30F /* InteractiveCardState.swift */,
+				DD360D9A2958D65E00DDA30F /* CardSizeConfigurator.swift */,
+				DD360D9C2958D6AD00DDA30F /* CardViewSize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -952,6 +958,7 @@
 				DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
 				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
+				DD360D9D2958D6AD00DDA30F /* CardViewSize.swift in Sources */,
 				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
 				DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */,
 				DD360D8E2958A67A00DDA30F /* InteractiveCardView.swift in Sources */,
@@ -972,6 +979,7 @@
 				DD360D522957326E00DDA30F /* SymbolList.swift in Sources */,
 				DD0DE0012953BCC40024B7EA /* CardReviewScreenCoordinator.swift in Sources */,
 				DD360D992958BC5500DDA30F /* InteractiveCardErrorView.swift in Sources */,
+				DD360D9B2958D65E00DDA30F /* CardSizeConfigurator.swift in Sources */,
 				DD360D4D2957326E00DDA30F /* SwiftFallConstants.swift in Sources */,
 				DD0DDFD4295347F80024B7EA /* MTGFontName.swift in Sources */,
 				DD360D5B2957326E00DDA30F /* CardList.swift in Sources */,

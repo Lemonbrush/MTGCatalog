@@ -7,11 +7,19 @@
 
 import SwiftUI
 
-enum CardViewSize {
-    case large, medium, small
-}
-
 struct CardView: View {
+    
+    // MARK: - Properties
+    
+    var cardImage: UIImage
+
+    @State private var backDegree = -90.0
+    @State private var frontDegree = 0.0
+    @State private var isFlipped = true
+    @State private var dragAmount = CGSize.zero
+    @State private var magnificationAmount: CGFloat = 0
+    
+    @GestureState private var magnifyBy = 1.0
     
     // MARK: - Private properties
     
@@ -24,41 +32,19 @@ struct CardView: View {
     
     private var cardView: some View {
         ZStack {
-            CardSideView(width: width, height: height, cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
-            CardSideView(width: width, height: height, cardImage: cardImage, degree: $frontDegree)
+            CardSideView(cardSize: cardSize, cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
+            CardSideView(cardSize: cardSize, cardImage: cardImage, degree: $frontDegree)
         }
     }
     
-    var cardImage: UIImage
-
-    @State private var backDegree = -90.0
-    @State private var frontDegree = 0.0
-    @State private var isFlipped = true
-    @State private var dragAmount = CGSize.zero
-    @State private var magnificationAmount: CGFloat = 0
-    
-    @GestureState private var magnifyBy = 1.0
-    
-    private let width: CGFloat
-    private let height: CGFloat
+    private let cardSize: CardViewSize
     private let durationAndDelay: CGFloat = 0.3
     
     // MARK: - Construction
     
     init(image: UIImage, cardSize: CardViewSize) {
         self.cardImage = image
-        
-        switch cardSize {
-        case .large:
-            width = 350
-            height = 490
-        case .medium:
-            width = 80
-            height = 110
-        case .small:
-            width = 50
-            height = 190
-        }
+        self.cardSize = cardSize
     }
     
     // MARK: - View body

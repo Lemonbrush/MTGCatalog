@@ -29,7 +29,7 @@ struct CardReviewScreenView: View {
         UIScrollView.appearance().bounces = false
     }
     
-    // MARK: - View body
+    // MARK: - Body view
     
     var body: some View {
         GeometryReader { gp in
@@ -51,7 +51,8 @@ struct CardReviewScreenView: View {
                 .fill(Color(UIColor.systemGray5))
                 .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
                 .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
-            CardView(image: viewModel.cardImage, cardSize: .large)
+            
+            CardView(image: viewModel.cardImage, cardSize: CardSizeConfiguration.large.cardSize)
                 .frame(maxWidth: .infinity)
                 .padding([.top], 70)
                 .padding([.bottom], 40)

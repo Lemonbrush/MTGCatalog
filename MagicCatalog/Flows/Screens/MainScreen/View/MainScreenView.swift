@@ -56,7 +56,7 @@ struct MainScreenView: View {
             }
             
             Button(action: {
-                // Action
+                viewModel.showCardReviewScreen()
             }) {
                 Label("Random Card", systemImage: "rectangle.portrait.on.rectangle.portrait")
             }

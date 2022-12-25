@@ -11,8 +11,7 @@ struct CardSideView: View {
     
     // MARK: - Properties
     
-    let width: CGFloat
-    let height: CGFloat
+    let cardSize: CardViewSize
     let cardImage: UIImage
     
     @Binding var degree: Double
@@ -24,8 +23,8 @@ struct CardSideView: View {
             Image(uiImage: cardImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height, alignment: .center)
-                //.clipShape(RoundedRectangle(cornerRadius: 18))
+                .frame(width: cardSize.width, height: cardSize.height, alignment: .center)
+                .clipShape(RoundedRectangle(cornerRadius: cardSize.cornerRadius))
                 .shadow(color: .gray, radius: 10, x: 0, y: 10)
                 
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
