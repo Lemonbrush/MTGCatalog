@@ -17,6 +17,8 @@ struct MainScreenCardCell: View {
     
     weak var delegate: MainScreenCardCellDelegate?
     
+    let interactiveCardViewModel: InteractiveCardViewModel
+    
     let cardTitle: String
     let cardType: String
     
@@ -24,10 +26,8 @@ struct MainScreenCardCell: View {
     
     var body: some View {
         VStack {
-            if let image = UIImage(named: "mtgBackImage") {
-                InteractiveCardView(image: image, cardSize: .medium)
-                    .padding(.bottom, 10)
-            }
+            InteractiveCardView(viewModel: interactiveCardViewModel)
+                .padding(.bottom, 10)
             
             VStack(spacing: 5) {
                 Text(cardTitle)

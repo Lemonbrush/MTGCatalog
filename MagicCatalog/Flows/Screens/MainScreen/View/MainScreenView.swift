@@ -58,6 +58,12 @@ struct MainScreenView: View {
             Button(action: {
                 // Action
             }) {
+                Label("Random Card", systemImage: "rectangle.portrait.on.rectangle.portrait")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
                 Label("Key words dictionary", systemImage: "questionmark.circle")
             }
             

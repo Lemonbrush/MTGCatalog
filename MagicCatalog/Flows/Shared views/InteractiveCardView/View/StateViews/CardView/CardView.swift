@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-enum InteractiveCardViewSize {
+enum CardViewSize {
     case large, medium, small
 }
 
-struct InteractiveCardView: View {
+struct CardView: View {
     
     // MARK: - Private properties
     
@@ -24,8 +24,8 @@ struct InteractiveCardView: View {
     
     private var cardView: some View {
         ZStack {
-            CardSideView(width: width, height: height, cardImage: cardImage, degree: $frontDegree)
             CardSideView(width: width, height: height, cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
+            CardSideView(width: width, height: height, cardImage: cardImage, degree: $frontDegree)
         }
     }
     
@@ -39,14 +39,13 @@ struct InteractiveCardView: View {
     
     @GestureState private var magnifyBy = 1.0
     
-    
-    private let width: CGFloat //= 350
-    private let height: CGFloat// = 490
+    private let width: CGFloat
+    private let height: CGFloat
     private let durationAndDelay: CGFloat = 0.3
     
     // MARK: - Construction
     
-    init(image: UIImage, cardSize: InteractiveCardViewSize) {
+    init(image: UIImage, cardSize: CardViewSize) {
         self.cardImage = image
         
         switch cardSize {
@@ -80,12 +79,12 @@ struct InteractiveCardView: View {
     // MARK: - Private functions
     
     private func handleDragEnd(remainedDegrees: CGFloat) {
-            if remainedDegrees > 200 || remainedDegrees < -200 {
-                flipCard()
-            }
-            withAnimation(.spring()) {
-                dragAmount = .zero
-            }
+        if remainedDegrees > 200 || remainedDegrees < -200 {
+            flipCard()
+        }
+        withAnimation(.spring()) {
+            dragAmount = .zero
+        }
     }
     
     private func flipCard () {

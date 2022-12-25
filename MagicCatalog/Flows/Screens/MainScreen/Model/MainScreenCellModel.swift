@@ -22,7 +22,9 @@ struct MainScreenErrorCellModel: MainScreenCellModelProtocol {
 }
 
 struct MainScreenCardCellModel: MainScreenCellModelProtocol {
-    let imageName: String
+    let imageURLString: String
+    let cardViewSize: CardViewSize
+    
     let cardTitle: String
     let cardType: String
 }

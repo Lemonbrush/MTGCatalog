@@ -80,7 +80,8 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
         DispatchQueue.main.async { [weak self] in
             var cardCellModels: [MainScreenCardCellModel] = []
             for cardModel in cardListModel.data {
-                cardCellModels.append(MainScreenCardCellModel(imageName: "",
+                cardCellModels.append(MainScreenCardCellModel(imageURLString: cardModel.imageUris?["normal"] ?? "",
+                                                              cardViewSize: .medium,
                                                               cardTitle: cardModel.name ?? "",
                                                               cardType: cardModel.typeLine ?? ""))
             }

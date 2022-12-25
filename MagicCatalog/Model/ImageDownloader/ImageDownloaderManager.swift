@@ -11,6 +11,7 @@ enum ImageDownloaderManagerError: Error {
     case urlError
     case didNotReceiveData
     case failedToConvertImageData
+    case didReceiveError(Error)
 }
 
 protocol ImageDownloaderManagerDelegate: AnyObject {
@@ -28,21 +29,33 @@ class ImageDownloaderManager {
     
     func getImageByURL(_ urlString: String) {
         DispatchQueue.global().async { [weak self] in
-            guard let strongURL = URL(string: urlString),
-                  let data = try? Data(contentsOf: strongURL) else {
+            guard let strongURL = URL(string: urlString) else {
                 self?.delegate?.didReceiveError(.urlError)
                 return
             }
             
-            DispatchQueue.main.async { [weak self] in
-                guard let image = UIImage(data: data) else {
-                    self?.delegate?.didReceiveError(.failedToConvertImageData)
-                    return
-                }
-                self?.delegate?.didReceiveImage(image)
+            do {
+                let data = try Data(contentsOf: strongURL)
+                self?.convertAndReturnImageData(data)
+                return
+            } catch {
+                self?.delegate?.didReceiveError(.didReceiveError(error))
+                return
             }
         }
         
-        delegate?.didReceiveError(.didNotReceiveData)
+        //delegate?.didReceiveError(.didNotReceiveData)
+    }
+    
+    // MARK: - Private functions
+    
+    private func convertAndReturnImageData(_ data: Data) {
+        DispatchQueue.main.async { [weak self] in
+            guard let image = UIImage(data: data) else {
+                self?.delegate?.didReceiveError(.failedToConvertImageData)
+                return
+            }
+            self?.delegate?.didReceiveImage(image)
+        }
     }
 }
