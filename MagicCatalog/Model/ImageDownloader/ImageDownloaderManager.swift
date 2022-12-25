@@ -43,8 +43,6 @@ class ImageDownloaderManager {
                 return
             }
         }
-        
-        //delegate?.didReceiveError(.didNotReceiveData)
     }
     
     // MARK: - Private functions
