@@ -31,9 +31,9 @@ struct CardView: View {
     
     var cardImage: UIImage
 
-    @State private var backDegree = 0.0
-    @State private var frontDegree = -90.0
-    @State private var isFlipped = false
+    @State private var backDegree = -90.0
+    @State private var frontDegree = 0.0
+    @State private var isFlipped = true
     @State private var dragAmount = CGSize.zero
     @State private var magnificationAmount: CGFloat = 0
     
