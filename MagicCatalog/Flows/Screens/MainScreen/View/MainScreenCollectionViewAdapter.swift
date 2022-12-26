@@ -9,6 +9,7 @@ import SwiftUI
 
 protocol MainScreenCollectionViewAdapterDelegate: AnyObject {
     func didPressErrorCellButton()
+    func didPressCardCell(_ cellId: Int)
 }
 
 class MainScreenCollectionViewAdapter {
@@ -44,9 +45,19 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createCardCellView(_ model: MainScreenCardCellModel) -> AnyView {
-        let cardCell = MainScreenCardCell(stateManager: model.stateManager, cardTitle: model.cardTitle, cardType: model.cardType)
+        var cardCell = MainScreenCardCell(stateManager: model.stateManager,
+                                          cardTitle: model.cardTitle,
+                                          cardType: model.cardType,
+                                          cellId: model.cellId)
+        cardCell.delegate = self
         
         return AnyView(cardCell)
+    }
+}
+
+extension MainScreenCollectionViewAdapter: MainScreenCardCellDelegate {
+    func didPressOnCardCell(_ cellId: Int) {
+        delegate?.didPressCardCell(cellId)
     }
 }
 

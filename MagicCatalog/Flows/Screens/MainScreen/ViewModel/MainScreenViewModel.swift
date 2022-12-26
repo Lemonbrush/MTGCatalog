@@ -32,7 +32,7 @@ class MainScreenViewModel: ObservableObject {
     @Published var contentGridColumns = 3
     @Published var cardViewModels: [MainScreenCellModel] = []
     
-    var onNavigation: ((MainScreenNavigation) -> Void)?
+    var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
     // MARK: - Private properties
     
@@ -42,6 +42,9 @@ class MainScreenViewModel: ObservableObject {
     private var currentState: MainScreenState = .emptySearch
     
     private var cardsSearchResults: [MainScreenCardCellModel] = []
+    private var cardModels: [Card] = []
+    
+    // MARK: - Construction
     
     init() {
         cardSerachManager = MainScreenCardSearchManager()
@@ -61,8 +64,8 @@ class MainScreenViewModel: ObservableObject {
         cardSerachManager.requestCardsSerach(cardName: query)
     }
     
-    func showCardReviewScreen() {
-        onNavigation?(.cardReview)
+    func showRandomCardReviewScreen() {
+        //onNavigation?(.cardReview)
     }
     
     // MARK: - Private functions
@@ -90,13 +93,16 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
                 return
             }
             
+            self.cardModels = cardListModel.data
+            
             var cardCellModels: [MainScreenCardCellModel] = []
-            for cardModel in cardListModel.data {
+            for (cellId, cardModel) in cardListModel.data.enumerated() {
                 let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
                                                                    cardViewSize: CardSizeConfiguration.medium.cardSize)
                 let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
                                                         cardTitle: cardModel.name ?? "",
-                                                        cardType: cardModel.typeLine ?? "")
+                                                        cardType: cardModel.typeLine ?? "",
+                                                        cellId: cellId)
                 cardCellModels.append(cellModel)
             }
             
@@ -111,7 +117,12 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
 }
 
 extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
+    func didPressCardCell(_ cellId: Int) {
+        let cardModel = cardModels[cellId]
+        onNavigation?(.cardReview, cardModel)
+    }
+    
     func didPressErrorCellButton() {
-        showCardReviewScreen()
+        showRandomCardReviewScreen()
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol MainScreenCardCellDelegate: AnyObject {
-    func didPressOnCardCell()
+    func didPressOnCardCell(_ cell: Int)
 }
 
 struct MainScreenCardCell: View {
@@ -21,10 +21,21 @@ struct MainScreenCardCell: View {
     
     let cardTitle: String
     let cardType: String
+    let cellId: Int
     
     // MARK: - Body view
     
     var body: some View {
+        Button {
+            delegate?.didPressOnCardCell(cellId)
+        } label: {
+            cellContent
+        }
+    }
+    
+    // MARK: - Private body views
+    
+    private var cellContent: some View {
         VStack {
             InteractiveCardView(stateManager: stateManager)
                 .padding(.bottom, 10)
@@ -33,6 +44,7 @@ struct MainScreenCardCell: View {
                 Text(cardTitle)
                     .font(.system(size: FontSize.pt14))
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
                 
                 Text(cardType)
                     .font(.system(size: FontSize.pt10))

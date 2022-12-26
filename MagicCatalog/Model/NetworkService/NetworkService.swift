@@ -176,7 +176,6 @@ extension NetworkService: URLSessionDelegate, URLSessionTaskDelegate, URLSession
         guard let param = getNetworkParams(session) else {
             return
         }
-        
         param.completion?(Result.failure(.unknown(error)))
     }
     

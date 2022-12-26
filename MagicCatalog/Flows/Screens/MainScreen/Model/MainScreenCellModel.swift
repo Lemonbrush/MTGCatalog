@@ -26,4 +26,6 @@ struct MainScreenCardCellModel: MainScreenCellModelProtocol {
     
     let cardTitle: String
     let cardType: String
+    
+    let cellId: Int
 }

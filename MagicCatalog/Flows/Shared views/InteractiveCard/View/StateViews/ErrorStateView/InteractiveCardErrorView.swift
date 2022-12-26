@@ -16,23 +16,11 @@ struct InteractiveCardErrorView: View {
     // MARK: - Body view
     
     var body: some View {
-        Button {
-            showingInfoAlert = true
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
-                    .frame(width: 80, height: 110)
-                    .foregroundColor(Color(UIColor.systemGray3))
-                
-                Image(systemName: "exclamationmark.triangle")
-                    .resizable()
-                    .foregroundColor(Color(UIColor.systemGray3))
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
-            }
-        }.alert("Failed to download card image :(", isPresented: $showingInfoAlert) {
-            Button("OK", role: .cancel) { }
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
+                .frame(width: 80, height: 110)
+                .foregroundColor(Color(UIColor.systemGray3))
         }
     }
 }

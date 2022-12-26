@@ -8,9 +8,9 @@
 import Foundation
 
 struct CardReviewScreenCardModel {
-    var cardTitle: String = ""
-    var cardText: String = ""
-    var cardArtist: String = ""
-    var creatureType: String = ""
+    var cardTitle: String?
+    var cardText: String?
+    var cardArtist: String?
+    var creatureType: String?
     var flavourText: String?
 }
