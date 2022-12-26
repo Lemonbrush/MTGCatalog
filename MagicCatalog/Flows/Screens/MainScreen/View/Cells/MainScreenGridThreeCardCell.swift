@@ -38,7 +38,6 @@ struct MainScreenGridThreeCardCell: View {
     private var cellContent: some View {
         VStack {
             InteractiveCardView(stateManager: stateManager)
-                .shadow(color: .gray, radius: 4, x: 0, y: 0)
             
             VStack(spacing: 5) {
                 Text(cardTitle)

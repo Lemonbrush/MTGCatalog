@@ -35,23 +35,16 @@ struct MainScreenView: View {
     // MARK: - Body view
     
     var body: some View {
-        VStack {
-            QGrid(viewModel.cardViewModels,
-                  columns: viewModel.contentGridColumns) { cellModel in
-                contentAdapter.getCell(cellModel)
-            }.ignoresSafeArea(.all, edges: [.bottom, .leading, .trailing])
-            .navigationTitle(viewModel.navigationTitle)
-            .toolbar { menuButton }
-            .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))
-            .onChange(of: searchCardText) { value in
-                if searchCardText.isEmpty && !isSearching {
-                    viewModel.didCancelSearch()
-                }
-            }
-            .onSubmit(of: .search) {
-                viewModel.didPressSearch(query: searchCardText)
-            }
+        QGrid(viewModel.cardViewModels,
+              columns: viewModel.contentGridColumns) { cellModel in
+            contentAdapter.getCell(cellModel)
         }
+        .ignoresSafeArea(.all, edges: [.bottom, .leading, .trailing])
+        .navigationTitle(viewModel.navigationTitle)
+        .toolbar { menuButton }
+        .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))
+        .onChange(of: searchCardText) { _ in cancelSearchIfNeeded() }
+        .onSubmit(of: .search) { viewModel.didPressSearch(query: searchCardText) }
     }
     
     // MARK: - Private body views
@@ -124,6 +117,14 @@ struct MainScreenView: View {
                 Spacer()
                 Image(systemName: "square.grid.2x2")
             }
+        }
+    }
+    
+    // MARK: - Private functions
+    
+    private func cancelSearchIfNeeded() {
+        if searchCardText.isEmpty && !isSearching {
+            viewModel.didCancelSearch()
         }
     }
 }

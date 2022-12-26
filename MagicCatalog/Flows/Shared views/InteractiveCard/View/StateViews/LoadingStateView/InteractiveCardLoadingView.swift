@@ -12,6 +12,7 @@ struct InteractiveCardLoadingView : View {
     // MARK: - Private properties
     
     @State private var imageHeight: CGFloat = 0
+    
     private let defaultImage = UIImage(named: "mtgBackImage") ?? UIImage()
     
     // MARK: - Body view
@@ -23,7 +24,8 @@ struct InteractiveCardLoadingView : View {
                 .opacity(0)
                 .aspectRatio(contentMode: .fit)
             
-            RoundedRectangle(cornerRadius: 10)
+            Rectangle()
+                .clipShape(RoundedRectangle(cornerRadius: imageHeight / 25))
                 .foregroundColor(Color(UIColor.systemGray6))
                 .shimmer()
                 .background(imageHeightCatcher)
@@ -37,7 +39,7 @@ struct InteractiveCardLoadingView : View {
             DispatchQueue.main.async {
                 imageHeight = geo.size.height
             }
-            return Color.clear
+            return .clear
         }
     }
 }
