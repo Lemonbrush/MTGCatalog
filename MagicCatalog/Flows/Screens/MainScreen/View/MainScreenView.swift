@@ -14,6 +14,9 @@ struct MainScreenView: View {
     
     @ObservedObject var viewModel: MainScreenViewModel
     
+    @Environment(\.isSearching) private var isSearching: Bool
+    @Environment(\.dismissSearch) private var dismissSearch
+    
     @State var searchCardText: String = ""
     @State var shouldShowSearchButton = false
     @State var isSearchEmpty = true
@@ -39,6 +42,11 @@ struct MainScreenView: View {
             .navigationTitle(viewModel.navigationTitle)
             .toolbar { menuButton }
             .searchable(text: $searchCardText, placement: .navigationBarDrawer(displayMode: .always))
+            .onChange(of: searchCardText) { value in
+                if searchCardText.isEmpty && !isSearching {
+                    viewModel.didCancelSearch()
+                }
+            }
             .onSubmit(of: .search) {
                 viewModel.didPressSearch(query: searchCardText)
             }

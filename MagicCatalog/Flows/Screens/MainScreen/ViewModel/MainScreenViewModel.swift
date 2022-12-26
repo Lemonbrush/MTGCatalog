@@ -68,6 +68,11 @@ class MainScreenViewModel: ObservableObject {
         //onNavigation?(.cardReview)
     }
     
+    func didCancelSearch() {
+        currentState = .emptySearch
+        updateContentCells()
+    }
+    
     // MARK: - Private functions
     
     private func updateContentCells() {
