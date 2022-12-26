@@ -24,6 +24,13 @@ enum MainScreenState {
     case error(MainScreenStateError)
 }
 
+enum MainScreenGridType {
+    case inline
+    case gridOne
+    case gridTwo
+    case gridThree
+}
+
 class MainScreenViewModel: ObservableObject {
     
     // MARK: - Properties
@@ -40,6 +47,7 @@ class MainScreenViewModel: ObservableObject {
     
     private let contentCellsManager = MainScreenContentCellsManager()
     private var currentState: MainScreenState = .emptySearch
+    private var resultsGridType: MainScreenGridType = .gridThree
     
     private var cardsSearchResults: [MainScreenCardCellModel] = []
     private var cardModels: [Card] = []
@@ -82,7 +90,8 @@ class MainScreenViewModel: ObservableObject {
             cardViewModels = contentCellsManager.createEmptySearchStateCellModels()
         case .loaded:
             contentGridColumns = 3
-            cardViewModels = contentCellsManager.createCardSearchResultsCellModels(cardsSearchResults)
+            cardViewModels = contentCellsManager.createCardSearchResultsCellModels(cards: cardsSearchResults,
+                                                                                   resultsGridType: resultsGridType)
         case .loding:
             break
         case .error(_):
@@ -92,6 +101,9 @@ class MainScreenViewModel: ObservableObject {
 }
 
 extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
+    
+    // MARK: - Functions
+    
     func didReceiveCardData(_ cardListModel: CardList) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
@@ -102,13 +114,7 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
             
             var cardCellModels: [MainScreenCardCellModel] = []
             for (cellId, cardModel) in cardListModel.data.enumerated() {
-                let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
-                                                                   cardViewSize: CardSizeConfiguration.medium.cardSize)
-                let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
-                                                        cardTitle: cardModel.name ?? "",
-                                                        cardType: cardModel.typeLine ?? "",
-                                                        cellId: cellId)
-                cardCellModels.append(cellModel)
+                cardCellModels.append(self.createCellModel(cellId: cellId, cardModel: cardModel))
             }
             
             self.cardsSearchResults = cardCellModels
@@ -119,6 +125,18 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     }
     
     func didReceiveError(error: MainScreenStateError) { }
+    
+    // MARK: - Private functions
+    
+    private func createCellModel(cellId: Int, cardModel: Card) -> MainScreenCardCellModel {
+        let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
+                                                           cardViewSize: CardSizeConfiguration.medium.cardSize)
+        let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
+                                                cardTitle: cardModel.name ?? "",
+                                                cardType: cardModel.typeLine ?? "",
+                                                cellId: cellId)
+        return cellModel
+    }
 }
 
 extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {

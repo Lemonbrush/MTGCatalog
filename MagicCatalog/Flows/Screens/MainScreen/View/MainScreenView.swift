@@ -77,6 +77,10 @@ struct MainScreenView: View {
             
             Divider()
             
+            groupMenu
+            
+            Divider()
+            
             Button(action: {
                 // Action
             }) {
@@ -85,6 +89,40 @@ struct MainScreenView: View {
             
         } label: {
             Image(systemName: "ellipsis.circle")
+        }
+    }
+    
+    private var groupMenu: some View {
+        Menu {
+            Button(action: {
+                // Action
+            }) {
+                Label("1 column", systemImage: "square")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
+                Label("2 columns", systemImage: "square.grid.2x2")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
+                Label("3 columns", systemImage: "square.grid.3x3")
+            }
+            
+            Button(action: {
+                // Action
+            }) {
+                Label("Inline", systemImage: "list.bullet")
+            }
+        } label: {
+            HStack {
+                Text("View style")
+                Spacer()
+                Image(systemName: "square.grid.2x2")
+            }
         }
     }
 }

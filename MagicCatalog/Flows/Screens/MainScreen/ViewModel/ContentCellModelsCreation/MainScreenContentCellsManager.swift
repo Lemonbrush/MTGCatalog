@@ -19,7 +19,8 @@ class MainScreenContentCellsManager {
         return [MainScreenCellModel(id: 0, model: errorCellModel)]
     }
     
-    func createCardSearchResultsCellModels(_ cards: [MainScreenCardCellModel]) -> [MainScreenCellModel] {
+    func createCardSearchResultsCellModels(cards: [MainScreenCardCellModel],
+                                           resultsGridType: MainScreenGridType) -> [MainScreenCellModel] {
         var cellModels: [MainScreenCellModel] = []
         
         for (id, card) in cards.enumerated() {
