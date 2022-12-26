@@ -9,16 +9,35 @@ import SwiftUI
 
 struct InteractiveCardLoadingView : View {
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
-    @State var show = false
+    @State private var imageHeight: CGFloat = 0
+    private let defaultImage = UIImage(named: "mtgBackImage") ?? UIImage()
     
     // MARK: - Body view
     
     var body : some View{
-        RoundedRectangle(cornerRadius: 10)
-            .frame(width: 80, height: 110)
-            .foregroundColor(Color(UIColor.systemGray6))
-            .shimmer()
+        ZStack {
+            Image(uiImage: defaultImage)
+                .resizable()
+                .opacity(0)
+                .aspectRatio(contentMode: .fit)
+            
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(Color(UIColor.systemGray6))
+                .shimmer()
+                .background(imageHeightCatcher)
+        }
+    }
+    
+    // MARK: - Private body views
+
+    private var imageHeightCatcher: some View {
+        GeometryReader { geo -> Color in
+            DispatchQueue.main.async {
+                imageHeight = geo.size.height
+            }
+            return Color.clear
+        }
     }
 }

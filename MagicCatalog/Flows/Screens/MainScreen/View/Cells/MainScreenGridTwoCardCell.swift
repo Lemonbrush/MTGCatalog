@@ -30,8 +30,8 @@ struct MainScreenGridTwoCardCell: View {
     
     private var cellContent: some View {
         VStack {
-            InteractiveCardView(stateManager: stateManager).ignoresSafeArea(.all)
-            Spacer()
-        }.ignoresSafeArea(.all)
+            InteractiveCardView(stateManager: stateManager)
+                .shadow(color: .gray, radius: 4, x: 0, y: 0)
+        }
     }
 }
