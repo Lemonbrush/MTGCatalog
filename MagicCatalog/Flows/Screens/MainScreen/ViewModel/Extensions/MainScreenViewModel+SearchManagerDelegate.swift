@@ -18,30 +18,11 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
             }
             
             self.cardModels = cardListModel.data
-            
-            var cardCellModels: [MainScreenCardCellModel] = []
-            for (cellId, cardModel) in cardListModel.data.enumerated() {
-                cardCellModels.append(self.createCellModel(cellId: cellId, cardModel: cardModel))
-            }
-            
-            self.cardsSearchResults = cardCellModels
-            
+
             self.currentState = .loaded
             self.updateContentCells()
         }
     }
     
     func didReceiveError(error: MainScreenStateError) { }
-    
-    // MARK: - Private functions
-    
-    private func createCellModel(cellId: Int, cardModel: Card) -> MainScreenCardCellModel {
-        let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
-                                                           cardViewSize: CardSizeConfiguration.medium.cardSize)
-        let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
-                                                cardTitle: cardModel.name ?? "",
-                                                cardType: cardModel.typeLine ?? "",
-                                                cellId: cellId)
-        return cellModel
-    }
 }

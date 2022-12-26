@@ -32,20 +32,12 @@ struct CardView: View {
     
     private var cardView: some View {
         ZStack {
-            CardSideView(cardSize: cardSize, cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
-            CardSideView(cardSize: cardSize, cardImage: cardImage, degree: $frontDegree)
+            CardSideView(cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
+            CardSideView(cardImage: cardImage, degree: $frontDegree)
         }
     }
     
-    private let cardSize: CardViewSize
     private let durationAndDelay: CGFloat = 0.3
-    
-    // MARK: - Construction
-    
-    init(image: UIImage, cardSize: CardViewSize) {
-        self.cardImage = image
-        self.cardSize = cardSize
-    }
     
     // MARK: - View body
     

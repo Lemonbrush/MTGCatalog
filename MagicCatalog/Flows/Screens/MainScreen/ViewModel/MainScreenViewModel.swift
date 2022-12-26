@@ -29,7 +29,6 @@ class MainScreenViewModel: ObservableObject {
     var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
     var cardModels: [Card] = []
-    var cardsSearchResults: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch
     
     // MARK: - Private properties
@@ -93,7 +92,7 @@ class MainScreenViewModel: ObservableObject {
     
     private func updateLoadedState() {
         let loadedStateModel = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
-                                                                          cardsSearchResults: cardsSearchResults)
+                                                                          cardsSearchResults: cardModels)
         cardViewModels = loadedStateModel.cardViewModels
         contentGridColumns = loadedStateModel.contentGridColumns
     }

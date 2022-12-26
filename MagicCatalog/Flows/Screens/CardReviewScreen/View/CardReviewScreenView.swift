@@ -52,7 +52,7 @@ struct CardReviewScreenView: View {
                 .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
                 .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
             
-            CardView(image: viewModel.cardImage, cardSize: CardSizeConfiguration.large.cardSize)
+            CardView(cardImage: viewModel.cardImage)
                 .frame(maxWidth: .infinity)
                 .padding([.top], 70)
                 .padding([.bottom], 40)

@@ -9,13 +9,10 @@ import UIKit
 
 protocol InteractiveCardStateProtocol { }
 
-struct InteractiveCardLoadingStateModel: InteractiveCardStateProtocol {
-    let cardSize: CardViewSize
-}
+struct InteractiveCardLoadingStateModel: InteractiveCardStateProtocol { }
 
 struct InteractiveCardErrorStateModel: InteractiveCardStateProtocol { }
 
 struct InteractiveCardLoadedStateModel: InteractiveCardStateProtocol {
     let image: UIImage
-    let cardSize: CardViewSize
 }

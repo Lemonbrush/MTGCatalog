@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InteractiveCardErrorView: View {
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
     @State private var showingInfoAlert = false
     
@@ -19,7 +19,6 @@ struct InteractiveCardErrorView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
-                .frame(width: 80, height: 110)
                 .foregroundColor(Color(UIColor.systemGray3))
         }
     }
