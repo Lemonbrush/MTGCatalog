@@ -11,19 +11,6 @@ enum MainScreenNavigation: Equatable {
     case cardReview
 }
 
-enum MainScreenStateError: String {
-    case notReachable
-    case notAvailable
-    case timeout
-}
-
-enum MainScreenState {
-    case emptySearch
-    case loaded
-    case loding
-    case error(MainScreenStateError)
-}
-
 enum MainScreenGridType {
     case inline
     case gridOne
@@ -41,16 +28,16 @@ class MainScreenViewModel: ObservableObject {
     
     var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
+    var cardModels: [Card] = []
+    var cardsSearchResults: [MainScreenCardCellModel] = []
+    var currentState: MainScreenState = .emptySearch
+    
     // MARK: - Private properties
     
     private let cardSerachManager: MainScreenCardSearchManager
     
-    private let contentCellsManager = MainScreenContentCellsManager()
-    private var currentState: MainScreenState = .emptySearch
+    private let contentCellsManager = MainScreenStateModelManager()
     private var resultsGridType: MainScreenGridType = .gridThree
-    
-    private var cardsSearchResults: [MainScreenCardCellModel] = []
-    private var cardModels: [Card] = []
     
     // MARK: - Construction
     
@@ -73,79 +60,47 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func showRandomCardReviewScreen() {
-        //onNavigation?(.cardReview)
+        //onNavigation?(.randomCardScreen)
     }
     
     func didCancelSearch() {
-        currentState = .emptySearch
+        //currentState = .emptySearch
+        //updateContentCells()
+    }
+    
+    func updateContentGridType(_ newGridType: MainScreenGridType) {
+        guard newGridType != resultsGridType else {
+            return
+        }
+        resultsGridType = newGridType
         updateContentCells()
     }
     
-    // MARK: - Private functions
-    
-    private func updateContentCells() {
+    func updateContentCells() {
         switch currentState {
         case .emptySearch:
-            contentGridColumns = 1
-            cardViewModels = contentCellsManager.createEmptySearchStateCellModels()
+            updateEmptySearchState()
         case .loaded:
-            contentGridColumns = 3
-            cardViewModels = contentCellsManager.createCardSearchResultsCellModels(cards: cardsSearchResults,
-                                                                                   resultsGridType: resultsGridType)
+            updateLoadedState()
         case .loding:
             break
         case .error(_):
             break
         }
     }
-}
-
-extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
-    
-    // MARK: - Functions
-    
-    func didReceiveCardData(_ cardListModel: CardList) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {
-                return
-            }
-            
-            self.cardModels = cardListModel.data
-            
-            var cardCellModels: [MainScreenCardCellModel] = []
-            for (cellId, cardModel) in cardListModel.data.enumerated() {
-                cardCellModels.append(self.createCellModel(cellId: cellId, cardModel: cardModel))
-            }
-            
-            self.cardsSearchResults = cardCellModels
-            
-            self.currentState = .loaded
-            self.updateContentCells()
-        }
-    }
-    
-    func didReceiveError(error: MainScreenStateError) { }
     
     // MARK: - Private functions
     
-    private func createCellModel(cellId: Int, cardModel: Card) -> MainScreenCardCellModel {
-        let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "",
-                                                           cardViewSize: CardSizeConfiguration.medium.cardSize)
-        let cellModel = MainScreenCardCellModel(stateManager: cardStateManager,
-                                                cardTitle: cardModel.name ?? "",
-                                                cardType: cardModel.typeLine ?? "",
-                                                cellId: cellId)
-        return cellModel
-    }
-}
-
-extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
-    func didPressCardCell(_ cellId: Int) {
-        let cardModel = cardModels[cellId]
-        onNavigation?(.cardReview, cardModel)
+    private func updateLoadedState() {
+        let loadedStateModel = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
+                                                                          cardsSearchResults: cardsSearchResults)
+        cardViewModels = loadedStateModel.cardViewModels
+        contentGridColumns = loadedStateModel.contentGridColumns
     }
     
-    func didPressErrorCellButton() {
-        showRandomCardReviewScreen()
+    private func updateEmptySearchState() {
+        let emptySearchState = contentCellsManager.createEmptySearchStateCellModels()
+        contentGridColumns = emptySearchState.contentGridColumns
+        cardViewModels = emptySearchState.cardViewModels
     }
 }

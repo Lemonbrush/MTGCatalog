@@ -95,25 +95,25 @@ struct MainScreenView: View {
     private var groupMenu: some View {
         Menu {
             Button(action: {
-                // Action
+                viewModel.updateContentGridType(.gridOne)
             }) {
                 Label("1 column", systemImage: "square")
             }
             
             Button(action: {
-                // Action
+                viewModel.updateContentGridType(.gridTwo)
             }) {
                 Label("2 columns", systemImage: "square.grid.2x2")
             }
             
             Button(action: {
-                // Action
+                viewModel.updateContentGridType(.gridThree)
             }) {
                 Label("3 columns", systemImage: "square.grid.3x3")
             }
             
             Button(action: {
-                // Action
+                viewModel.updateContentGridType(.inline)
             }) {
                 Label("Inline", systemImage: "list.bullet")
             }
