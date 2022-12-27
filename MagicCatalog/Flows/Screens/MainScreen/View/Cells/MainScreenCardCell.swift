@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainScreenGridTwoCardCell: View {
+struct MainScreenCardCell: View {
     
     // MARK: - Properties
     
@@ -29,8 +29,6 @@ struct MainScreenGridTwoCardCell: View {
     // MARK: - Private body views
     
     private var cellContent: some View {
-        VStack {
-            InteractiveCardView(stateManager: stateManager)
-        }
+        InteractiveCardView(stateManager: stateManager)
     }
 }

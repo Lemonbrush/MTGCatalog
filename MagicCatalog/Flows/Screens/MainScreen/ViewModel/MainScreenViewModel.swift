@@ -16,6 +16,7 @@ enum MainScreenGridType {
     case gridOne
     case gridTwo
     case gridThree
+    case gridFour
 }
 
 class MainScreenViewModel: ObservableObject {
@@ -28,7 +29,7 @@ class MainScreenViewModel: ObservableObject {
     
     var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
-    var cardModels: [Card] = []
+    var cardModels: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch
     
     // MARK: - Private properties
@@ -86,6 +87,16 @@ class MainScreenViewModel: ObservableObject {
         case .error(_):
             break
         }
+    }
+    
+    func setupCardCelModels(_ cardModels: [Card]) {
+        var cardCellModels: [MainScreenCardCellModel] = []
+        for cardModel in cardModels {
+            let cardCellStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "")
+            cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
+        }
+        
+        self.cardModels = cardCellModels
     }
     
     // MARK: - Private functions

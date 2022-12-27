@@ -88,6 +88,24 @@ struct MainScreenView: View {
     
     private var groupMenu: some View {
         Menu {
+            gridMenuOption
+            
+            Button(action: {
+                viewModel.updateContentGridType(.inline)
+            }) {
+                Label("Inline", systemImage: "list.bullet")
+            }
+        } label: {
+            HStack {
+                Text("View style")
+                Spacer()
+                Image(systemName: "square.grid.2x2")
+            }
+        }
+    }
+    
+    private var gridMenuOption: some View {
+        Menu {
             Button(action: {
                 viewModel.updateContentGridType(.gridOne)
             }) {
@@ -103,17 +121,17 @@ struct MainScreenView: View {
             Button(action: {
                 viewModel.updateContentGridType(.gridThree)
             }) {
-                Label("3 columns", systemImage: "square.grid.3x3")
+                Label("3 columns", systemImage: "square.grid.3x2")
             }
             
             Button(action: {
-                viewModel.updateContentGridType(.inline)
+                viewModel.updateContentGridType(.gridFour)
             }) {
-                Label("Inline", systemImage: "list.bullet")
+                Label("4 columns", systemImage: "square.grid.4x3.fill")
             }
         } label: {
             HStack {
-                Text("View style")
+                Text("Grid")
                 Spacer()
                 Image(systemName: "square.grid.2x2")
             }

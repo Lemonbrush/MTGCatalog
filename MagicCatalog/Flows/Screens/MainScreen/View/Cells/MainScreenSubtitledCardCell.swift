@@ -11,7 +11,7 @@ protocol MainScreenCardCellDelegate: AnyObject {
     func didPressOnCardCell(_ cell: Int)
 }
 
-struct MainScreenGridThreeCardCell: View {
+struct MainScreenSubtitledCardCell: View {
     
     // MARK: - Properties
     

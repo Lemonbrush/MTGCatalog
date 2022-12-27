@@ -10,7 +10,7 @@ import Foundation
 extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
     func didPressCardCell(_ cellId: Int) {
         let cardModel = cardModels[cellId]
-        onNavigation?(.cardReview, cardModel)
+        onNavigation?(.cardReview, cardModel.cardModel)
     }
     
     func didPressErrorCellButton() {

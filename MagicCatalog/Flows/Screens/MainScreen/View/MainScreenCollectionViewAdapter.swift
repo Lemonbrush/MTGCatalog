@@ -47,7 +47,7 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createGridThreeCardCellView(_ model: MainScreenThreeGridCardCellModel) -> AnyView {
-        var cardCell = MainScreenGridThreeCardCell(stateManager: model.stateManager,
+        var cardCell = MainScreenSubtitledCardCell(stateManager: model.stateManager,
                                           cardTitle: model.cardTitle,
                                           cardType: model.cardType,
                                           cellId: model.cellId)
@@ -57,7 +57,7 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createGridTwoCardCellView(_ model: MainScreenTwoGridCardCellModel) -> AnyView {
-        var cardCell = MainScreenGridTwoCardCell(stateManager: model.stateManager,
+        var cardCell = MainScreenCardCell(stateManager: model.stateManager,
                                                  cellId: model.cellId)
         cardCell.delegate = self
         

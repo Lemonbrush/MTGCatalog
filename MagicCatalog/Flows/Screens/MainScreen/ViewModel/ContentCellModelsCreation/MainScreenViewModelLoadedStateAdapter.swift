@@ -12,43 +12,44 @@ class MainScreenViewModelLoadedStateAdapter {
     // MARK: - Functions
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
-                                                   cardsSearchResults: [Card]) -> MainScreenViewModelLoadedStateModel {
+                                                   cardsSearchResults: [MainScreenCardCellModel]) -> MainScreenViewModelLoadedStateModel {
         switch gridType {
         case .gridThree:
-            let cardViewModels = createGridThreeCellModels(cards: cardsSearchResults)
+            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
             return MainScreenViewModelLoadedStateModel(contentGridColumns: 3, cardViewModels: cardViewModels)
         case .gridTwo:
-            let cardViewModels = createGridTwoCellModels(cards: cardsSearchResults)
+            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
             return MainScreenViewModelLoadedStateModel(contentGridColumns: 2, cardViewModels: cardViewModels)
         case .gridOne:
-            let cardViewModels = createGridThreeCellModels(cards: cardsSearchResults)
+            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
             return MainScreenViewModelLoadedStateModel(contentGridColumns: 1, cardViewModels: cardViewModels)
+        case .gridFour:
+            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
+            return MainScreenViewModelLoadedStateModel(contentGridColumns: 4, cardViewModels: cardViewModels)
         default:
-            let cardViewModels = createGridThreeCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 3, cardViewModels: cardViewModels)
+            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
+            return MainScreenViewModelLoadedStateModel(contentGridColumns: 4, cardViewModels: cardViewModels)
         }
     }
     
     // MARK: - Private functions
     
-    private func createGridTwoCellModels(cards: [Card]) -> [MainScreenCellModel] {
+    private func createRegularCellModels(cards: [MainScreenCardCellModel]) -> [MainScreenCellModel] {
         var cellModels: [MainScreenCellModelProtocol] = []
-        for (cellId, cardModel) in cards.enumerated() {
-            let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "")
-            let cellModel = MainScreenTwoGridCardCellModel(stateManager: cardStateManager,
+        for (cellId, cardCellModel) in cards.enumerated() {
+            let cellModel = MainScreenTwoGridCardCellModel(stateManager: cardCellModel.cardStateManager,
                                                            cellId: cellId)
             cellModels.append(cellModel)
         }
         return createCardSearchResultsCellModels(cards: cellModels)
     }
     
-    private func createGridThreeCellModels(cards: [Card]) -> [MainScreenCellModel] {
+    private func createSubtitledCellModels(cards: [MainScreenCardCellModel]) -> [MainScreenCellModel] {
         var cellModels: [MainScreenCellModelProtocol] = []
-        for (cellId, cardModel) in cards.enumerated() {
-            let cardStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "")
-            let cellModel = MainScreenThreeGridCardCellModel(stateManager: cardStateManager,
-                                                    cardTitle: cardModel.name ?? "",
-                                                    cardType: cardModel.typeLine ?? "",
+        for (cellId, cardCellModel) in cards.enumerated() {
+            let cellModel = MainScreenThreeGridCardCellModel(stateManager: cardCellModel.cardStateManager,
+                                                             cardTitle: cardCellModel.cardModel.name ?? "",
+                                                             cardType: cardCellModel.cardModel.typeLine ?? "",
                                                     cellId: cellId)
             cellModels.append(cellModel)
         }

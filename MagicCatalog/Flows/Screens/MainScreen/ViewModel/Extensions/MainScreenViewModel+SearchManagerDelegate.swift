@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct MainScreenCardCellModel {
+    let cardStateManager: InteractiveCardStateManager
+    let cardModel: Card
+}
+
 extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     
     // MARK: - Functions
@@ -17,7 +22,7 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
                 return
             }
             
-            self.cardModels = cardListModel.data
+            self.setupCardCelModels(cardListModel.data)
 
             self.currentState = .loaded
             self.updateContentCells()

@@ -26,7 +26,7 @@ class MainScreenStateModelManager {
     }
     
     func createLoadedStateModel(resultsGridType: MainScreenGridType,
-                                cardsSearchResults: [Card]) -> MainScreenViewModelLoadedStateModel {
+                                cardsSearchResults: [MainScreenCardCellModel]) -> MainScreenViewModelLoadedStateModel {
         return loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
                                                                             cardsSearchResults: cardsSearchResults)
     }
