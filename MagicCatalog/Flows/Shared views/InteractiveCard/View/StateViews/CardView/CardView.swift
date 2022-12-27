@@ -12,16 +12,18 @@ struct CardView: View {
     // MARK: - Properties
     
     var cardImage: UIImage
-
+    
+    // MARK: - Private properties
+    
+    @GestureState private var magnifyBy = 1.0
+    
     @State private var backDegree = -90.0
     @State private var frontDegree = 0.0
     @State private var isFlipped = true
     @State private var dragAmount = CGSize.zero
     @State private var magnificationAmount: CGFloat = 0
     
-    @GestureState private var magnifyBy = 1.0
-    
-    // MARK: - Private properties
+    private let durationAndDelay: CGFloat = 0.3
     
     private var magnification: some Gesture {
         MagnificationGesture()
@@ -36,8 +38,6 @@ struct CardView: View {
             CardSideView(cardImage: cardImage, degree: $frontDegree)
         }
     }
-    
-    private let durationAndDelay: CGFloat = 0.3
     
     // MARK: - View body
     
