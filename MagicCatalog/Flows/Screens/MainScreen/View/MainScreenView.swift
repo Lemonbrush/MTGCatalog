@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import QGrid
 
 struct MainScreenView: View {
     
@@ -35,10 +34,27 @@ struct MainScreenView: View {
     // MARK: - Body view
     
     var body: some View {
-        QGrid(viewModel.cardViewModels,
-              columns: viewModel.contentGridColumns) { cellModel in
-            contentAdapter.getCell(cellModel)
+        ScrollView(showsIndicators: false) {
+            GridStack([1,2]) { cellViewModel in
+                if cellViewModel != 1 {
+                    VStack {
+                        Text("Card search bottom line")
+                    }
+                }
+                
+                if cellViewModel == 1 {
+                    GridStack(viewModel.cardViewModels,
+                              columns: viewModel.contentGridColumns,
+                              hSpacing: 5,
+                              vSpacing: 5) { viewModel in
+                        contentAdapter.getCell(viewModel)
+                    }
+                }
+            }
+            
+            Spacer(minLength: 50)
         }
+        .padding(.horizontal, 5)
         .ignoresSafeArea(.all, edges: [.bottom, .leading, .trailing])
         .navigationTitle(viewModel.navigationTitle)
         .toolbar { menuButton }
