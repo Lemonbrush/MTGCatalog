@@ -80,7 +80,6 @@ struct MainScreenView: View {
             }) {
                 Label("Advanced search", systemImage: "list.bullet.rectangle")
             }
-            
         } label: {
             Image(systemName: "ellipsis.circle")
         }

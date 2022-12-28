@@ -47,15 +47,10 @@ struct CardReviewScreenView: View {
     
     private var interactiveCardBlockView: some View {
         ZStack {
-            Rectangle()
-                .fill(Color(UIColor.systemGray5))
-                .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
-                .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
-            
             CardView(cardImage: viewModel.cardImage)
-                .frame(maxWidth: .infinity)
-                .padding([.top], 70)
+                .padding([.top], 100)
                 .padding([.bottom], 40)
+                .padding([.leading, .trailing], 10)
             
             customeNavBarBlockView
             
