@@ -45,7 +45,6 @@
 		DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */; };
 		DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE00B2954E5240024B7EA /* Placeholder.swift */; };
 		DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */; };
-		DD360D252957324500DDA30F /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = DD360D242957324500DDA30F /* QGrid */; };
 		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
 		DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */; };
 		DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D2A2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift */; };
@@ -92,6 +91,7 @@
 		DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */; };
 		DD9306AE2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */; };
 		DD9306B02959C9F6000ED1F2 /* MainScreenCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */; };
+		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +200,7 @@
 		DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadedStateAdapter.swift; sourceTree = "<group>"; };
 		DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+SearchManagerDelegate.swift"; sourceTree = "<group>"; };
 		DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCell.swift; sourceTree = "<group>"; };
+		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +208,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD360D252957324500DDA30F /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +476,7 @@
 				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
 				DD0DDFE6295364750024B7EA /* LazyNavigationLink.swift */,
 				DD0DE00B2954E5240024B7EA /* Placeholder.swift */,
+				DD9306B1295CCE22000ED1F2 /* GridStack.swift */,
 			);
 			path = "Shared views";
 			sourceTree = "<group>";
@@ -811,7 +812,6 @@
 			);
 			name = MagicCatalog;
 			packageProductDependencies = (
-				DD360D242957324500DDA30F /* QGrid */,
 			);
 			productName = MagicCatalog;
 			productReference = DD0DDF7929525E570024B7EA /* MagicCatalog.app */;
@@ -886,7 +886,6 @@
 			);
 			mainGroup = DD0DDF7029525E570024B7EA;
 			packageReferences = (
-				DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = DD0DDF7A29525E570024B7EA /* Products */;
 			projectDirPath = "";
@@ -991,6 +990,7 @@
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */,
 				DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */,
+				DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */,
 				DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */,
 				DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */,
 				DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */,
@@ -1331,25 +1331,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Q-Mobile/QGrid";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DD360D242957324500DDA30F /* QGrid */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD360D232957324500DDA30F /* XCRemoteSwiftPackageReference "QGrid" */;
-			productName = QGrid;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD0DDF7129525E570024B7EA /* Project object */;
 }
