@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-protocol MainScreenCollectionViewAdapterDelegate: AnyObject {
+protocol MainScreenCardsGridAdapterDelegate: AnyObject {
     func didPressErrorCellButton()
     func didPressCardCell(_ cellId: Int)
 }
 
-class MainScreenCollectionViewAdapter {
+class MainScreenCardsGridAdapter {
     
     // MARK: - Properties
     
-    weak var delegate: MainScreenCollectionViewAdapterDelegate?
+    weak var delegate: MainScreenCardsGridAdapterDelegate?
     
     // MARK: - Functions
     
@@ -65,13 +65,13 @@ class MainScreenCollectionViewAdapter {
     }
 }
 
-extension MainScreenCollectionViewAdapter: MainScreenCardCellDelegate {
+extension MainScreenCardsGridAdapter: MainScreenCardCellDelegate {
     func didPressOnCardCell(_ cellId: Int) {
         delegate?.didPressCardCell(cellId)
     }
 }
 
-extension MainScreenCollectionViewAdapter: MainScreenErrorStateCellDelegate {
+extension MainScreenCardsGridAdapter: MainScreenErrorStateCellDelegate {
     func didPressButton() {
         delegate?.didPressErrorCellButton()
     }

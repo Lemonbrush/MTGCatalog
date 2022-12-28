@@ -22,34 +22,21 @@ struct MainScreenView: View {
     
     // MARK: - Private properties
     
-    private let contentAdapter = MainScreenCollectionViewAdapter()
+    private let gridContentAdapter = MainScreenGridCollectionViewAdapter()
     
     // MARK: - Construction
     
     init(viewModel: MainScreenViewModel) {
         self.viewModel = viewModel
-        contentAdapter.delegate = viewModel
+        //contentAdapter.delegate = viewModel
     }
     
     // MARK: - Body view
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            GridStack([1,2]) { cellViewModel in
-                if cellViewModel != 1 {
-                    VStack {
-                        Text("Card search bottom line")
-                    }
-                }
-                
-                if cellViewModel == 1 {
-                    GridStack(viewModel.cardViewModels,
-                              columns: viewModel.contentGridColumns,
-                              hSpacing: 5,
-                              vSpacing: 5) { viewModel in
-                        contentAdapter.getCell(viewModel)
-                    }
-                }
+            GridStack(viewModel.contentCellModels) { cellViewModel in
+                gridContentAdapter.createContentCell(cellViewModel)
             }
             
             Spacer(minLength: 50)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension MainScreenViewModel: MainScreenCollectionViewAdapterDelegate {
+extension MainScreenViewModel: MainScreenCardsGridAdapterDelegate {
     func didPressCardCell(_ cellId: Int) {
         let cardModel = cardModels[cellId]
         onNavigation?(.cardReview, cardModel.cardModel)

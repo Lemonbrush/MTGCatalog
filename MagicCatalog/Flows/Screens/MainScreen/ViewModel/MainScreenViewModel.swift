@@ -30,6 +30,7 @@ class MainScreenViewModel: ObservableObject {
     var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
     var cardModels: [MainScreenCardCellModel] = []
+    var contentCellModels: [MainScreenContentCell] = []
     var currentState: MainScreenState = .emptySearch
     
     // MARK: - Private properties

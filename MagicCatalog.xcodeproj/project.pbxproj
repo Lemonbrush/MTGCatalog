@@ -42,7 +42,6 @@
 		DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */; };
 		DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */; };
 		DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0062954991B0024B7EA /* UIColor+extension.swift */; };
-		DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */; };
 		DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE00B2954E5240024B7EA /* Placeholder.swift */; };
 		DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */; };
 		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
@@ -76,7 +75,7 @@
 		DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */; };
 		DD360D7B295761CD00DDA30F /* MainScreenErrorStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */; };
 		DD360D7D2957624400DDA30F /* MainScreenCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */; };
-		DD360D7F29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */; };
+		DD360D7F29577BAC00DDA30F /* MainScreenCardsGridAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7E29577BAC00DDA30F /* MainScreenCardsGridAdapter.swift */; };
 		DD360D82295792E800DDA30F /* MainScreenStateModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */; };
 		DD360D852957948000DDA30F /* MainScreenSubtitledCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D842957948000DDA30F /* MainScreenSubtitledCardCell.swift */; };
 		DD360D8E2958A67A00DDA30F /* InteractiveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D8D2958A67A00DDA30F /* InteractiveCardView.swift */; };
@@ -92,6 +91,8 @@
 		DD9306AE2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */; };
 		DD9306B02959C9F6000ED1F2 /* MainScreenCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */; };
 		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
+		DD9306B4295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */; };
+		DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,7 +152,6 @@
 		DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCoordinatorView.swift; sourceTree = "<group>"; };
 		DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinatorView.swift; sourceTree = "<group>"; };
 		DD0DE0062954991B0024B7EA /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
-		DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenButton.swift; sourceTree = "<group>"; };
 		DD0DE00B2954E5240024B7EA /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD360D272957326E00DDA30F /* SwiftFallResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallResult.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCardModel.swift; sourceTree = "<group>"; };
 		DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenErrorStateCell.swift; sourceTree = "<group>"; };
 		DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCellModel.swift; sourceTree = "<group>"; };
-		DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		DD360D7E29577BAC00DDA30F /* MainScreenCardsGridAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardsGridAdapter.swift; sourceTree = "<group>"; };
 		DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenStateModelManager.swift; sourceTree = "<group>"; };
 		DD360D842957948000DDA30F /* MainScreenSubtitledCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSubtitledCardCell.swift; sourceTree = "<group>"; };
 		DD360D8D2958A67A00DDA30F /* InteractiveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardView.swift; sourceTree = "<group>"; };
@@ -201,6 +201,8 @@
 		DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+SearchManagerDelegate.swift"; sourceTree = "<group>"; };
 		DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCell.swift; sourceTree = "<group>"; };
 		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenGridCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenContentCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,8 +445,8 @@
 			children = (
 				DD360D832957945D00DDA30F /* Cells */,
 				DD0DDFF82953B9F50024B7EA /* MainScreenView.swift */,
-				DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */,
-				DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */,
+				DD360D7E29577BAC00DDA30F /* MainScreenCardsGridAdapter.swift */,
+				DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +688,7 @@
 				DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */,
 				DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */,
 				DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */,
+				DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -941,7 +944,7 @@
 				DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */,
 				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
 				DD360D852957948000DDA30F /* MainScreenSubtitledCardCell.swift in Sources */,
-				DD360D7F29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift in Sources */,
+				DD360D7F29577BAC00DDA30F /* MainScreenCardsGridAdapter.swift in Sources */,
 				DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */,
 				DD360D7D2957624400DDA30F /* MainScreenCellModel.swift in Sources */,
 				DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */,
@@ -955,6 +958,7 @@
 				DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */,
 				DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
+				DD9306B4295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */,
@@ -990,12 +994,12 @@
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */,
 				DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */,
+				DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */,
 				DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */,
 				DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */,
 				DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */,
 				DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
-				DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD360D5A2957326E00DDA30F /* Card.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
