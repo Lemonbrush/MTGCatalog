@@ -35,7 +35,7 @@ struct InteractiveCardView: View {
     // MARK: - Private functions
     
     private func createLoadedCardView(stateModel: InteractiveCardLoadedStateModel) -> AnyView {
-        let view = CardView(image: stateModel.image, cardSize: stateModel.cardSize)
+        let view = CardView(cardImage: stateModel.image)
             .transition(fade)
         
         return AnyView(view)

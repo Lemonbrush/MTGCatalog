@@ -22,17 +22,21 @@ class CardReviewScreenViewModel: ObservableObject {
     
     // MARK: - Private properties
     
-    private let randomCardReviewScreenManager: RandomCardReviewScreenSearchManager
     private let imageDownloader = ImageDownloaderManager()
+    private let swiftFallCardModel: Card
     
     // MARK: - Construction
     
-    init() {
-        randomCardReviewScreenManager = RandomCardReviewScreenSearchManager()
-        randomCardReviewScreenManager.delegate = self
+    init(swiftFallCardModel: Card) {
+        self.swiftFallCardModel = swiftFallCardModel
         
         imageDownloader.delegate = self
-        fetchRandomCardData()
+        
+        setupCardData(swiftFallCardModel)
+        
+        if let cardURLs = swiftFallCardModel.imageUris, let imageURLString = cardURLs["normal"] {
+            self.imageDownloader.getImageByURL(imageURLString)
+        }
     }
     
     // MARK: - Functions
@@ -43,30 +47,16 @@ class CardReviewScreenViewModel: ObservableObject {
     
     // MARK: - Private functions
     
-    private func fetchRandomCardData() {
-        randomCardReviewScreenManager.requestCardsSerach()
-    }
-}
-
-extension CardReviewScreenViewModel: RandomCardReviewScreenSearchManagerDelegate {
-    func didReceiveCardData(_ cardModel: Card) {
-        let cardViewModel = CardReviewScreenCardModel(cardTitle: cardModel.name ?? "",
-                                  cardText: cardModel.oracleText ?? "",
-                                  cardArtist: cardModel.artist ?? "",
-                                  creatureType: cardModel.typeLine ?? "",
-                                  flavourText: cardModel.flavorText)
+    private func setupCardData(_ swiftFallCardModel: Card) {
+        let cardViewModel = CardReviewScreenCardModel(cardTitle: swiftFallCardModel.name,
+                                  cardText: swiftFallCardModel.oracleText,
+                                  cardArtist: swiftFallCardModel.artist,
+                                  creatureType: swiftFallCardModel.typeLine,
+                                  flavourText: swiftFallCardModel.flavorText)
         
         DispatchQueue.main.async { [weak self] in
             self?.cardModel = cardViewModel
         }
-        
-        if let cardURLs = cardModel.imageUris, let imageURLString = cardURLs["normal"] {
-            self.imageDownloader.getImageByURL(imageURLString)
-        }
-    }
-    
-    func didReceiveError(error: MainScreenStateError) {
-        
     }
 }
 

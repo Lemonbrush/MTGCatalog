@@ -22,6 +22,6 @@ final class AppCoordinator: Coordinator {
     
     init() {
         pushToNavigationStack(.mainScreen, viewModel: MainScreenCoordinator())
-        pushToNavigationStack(.cardReview, viewModel: CardReviewScreenCoordinator())
+        //pushToNavigationStack(.cardReview, viewModel: CardReviewScreenCoordinator())
     }
 }

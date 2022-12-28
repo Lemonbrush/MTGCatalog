@@ -9,6 +9,7 @@ import SwiftUI
 
 protocol MainScreenCollectionViewAdapterDelegate: AnyObject {
     func didPressErrorCellButton()
+    func didPressCardCell(_ cellId: Int)
 }
 
 class MainScreenCollectionViewAdapter {
@@ -25,8 +26,10 @@ class MainScreenCollectionViewAdapter {
         switch cellViewModel {
         case let errorCellModel as MainScreenErrorCellModel:
             return AnyView(createErrorStateCellView(errorCellModel))
-        case let cardCellModel as MainScreenCardCellModel:
-            return AnyView(createCardCellView(cardCellModel))
+        case let cardCellModel as MainScreenThreeGridCardCellModel:
+            return AnyView(createGridThreeCardCellView(cardCellModel))
+        case let cardCellModel as MainScreenTwoGridCardCellModel:
+            return AnyView(createGridTwoCardCellView(cardCellModel))
         default:
             return AnyView(EmptyView())
         }
@@ -43,10 +46,28 @@ class MainScreenCollectionViewAdapter {
         return AnyView(errorStateCell)
     }
     
-    private func createCardCellView(_ model: MainScreenCardCellModel) -> AnyView {
-        let cardCell = MainScreenCardCell(stateManager: model.stateManager, cardTitle: model.cardTitle, cardType: model.cardType)
+    private func createGridThreeCardCellView(_ model: MainScreenThreeGridCardCellModel) -> AnyView {
+        var cardCell = MainScreenSubtitledCardCell(stateManager: model.stateManager,
+                                          cardTitle: model.cardTitle,
+                                          cardType: model.cardType,
+                                          cellId: model.cellId)
+        cardCell.delegate = self
         
         return AnyView(cardCell)
+    }
+    
+    private func createGridTwoCardCellView(_ model: MainScreenTwoGridCardCellModel) -> AnyView {
+        var cardCell = MainScreenCardCell(stateManager: model.stateManager,
+                                                 cellId: model.cellId)
+        cardCell.delegate = self
+        
+        return AnyView(cardCell)
+    }
+}
+
+extension MainScreenCollectionViewAdapter: MainScreenCardCellDelegate {
+    func didPressOnCardCell(_ cellId: Int) {
+        delegate?.didPressCardCell(cellId)
     }
 }
 

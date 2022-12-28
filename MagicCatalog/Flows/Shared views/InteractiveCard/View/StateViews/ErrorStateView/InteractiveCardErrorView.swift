@@ -9,30 +9,37 @@ import SwiftUI
 
 struct InteractiveCardErrorView: View {
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
-    @State private var showingInfoAlert = false
+    @State private var imageHeight: CGFloat = 0
+    
+    private let defaultImage = UIImage(named: "mtgBackImage") ?? UIImage()
     
     // MARK: - Body view
     
     var body: some View {
-        Button {
-            showingInfoAlert = true
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
-                    .frame(width: 80, height: 110)
-                    .foregroundColor(Color(UIColor.systemGray3))
-                
-                Image(systemName: "exclamationmark.triangle")
-                    .resizable()
-                    .foregroundColor(Color(UIColor.systemGray3))
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+        ZStack {
+            Image(uiImage: defaultImage)
+                .resizable()
+                .opacity(0)
+                .aspectRatio(contentMode: .fit)
+            
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
+                .clipShape(RoundedRectangle(cornerRadius: imageHeight / 25))
+                .foregroundColor(Color(UIColor.systemGray3))
+                .background(imageHeightCatcher)
+        }
+    }
+    
+    // MARK: - Private body views
+
+    private var imageHeightCatcher: some View {
+        GeometryReader { geo -> Color in
+            DispatchQueue.main.async {
+                imageHeight = geo.size.height
             }
-        }.alert("Failed to download card image :(", isPresented: $showingInfoAlert) {
-            Button("OK", role: .cancel) { }
+            return Color.clear
         }
     }
 }

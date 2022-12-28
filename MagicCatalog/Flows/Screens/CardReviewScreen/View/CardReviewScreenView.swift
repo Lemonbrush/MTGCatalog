@@ -47,46 +47,37 @@ struct CardReviewScreenView: View {
     
     private var interactiveCardBlockView: some View {
         ZStack {
-            Rectangle()
-                .fill(Color(UIColor.systemGray5))
-                .frame(width: UIScreen.main.bounds.size.width, height: 710, alignment: .center)
-                .cornerRadius(50, corners: [.bottomLeft, .bottomRight])
-            
-            CardView(image: viewModel.cardImage, cardSize: CardSizeConfiguration.large.cardSize)
-                .frame(maxWidth: .infinity)
-                .padding([.top], 70)
+            CardView(cardImage: viewModel.cardImage)
+                .padding([.top], 100)
                 .padding([.bottom], 40)
+                .padding([.leading, .trailing], 10)
             
-            VStack {
-                HStack {
-                    Button(action: {
-                        viewModel.didPressBackButton()
-                    }) {
-                        Image(systemName: "arrow.left")
-                            .padding(10)
-                            .foregroundColor(.black)
-                    }
-                    Spacer()
-                }.padding([.leading, .trailing], 20)
-                
-                Spacer()
-            }.padding([.top], 50)
+            customeNavBarBlockView
             
         }.padding([.bottom], 20)
     }
     
+    private var customeNavBarBlockView: some View {
+        VStack {
+            HStack {
+                Button(action: {
+                    viewModel.didPressBackButton()
+                }) {
+                    Image(systemName: "arrow.left")
+                        .padding(10)
+                        .foregroundColor(.black)
+                }
+                
+                Spacer()
+            }.padding([.leading, .trailing], 20)
+            
+            Spacer()
+        }.padding([.top], 50)
+    }
+    
     private var cardReviewContentBlockView: some View {
         VStack(spacing: 30) {
-            VStack {
-                Text(viewModel.cardModel.cardTitle)
-                    .font(.custom(MTGFontName.mtgBold, fixedSize: FontSize.pt36))
-                    .padding([.bottom], 5)
-                    .multilineTextAlignment(.center)
-                Text(viewModel.cardModel.creatureType)
-                    .font(.system(size: FontSize.pt18))
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.center)
-            }.padding([.bottom], 20)
+            cardReviewContentBlockCardTitleView
             
             if scrollOffset >= 0 {
                 Spacer(minLength: 50)
@@ -106,6 +97,25 @@ struct CardReviewScreenView: View {
             
             Spacer()
         }
+    }
+    
+    private var cardReviewContentBlockCardTitleView: some View {
+        VStack {
+            if let cardTitle = viewModel.cardModel.cardTitle {
+                Text(cardTitle)
+                    .font(.custom(MTGFontName.mtgBold, fixedSize: FontSize.pt36))
+                    .padding([.bottom], 5)
+                    .multilineTextAlignment(.center)
+            }
+            
+            
+            if let creatureType = viewModel.cardModel.creatureType {
+                Text(creatureType)
+                    .font(.system(size: FontSize.pt18))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+            }
+        }.padding([.bottom], 20)
     }
     
     private var cardReviewScrollView: some View {

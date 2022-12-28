@@ -25,15 +25,13 @@ class InteractiveCardStateManager: ObservableObject {
     private var currentState: InteractiveCardViewModelState = .loading
     
     private let imageURLString: String
-    private let cardViewSize: CardViewSize
     
     // MARK: - Construction
     
-    init(imageURLString: String, cardViewSize: CardViewSize) {
+    init(imageURLString: String) {
         self.imageURLString = imageURLString
-        self.cardViewSize = cardViewSize
         
-        stateModel = InteractiveCardLoadingStateModel(cardSize: cardViewSize)
+        stateModel = InteractiveCardLoadingStateModel()
         
         currentState = .loading
         updateStateModel()
@@ -47,9 +45,9 @@ class InteractiveCardStateManager: ObservableObject {
     private func updateStateModel() {
         switch currentState {
         case .loading:
-            stateModel = InteractiveCardLoadingStateModel(cardSize: cardViewSize)
+            stateModel = InteractiveCardLoadingStateModel()
         case .loaded:
-            stateModel = InteractiveCardLoadedStateModel(image: cardImage, cardSize: cardViewSize)
+            stateModel = InteractiveCardLoadedStateModel(image: cardImage)
         case .error:
             stateModel = InteractiveCardErrorStateModel()
         }

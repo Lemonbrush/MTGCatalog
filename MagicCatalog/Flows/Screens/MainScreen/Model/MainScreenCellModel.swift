@@ -21,9 +21,21 @@ struct MainScreenErrorCellModel: MainScreenCellModelProtocol {
     let buttonLabelText: String
 }
 
-struct MainScreenCardCellModel: MainScreenCellModelProtocol {
+struct MainScreenThreeGridCardCellModel: MainScreenCellModelProtocol {
     let stateManager: InteractiveCardStateManager
     
     let cardTitle: String
     let cardType: String
+    
+    let cellId: Int
+}
+
+struct MainScreenTwoGridCardCellModel: MainScreenCellModelProtocol {
+    let stateManager: InteractiveCardStateManager
+    let cellId: Int
+}
+
+struct MainScreenOneGridCardCellModel: MainScreenCellModelProtocol {
+    let stateManager: InteractiveCardStateManager
+    let cellId: Int
 }
