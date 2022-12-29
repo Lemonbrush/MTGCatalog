@@ -25,15 +25,12 @@ class MainScreenCardSearchManager {
     // MARK: - Functions
     
     func requestCardsSerach(cardName: String) {
-        cardSearchService.getCardListWithText(cardText: cardName) {
-            [weak self] result in
-                guard let self = self else {
-                    return
-                }
-                
-                if case .success(let cards) = result {
-                    self.delegate?.didReceiveCardData(cards)
-                }
+        cardSearchService.getCardListWithText(cardText: cardName) { [weak self] result in
+            guard let self = self, case .success(let cards) = result else {
+                return
+            }
+            
+            self.delegate?.didReceiveCardData(cards)
         }
     }
 }

@@ -17,12 +17,11 @@ class MainScreenViewModelLoadedStateAdapter {
         
         switch gridType {
         case .grid(columns: let columns):
-            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: columns)
+            let contentCellModels =  createGridCell(cards: cardsSearchResults, columns: columns)
             mainScreenContentCells.append(contentCellModels)
-        default:
-            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 4)
+        case .inline:
+            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 5)
             mainScreenContentCells.append(contentCellModels)
         }
         
@@ -30,6 +29,17 @@ class MainScreenViewModelLoadedStateAdapter {
     }
     
     // MARK: - Private functions
+    
+    private func createGridCell(cards: [MainScreenCardCellModel], columns: Int) -> MainScreenGridContentCellModel {
+        switch columns {
+        case 1...2:
+            let cardViewModels = createRegularCellModels(cards: cards)
+            return MainScreenGridContentCellModel(viewModels: cardViewModels, columns: columns)
+        default:
+            let cardViewModels = createSubtitledCellModels(cards: cards)
+            return MainScreenGridContentCellModel(viewModels: cardViewModels, columns: columns)
+        }
+    }
     
     private func createRegularCellModels(cards: [MainScreenCardCellModel]) -> [CardsGridCellModel] {
         var cellModels: [CardsGridCellModel] = []

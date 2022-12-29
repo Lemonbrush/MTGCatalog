@@ -91,7 +91,7 @@
 		DD9306AE2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */; };
 		DD9306B02959C9F6000ED1F2 /* CardsGridCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */; };
 		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
-		DD9306B4295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */; };
+		DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */; };
 		DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -201,7 +201,7 @@
 		DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+SearchManagerDelegate.swift"; sourceTree = "<group>"; };
 		DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridCardCell.swift; sourceTree = "<group>"; };
 		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
-		DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenGridCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenContentCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -452,8 +452,8 @@
 		DD0DDFE02953612D0024B7EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DD9306AC2959C04C000ED1F2 /* Extensions */,
 				DD360D80295792D800DDA30F /* ContentCellModelsCreation */,
+				DD9306AC2959C04C000ED1F2 /* Extensions */,
 				DD0DDFFA2953BA440024B7EA /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
@@ -747,7 +747,7 @@
 		DD360D832957945D00DDA30F /* ContentList */ = {
 			isa = PBXGroup;
 			children = (
-				DD9306B3295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift */,
+				DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */,
 				DD2AEC1A295E316200E9FD12 /* Cells */,
 			);
 			path = ContentList;
@@ -982,7 +982,7 @@
 				DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */,
 				DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
-				DD9306B4295CDD3E000ED1F2 /* MainScreenGridCollectionViewAdapter.swift in Sources */,
+				DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */,

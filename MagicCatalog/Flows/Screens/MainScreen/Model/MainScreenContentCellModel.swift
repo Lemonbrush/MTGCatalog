@@ -9,14 +9,14 @@ import SwiftUI
 
 protocol MainScreenContentCell { }
 
+struct MainScreenSearchContentCellModel: MainScreenContentCell { }
+
 struct MainScreenGridContentCellModel: MainScreenContentCell {
     let viewModels: [CardsGridCellModel]
     let columns: Int
     let hSpacing: Int = 5
     let vStack: Int = 5
 }
-
-struct MainScreenSearchContentCellModel: MainScreenContentCell {}
 
 struct MainScreenStubContentCellModel: MainScreenContentCell {
     let image: UIImage?

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class MainScreenGridCollectionViewAdapter {
+class MainScreenCollectionViewAdapter {
     
     // MARK: - Private properties
     

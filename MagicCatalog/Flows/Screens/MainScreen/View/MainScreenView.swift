@@ -14,15 +14,12 @@ struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
     
     @Environment(\.isSearching) private var isSearching: Bool
-    @Environment(\.dismissSearch) private var dismissSearch
     
     @State var searchCardText: String = ""
-    @State var shouldShowSearchButton = false
-    @State var isSearchEmpty = true
     
     // MARK: - Private properties
     
-    private let gridContentAdapter = MainScreenGridCollectionViewAdapter()
+    private let gridContentAdapter = MainScreenCollectionViewAdapter()
     
     // MARK: - Body view
     
