@@ -13,23 +13,32 @@ class MainScreenViewModelLoadedStateAdapter {
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
                                                    cardsSearchResults: [MainScreenCardCellModel]) -> MainScreenViewModelLoadedStateModel {
+        var mainScreenContentCells: [MainScreenGridContentCellModel] = []
+        
         switch gridType {
         case .gridThree:
             let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 3, cardViewModels: cardViewModels)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 3)
+            mainScreenContentCells.append(contentCellModels)
         case .gridTwo:
             let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 2, cardViewModels: cardViewModels)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 2)
+            mainScreenContentCells.append(contentCellModels)
         case .gridOne:
             let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 1, cardViewModels: cardViewModels)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 1)
+            mainScreenContentCells.append(contentCellModels)
         case .gridFour:
             let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 4, cardViewModels: cardViewModels)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 4)
+            mainScreenContentCells.append(contentCellModels)
         default:
             let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            return MainScreenViewModelLoadedStateModel(contentGridColumns: 4, cardViewModels: cardViewModels)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 4)
+            mainScreenContentCells.append(contentCellModels)
         }
+        
+        return MainScreenViewModelLoadedStateModel(contentCellModels: mainScreenContentCells)
     }
     
     // MARK: - Private functions

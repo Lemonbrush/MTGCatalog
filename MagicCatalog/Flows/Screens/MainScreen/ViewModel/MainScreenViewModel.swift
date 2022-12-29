@@ -24,13 +24,11 @@ class MainScreenViewModel: ObservableObject {
     // MARK: - Properties
     
     @Published var navigationTitle: String = "Magic cards"
-    @Published var contentGridColumns = 3
-    @Published var cardViewModels: [MainScreenCellModel] = []
+    @Published var contentCellModels: [MainScreenContentCell] = []
     
     var onNavigation: ((MainScreenNavigation, Card) -> Void)?
     
     var cardModels: [MainScreenCardCellModel] = []
-    var contentCellModels: [MainScreenContentCell] = []
     var currentState: MainScreenState = .emptySearch
     
     // MARK: - Private properties
@@ -105,13 +103,12 @@ class MainScreenViewModel: ObservableObject {
     private func updateLoadedState() {
         let loadedStateModel = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
                                                                           cardsSearchResults: cardModels)
-        cardViewModels = loadedStateModel.cardViewModels
-        contentGridColumns = loadedStateModel.contentGridColumns
+        
+        contentCellModels = loadedStateModel.contentCellModels
     }
     
     private func updateEmptySearchState() {
         let emptySearchState = contentCellsManager.createEmptySearchStateCellModels()
-        contentGridColumns = emptySearchState.contentGridColumns
-        cardViewModels = emptySearchState.cardViewModels
+        contentCellModels = emptySearchState.contentCellModels
     }
 }

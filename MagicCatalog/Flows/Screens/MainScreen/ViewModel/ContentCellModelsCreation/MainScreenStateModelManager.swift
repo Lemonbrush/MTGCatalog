@@ -16,13 +16,12 @@ class MainScreenStateModelManager {
     // MARK: - Private functions
     
     func createEmptySearchStateCellModels() -> MainScreenViewModelLoadedStateModel {
-        let errorCellModel = MainScreenErrorCellModel(image: UIImage(systemName: "rectangle.portrait.on.rectangle.portrait.fill"),
-                                                      topText: "Find a card",
-                                                      bottomText: "Start searching for an mtg card or get a ",
-                                                      buttonLabelText: "Random card")
+        let errorCellModel = MainScreenStubContentCellModel(image: UIImage(systemName: "rectangle.portrait.on.rectangle.portrait.fill"),
+                                                            topText: "Find a card",
+                                                            bottomText: "Start searching for an mtg card or get a ",
+                                                            buttonLabelText: "Random card")
         
-        let cardViewModels = [MainScreenCellModel(id: 0, model: errorCellModel)]
-        return MainScreenViewModelLoadedStateModel(contentGridColumns: 1, cardViewModels: cardViewModels)
+        return MainScreenViewModelLoadedStateModel(contentCellModels: [errorCellModel])
     }
     
     func createLoadedStateModel(resultsGridType: MainScreenGridType,

@@ -9,12 +9,12 @@ import UIKit
 
 protocol MainScreenCellModelProtocol { }
 
-struct MainScreenCellModel: Identifiable {
+struct MainScreenCellModel: Identifiable, MainScreenContentCell {
     var id: Int
     let model: MainScreenCellModelProtocol
 }
 
-struct MainScreenErrorCellModel: MainScreenCellModelProtocol {
+struct MainScreenErrorCellModel: MainScreenContentCell, MainScreenCellModelProtocol {
     let image: UIImage?
     let topText: String
     let bottomText: String

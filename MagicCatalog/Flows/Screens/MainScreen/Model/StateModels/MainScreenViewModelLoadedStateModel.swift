@@ -8,6 +8,5 @@
 import Foundation
 
 struct MainScreenViewModelLoadedStateModel {
-    let contentGridColumns: Int
-    let cardViewModels: [MainScreenCellModel]
+    let contentCellModels: [MainScreenContentCell]
 }

@@ -24,13 +24,6 @@ struct MainScreenView: View {
     
     private let gridContentAdapter = MainScreenGridCollectionViewAdapter()
     
-    // MARK: - Construction
-    
-    init(viewModel: MainScreenViewModel) {
-        self.viewModel = viewModel
-        //contentAdapter.delegate = viewModel
-    }
-    
     // MARK: - Body view
     
     var body: some View {

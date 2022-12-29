@@ -27,6 +27,8 @@ class MainScreenGridCollectionViewAdapter {
             return createContentGridCell(contentGridCell)
         case _ as MainScreenSearchContentCellModel:
             return createSearchContentCell()
+        case let stubViewModel as MainScreenStubContentCellModel:
+            return createStubView(stubViewModel)
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -35,13 +37,24 @@ class MainScreenGridCollectionViewAdapter {
     
     // MARK: - Private functions
     
+    private func createStubView(_ stubViewModel: MainScreenStubContentCellModel) -> AnyView {
+        let view = MainScreenErrorStateCell(image: stubViewModel.image,
+                                            topText: stubViewModel.topText,
+                                            bottomText: stubViewModel.bottomText,
+                                            buttonTLabelText: stubViewModel.buttonLabelText)
+        return AnyView(view)
+    }
+    
     private func createSearchContentCell() -> AnyView {
         let view = MainScreenSearchContentCell()
         return AnyView(view)
     }
     
     private func createContentGridCell(_ cellModel: MainScreenGridContentCellModel) -> AnyView {
-        let view = GridStack(cellModel.viewModels, columns: cellModel.columns, hSpacing: 5, vSpacing: 5) { [weak self] viewModel in
+        let view = GridStack(cellModel.viewModels,
+                             columns: cellModel.columns,
+                             hSpacing: 5,
+                             vSpacing: 5) { [weak self] viewModel in
             self?.contentAdapter.getCell(viewModel)
         }
         
