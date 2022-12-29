@@ -7,28 +7,28 @@
 
 import SwiftUI
 
-protocol MainScreenCardsGridAdapterDelegate: AnyObject {
+protocol CardsGridAdapterDelegate: AnyObject {
     func didPressErrorCellButton()
     func didPressCardCell(_ cellId: Int)
 }
 
-class MainScreenCardsGridAdapter {
+class CardsGridAdapter {
     
     // MARK: - Properties
     
-    weak var delegate: MainScreenCardsGridAdapterDelegate?
+    weak var delegate: CardsGridAdapterDelegate?
     
     // MARK: - Functions
     
-    func getCell(_ cellModel: MainScreenCellModel) -> AnyView {
+    func getCell(_ cellModel: MainScreenCellModelContainer) -> AnyView {
         let cellViewModel = cellModel.model
         
         switch cellViewModel {
-        case let errorCellModel as MainScreenErrorCellModel:
+        case let errorCellModel as CardsGridStubCellModel:
             return AnyView(createErrorStateCellView(errorCellModel))
-        case let cardCellModel as MainScreenThreeGridCardCellModel:
+        case let cardCellModel as CardsGridSubtitledCardCellModel:
             return AnyView(createGridThreeCardCellView(cardCellModel))
-        case let cardCellModel as MainScreenTwoGridCardCellModel:
+        case let cardCellModel as CardsGridSimpleCardCellModel:
             return AnyView(createGridTwoCardCellView(cardCellModel))
         default:
             return AnyView(EmptyView())
@@ -37,7 +37,7 @@ class MainScreenCardsGridAdapter {
     
     // MARK: - Private functions
     
-    private func createErrorStateCellView(_ model: MainScreenErrorCellModel) -> AnyView {
+    private func createErrorStateCellView(_ model: CardsGridStubCellModel) -> AnyView {
         var errorStateCell = MainScreenErrorStateCell(image: model.image,
                                                       topText: model.topText,
                                                       bottomText: model.bottomText,
@@ -46,32 +46,31 @@ class MainScreenCardsGridAdapter {
         return AnyView(errorStateCell)
     }
     
-    private func createGridThreeCardCellView(_ model: MainScreenThreeGridCardCellModel) -> AnyView {
-        var cardCell = MainScreenSubtitledCardCell(stateManager: model.stateManager,
-                                          cardTitle: model.cardTitle,
-                                          cardType: model.cardType,
-                                          cellId: model.cellId)
+    private func createGridThreeCardCellView(_ model: CardsGridSubtitledCardCellModel) -> AnyView {
+        var cardCell = CardsGridSubtitledCardCell(stateManager: model.stateManager,
+                                                  cardTitle: model.cardTitle,
+                                                  cardType: model.cardType,
+                                                  cellId: model.cellId)
         cardCell.delegate = self
         
         return AnyView(cardCell)
     }
     
-    private func createGridTwoCardCellView(_ model: MainScreenTwoGridCardCellModel) -> AnyView {
-        var cardCell = MainScreenCardCell(stateManager: model.stateManager,
-                                                 cellId: model.cellId)
+    private func createGridTwoCardCellView(_ model: CardsGridSimpleCardCellModel) -> AnyView {
+        var cardCell = CardsGridCardCell(stateManager: model.stateManager, cellId: model.cellId)
         cardCell.delegate = self
         
         return AnyView(cardCell)
     }
 }
 
-extension MainScreenCardsGridAdapter: MainScreenCardCellDelegate {
+extension CardsGridAdapter: CardsGridCardCellDelegate {
     func didPressOnCardCell(_ cellId: Int) {
         delegate?.didPressCardCell(cellId)
     }
 }
 
-extension MainScreenCardsGridAdapter: MainScreenErrorStateCellDelegate {
+extension CardsGridAdapter: MainScreenErrorStateCellDelegate {
     func didPressButton() {
         delegate?.didPressErrorCellButton()
     }

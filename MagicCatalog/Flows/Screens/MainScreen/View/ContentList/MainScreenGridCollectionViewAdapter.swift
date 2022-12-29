@@ -7,17 +7,11 @@
 
 import SwiftUI
 
-struct MainScreenSearchContentCell: View {
-    var body: some View {
-        Text("SEARCH CELL")
-    }
-}
-
 class MainScreenGridCollectionViewAdapter {
     
     // MARK: - Private properties
     
-    private let contentAdapter = MainScreenCardsGridAdapter()
+    private let contentAdapter = CardsGridAdapter()
     
     // MARK: - Functions
     

@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-protocol MainScreenCardCellDelegate: AnyObject {
-    func didPressOnCardCell(_ cell: Int)
-}
-
-struct MainScreenSubtitledCardCell: View {
+struct CardsGridSubtitledCardCell: View {
     
     // MARK: - Properties
     
-    weak var delegate: MainScreenCardCellDelegate?
+    weak var delegate: CardsGridCardCellDelegate?
     
     let stateManager: InteractiveCardStateManager
     
@@ -38,6 +34,7 @@ struct MainScreenSubtitledCardCell: View {
     private var cellContent: some View {
         VStack {
             InteractiveCardView(stateManager: stateManager)
+                .layoutPriority(1)
             
             VStack(spacing: 5) {
                 Text(cardTitle)
