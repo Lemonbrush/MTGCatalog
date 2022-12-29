@@ -102,25 +102,25 @@ struct MainScreenView: View {
     private var gridMenuOption: some View {
         Menu {
             Button(action: {
-                viewModel.updateContentGridType(.gridOne)
+                viewModel.updateContentGridType(.grid(columns: 1))
             }) {
                 Label("1 column", systemImage: "square")
             }
             
             Button(action: {
-                viewModel.updateContentGridType(.gridTwo)
+                viewModel.updateContentGridType(.grid(columns: 2))
             }) {
                 Label("2 columns", systemImage: "square.grid.2x2")
             }
             
             Button(action: {
-                viewModel.updateContentGridType(.gridThree)
+                viewModel.updateContentGridType(.grid(columns: 3))
             }) {
                 Label("3 columns", systemImage: "square.grid.3x2")
             }
             
             Button(action: {
-                viewModel.updateContentGridType(.gridFour)
+                viewModel.updateContentGridType(.grid(columns: 4))
             }) {
                 Label("4 columns", systemImage: "square.grid.4x3.fill")
             }

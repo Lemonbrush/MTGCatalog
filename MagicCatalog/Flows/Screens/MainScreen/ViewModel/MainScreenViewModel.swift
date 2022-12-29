@@ -13,10 +13,7 @@ enum MainScreenNavigation: Equatable {
 
 enum MainScreenGridType {
     case inline
-    case gridOne
-    case gridTwo
-    case gridThree
-    case gridFour
+    case grid(columns: Int)
 }
 
 class MainScreenViewModel: ObservableObject {
@@ -36,7 +33,7 @@ class MainScreenViewModel: ObservableObject {
     private let cardSerachManager: MainScreenCardSearchManager
     
     private let contentCellsManager = MainScreenStateModelManager()
-    private var resultsGridType: MainScreenGridType = .gridThree
+    private var resultsGridType: MainScreenGridType = .grid(columns: 1)
     
     // MARK: - Construction
     
@@ -68,9 +65,6 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func updateContentGridType(_ newGridType: MainScreenGridType) {
-        guard newGridType != resultsGridType else {
-            return
-        }
         resultsGridType = newGridType
         updateContentCells()
     }

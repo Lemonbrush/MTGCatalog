@@ -16,21 +16,9 @@ class MainScreenViewModelLoadedStateAdapter {
         var mainScreenContentCells: [MainScreenGridContentCellModel] = []
         
         switch gridType {
-        case .gridThree:
+        case .grid(columns: let columns):
             let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 3)
-            mainScreenContentCells.append(contentCellModels)
-        case .gridTwo:
-            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 2)
-            mainScreenContentCells.append(contentCellModels)
-        case .gridOne:
-            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 1)
-            mainScreenContentCells.append(contentCellModels)
-        case .gridFour:
-            let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 4)
+            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: columns)
             mainScreenContentCells.append(contentCellModels)
         default:
             let cardViewModels = createSubtitledCellModels(cards: cardsSearchResults)
