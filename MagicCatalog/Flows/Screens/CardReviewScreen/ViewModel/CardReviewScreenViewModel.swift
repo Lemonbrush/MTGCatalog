@@ -34,8 +34,8 @@ class CardReviewScreenViewModel: ObservableObject {
         
         setupCardData(swiftFallCardModel)
         
-        if let cardURLs = swiftFallCardModel.imageUris, let imageURLString = cardURLs["normal"] {
-            self.imageDownloader.getImageByURL(imageURLString)
+        if let cardURL = swiftFallCardModel.imageUris(imageType: .normal) {
+            self.imageDownloader.getImageByURL(cardURL)
         }
     }
     

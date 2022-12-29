@@ -85,7 +85,8 @@ class MainScreenViewModel: ObservableObject {
     func setupCardCelModels(_ cardModels: [Card]) {
         var cardCellModels: [MainScreenCardCellModel] = []
         for cardModel in cardModels {
-            let cardCellStateManager = InteractiveCardStateManager(imageURLString: cardModel.imageUris?["normal"] ?? "")
+            let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
+            let cardCellStateManager = InteractiveCardStateManager(imageURLString: imageURL)
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
         }
         
