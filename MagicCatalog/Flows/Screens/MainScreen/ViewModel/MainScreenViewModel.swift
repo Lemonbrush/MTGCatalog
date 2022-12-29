@@ -33,7 +33,7 @@ class MainScreenViewModel: ObservableObject {
     private let cardSerachManager: MainScreenCardSearchManager
     
     private let contentCellsManager = MainScreenStateModelManager()
-    private var resultsGridType: MainScreenGridType = .grid(columns: 1)
+    private var resultsGridType: MainScreenGridType = .grid(columns: 2)
     
     // MARK: - Construction
     
@@ -95,14 +95,11 @@ class MainScreenViewModel: ObservableObject {
     // MARK: - Private functions
     
     private func updateLoadedState() {
-        let loadedStateModel = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
-                                                                          cardsSearchResults: cardModels)
-        
-        contentCellModels = loadedStateModel.contentCellModels
+        contentCellModels = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
+                                                                       cardsSearchResults: cardModels)
     }
     
     private func updateEmptySearchState() {
-        let emptySearchState = contentCellsManager.createEmptySearchStateCellModels()
-        contentCellModels = emptySearchState.contentCellModels
+        contentCellModels = contentCellsManager.createEmptySearchStateCellModels()
     }
 }

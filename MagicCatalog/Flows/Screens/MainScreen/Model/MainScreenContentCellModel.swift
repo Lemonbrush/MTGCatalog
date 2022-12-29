@@ -10,7 +10,7 @@ import SwiftUI
 protocol MainScreenContentCell { }
 
 struct MainScreenGridContentCellModel: MainScreenContentCell {
-    let viewModels: [MainScreenCellModelContainer]
+    let viewModels: [CardsGridCellModel]
     let columns: Int
     let hSpacing: Int = 5
     let vStack: Int = 5

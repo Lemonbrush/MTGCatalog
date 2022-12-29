@@ -12,7 +12,7 @@ class MainScreenViewModelLoadedStateAdapter {
     // MARK: - Functions
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
-                                                   cardsSearchResults: [MainScreenCardCellModel]) -> MainScreenViewModelLoadedStateModel {
+                                                   cardsSearchResults: [MainScreenCardCellModel]) -> [MainScreenContentCell] {
         var mainScreenContentCells: [MainScreenGridContentCellModel] = []
         
         switch gridType {
@@ -26,21 +26,21 @@ class MainScreenViewModelLoadedStateAdapter {
             mainScreenContentCells.append(contentCellModels)
         }
         
-        return MainScreenViewModelLoadedStateModel(contentCellModels: mainScreenContentCells)
+        return mainScreenContentCells
     }
     
     // MARK: - Private functions
     
-    private func createRegularCellModels(cards: [MainScreenCardCellModel]) -> [MainScreenCellModelContainer] {
+    private func createRegularCellModels(cards: [MainScreenCardCellModel]) -> [CardsGridCellModel] {
         var cellModels: [CardsGridCellModel] = []
         for (cellId, cardCellModel) in cards.enumerated() {
             let cellModel = CardsGridSimpleCardCellModel(cellId: cellId, stateManager: cardCellModel.cardStateManager)
             cellModels.append(cellModel)
         }
-        return createCardSearchResultsCellModels(cards: cellModels)
+        return cellModels
     }
     
-    private func createSubtitledCellModels(cards: [MainScreenCardCellModel]) -> [MainScreenCellModelContainer] {
+    private func createSubtitledCellModels(cards: [MainScreenCardCellModel]) -> [CardsGridCellModel] {
         var cellModels: [CardsGridCellModel] = []
         for (cellId, cardCellModel) in cards.enumerated() {
             let cellModel = CardsGridSubtitledCardCellModel(cellId: cellId,
@@ -49,17 +49,6 @@ class MainScreenViewModelLoadedStateAdapter {
                                                             cardType: cardCellModel.cardModel.typeLine ?? "")
             cellModels.append(cellModel)
         }
-        return createCardSearchResultsCellModels(cards: cellModels)
-    }
-    
-    private func createCardSearchResultsCellModels(cards: [CardsGridCellModel]) -> [MainScreenCellModelContainer] {
-        var cellModels: [MainScreenCellModelContainer] = []
-        
-        for (id, card) in cards.enumerated() {
-            let cellModel = MainScreenCellModelContainer(id: id, model: card)
-            cellModels.append(cellModel)
-        }
-        
         return cellModels
     }
 }

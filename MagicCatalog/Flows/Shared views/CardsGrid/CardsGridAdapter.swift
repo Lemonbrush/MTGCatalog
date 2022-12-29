@@ -20,10 +20,8 @@ class CardsGridAdapter {
     
     // MARK: - Functions
     
-    func getCell(_ cellModel: MainScreenCellModelContainer) -> AnyView {
-        let cellViewModel = cellModel.model
-        
-        switch cellViewModel {
+    func getCell(_ cellModel: CardsGridCellModel) -> AnyView {
+        switch cellModel {
         case let errorCellModel as CardsGridStubCellModel:
             return AnyView(createErrorStateCellView(errorCellModel))
         case let cardCellModel as CardsGridSubtitledCardCellModel:

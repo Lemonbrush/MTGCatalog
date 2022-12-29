@@ -9,11 +9,6 @@ import UIKit
 
 protocol CardsGridCellModel { }
 
-struct MainScreenCellModelContainer: Identifiable, MainScreenContentCell {
-    var id: Int
-    let model: CardsGridCellModel
-}
-
 struct CardsGridStubCellModel: MainScreenContentCell, CardsGridCellModel {
     let image: UIImage?
     let topText: String

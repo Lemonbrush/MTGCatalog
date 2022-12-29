@@ -87,7 +87,6 @@
 		DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A12958F417000ED1F2 /* View+Shimmer.swift */; };
 		DD9306A42959BBF9000ED1F2 /* MainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */; };
 		DD9306A62959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */; };
-		DD9306A92959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */; };
 		DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */; };
 		DD9306AE2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */; };
 		DD9306B02959C9F6000ED1F2 /* CardsGridCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */; };
@@ -198,7 +197,6 @@
 		DD9306A12958F417000ED1F2 /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
 		DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
 		DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+CollectionViewAdapterDelegate.swift"; sourceTree = "<group>"; };
-		DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadedStateModel.swift; sourceTree = "<group>"; };
 		DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadedStateAdapter.swift; sourceTree = "<group>"; };
 		DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+SearchManagerDelegate.swift"; sourceTree = "<group>"; };
 		DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridCardCell.swift; sourceTree = "<group>"; };
@@ -721,7 +719,6 @@
 		DD360D692957545000DDA30F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD9306A72959BFFD000ED1F2 /* StateModels */,
 				DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */,
 				DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */,
 				DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */,
@@ -814,14 +811,6 @@
 				DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */,
 			);
 			path = InteractiveCardStateManager;
-			sourceTree = "<group>";
-		};
-		DD9306A72959BFFD000ED1F2 /* StateModels */ = {
-			isa = PBXGroup;
-			children = (
-				DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */,
-			);
-			path = StateModels;
 			sourceTree = "<group>";
 		};
 		DD9306AC2959C04C000ED1F2 /* Extensions */ = {
@@ -1019,7 +1008,6 @@
 				DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
 				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
-				DD9306A92959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift in Sources */,
 				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
 				DD2AEC1D295E35D900E9FD12 /* MainScreenSearchContentCell.swift in Sources */,
 				DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */,
