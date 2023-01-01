@@ -11,23 +11,25 @@ extension NetworkService: SwiftFallCoreNetworkServiceProtocol {
     
     // MARK: - Functions
     
-    func request<ResultType>(call: String, timeout: TimeInterval, completion: @escaping (SwiftfalResult<ResultType>) -> ()) where ResultType : Decodable {
+    func request<ResultType>(call: String, timeout: TimeInterval,
+                             completion: @escaping (SwiftfalResult<ResultType>) -> ()) where ResultType: Decodable {
         get(nil, call, timeout: timeout) { [weak self] result in
             guard let self = self else {
                 return
             }
             
             if case .failure(let error) = result {
-                completion(.failure(error))
+                completion(.failure(.networkError(error: error)))
             }
             
             if case .success(let data) = result {
                 guard let decoded = try? self.decode(ResultType.self, data: data) else {
                     do {
-                        let decoded = try self.decode(ScryfallError.self, data: data)
-                        completion(.failure(decoded))
+                        let decodedScryFallError = try self.decode(ScryfallError.self, data: data)
+                        completion(.failure(.scryfallError(error: decodedScryFallError)))
                     } catch {
-                        completion(.failure(error))
+                        print(error.localizedDescription)
+                        completion(.failure(.unknownError(error: error)))
                     }
                     return
                 }

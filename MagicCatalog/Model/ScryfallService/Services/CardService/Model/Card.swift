@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum SwiftFallCardImagery {
+    case png, borderCrop, artCrop, large, normal, small
+}
+
 struct Card: Codable, CustomStringConvertible {
     
     let prices: CardPrice?
@@ -72,7 +76,7 @@ struct Card: Codable, CustomStringConvertible {
     let colors: [String]?
     
     /// Online listings for these cards names.
-    let purchaseUris: [String:String]
+    let purchaseUris: [String: String]?
     
     /// Flavor text on the card, if there is any
     let flavorText: String?
@@ -81,10 +85,10 @@ struct Card: Codable, CustomStringConvertible {
     let illustrationId: String?
     
     /// uris of the images
-    let imageUris: [String:String]?
+    let imageUris: [String: String]?
     
     /// legality in different formats
-    let legalities: [String:String]
+    let legalities: [String: String]
     
     /// is or is not on the reserved list
     let reserved: Bool
@@ -128,7 +132,7 @@ struct Card: Codable, CustomStringConvertible {
     /// A URL to this cards’s story article, if any.
     let storySpotlightUri: String?
     
-    /// return string when self is used as a parameter for print
+    /// Return string when self is used as a parameter for print
     var description: String {
         var text = ""
         // if the card has multiple faces, print them
@@ -160,5 +164,24 @@ struct Card: Codable, CustomStringConvertible {
         }
         
         return text
+    }
+    
+    // MARK: - Functions
+    
+    func imageUris(imageType: SwiftFallCardImagery) -> String? {
+        switch imageType {
+        case .png:
+            return imageUris?["png"]
+        case .borderCrop:
+            return imageUris?["border_crop"]
+        case .artCrop:
+            return imageUris?["art_crop"]
+        case .large:
+            return imageUris?["large"]
+        case .normal:
+            return imageUris?["normal"]
+        case .small:
+            return imageUris?["small"]
+        }
     }
 }

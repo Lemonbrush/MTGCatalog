@@ -12,22 +12,28 @@ class MainScreenStateModelManager {
     // MARK: - Private properties
     
     private let loadedStateAdapter = MainScreenViewModelLoadedStateAdapter()
+    private let errorStateAdapter = MainScreenViewModelErrorStateAdapter()
     
     // MARK: - Private functions
     
-    func createEmptySearchStateCellModels() -> MainScreenViewModelLoadedStateModel {
-        let errorCellModel = MainScreenErrorCellModel(image: UIImage(systemName: "rectangle.portrait.on.rectangle.portrait.fill"),
-                                                      topText: "Find a card",
-                                                      bottomText: "Start searching for an mtg card or get a ",
-                                                      buttonLabelText: "Random card")
+    func createEmptySearchStateCellModels() -> [MainScreenContentCell] {
+        let errorCellModel = MainScreenStubContentCellModel(systemImageName: "rectangle.portrait.on.rectangle.portrait.fill",
+                                                            topText: "Find a card",
+                                                            bottomText: "Start searching for an mtg card or get a ",
+                                                            buttonLabelText: "Random card")
         
-        let cardViewModels = [MainScreenCellModel(id: 0, model: errorCellModel)]
-        return MainScreenViewModelLoadedStateModel(contentGridColumns: 1, cardViewModels: cardViewModels)
+        return [errorCellModel]
     }
     
     func createLoadedStateModel(resultsGridType: MainScreenGridType,
-                                cardsSearchResults: [MainScreenCardCellModel]) -> MainScreenViewModelLoadedStateModel {
+                                cardsSearchResults: [MainScreenCardCellModel],
+                                totalCards: Int) -> [MainScreenContentCell] {
         return loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
-                                                                            cardsSearchResults: cardsSearchResults)
+                                                                            cardsSearchResults: cardsSearchResults,
+                                                                            totalCards: totalCards)
+    }
+    
+    func createErrorStateCellModel(_ errorState: MainScreenStateError) -> [MainScreenContentCell] {
+        return errorStateAdapter.createMainScreenViewModelErrorStateModel(errorState)
     }
 }

@@ -7,10 +7,12 @@
 
 import Foundation
 
-enum MainScreenStateError: String {
+enum MainScreenStateError: Error {
     case notReachable
     case notAvailable
     case timeout
+    case serviceError(error: ScryfallError)
+    case genericError
 }
 
 enum MainScreenState {

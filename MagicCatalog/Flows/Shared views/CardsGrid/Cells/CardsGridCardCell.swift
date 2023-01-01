@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct MainScreenCardCell: View {
+protocol CardsGridCardCellDelegate: AnyObject {
+    func didPressOnCardCell(_ cell: Int)
+}
+
+struct CardsGridCardCell: View {
     
     // MARK: - Properties
     
-    weak var delegate: MainScreenCardCellDelegate?
+    weak var delegate: CardsGridCardCellDelegate?
     
     let stateManager: InteractiveCardStateManager
     let cellId: Int

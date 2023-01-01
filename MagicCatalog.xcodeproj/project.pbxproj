@@ -42,8 +42,8 @@
 		DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */; };
 		DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */; };
 		DD0DE0072954991B0024B7EA /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0062954991B0024B7EA /* UIColor+extension.swift */; };
-		DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */; };
 		DD0DE00C2954E5240024B7EA /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DE00B2954E5240024B7EA /* Placeholder.swift */; };
+		DD2AEC1D295E35D900E9FD12 /* MainScreenSearchContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AEC1C295E35D900E9FD12 /* MainScreenSearchContentCell.swift */; };
 		DD34A67E2955B1B70007AE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */; };
 		DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D272957326E00DDA30F /* SwiftFallResult.swift */; };
 		DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */; };
@@ -75,23 +75,27 @@
 		DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */; };
 		DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */; };
 		DD360D7B295761CD00DDA30F /* MainScreenErrorStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */; };
-		DD360D7D2957624400DDA30F /* MainScreenCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */; };
-		DD360D7F29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */; };
+		DD360D7D2957624400DDA30F /* CardsGridCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7C2957624400DDA30F /* CardsGridCellModel.swift */; };
+		DD360D7F29577BAC00DDA30F /* CardsGridAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D7E29577BAC00DDA30F /* CardsGridAdapter.swift */; };
 		DD360D82295792E800DDA30F /* MainScreenStateModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */; };
-		DD360D852957948000DDA30F /* MainScreenSubtitledCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D842957948000DDA30F /* MainScreenSubtitledCardCell.swift */; };
+		DD360D852957948000DDA30F /* CardsGridSubtitledCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D842957948000DDA30F /* CardsGridSubtitledCardCell.swift */; };
 		DD360D8E2958A67A00DDA30F /* InteractiveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D8D2958A67A00DDA30F /* InteractiveCardView.swift */; };
 		DD360D952958AD5500DDA30F /* InteractiveCardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D942958AD5500DDA30F /* InteractiveCardState.swift */; };
 		DD360D972958B05400DDA30F /* InteractiveCardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */; };
 		DD360D992958BC5500DDA30F /* InteractiveCardErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */; };
 		DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */; };
+		DD6F5DBF2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */; };
 		DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A12958F417000ED1F2 /* View+Shimmer.swift */; };
 		DD9306A42959BBF9000ED1F2 /* MainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */; };
 		DD9306A62959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */; };
-		DD9306A92959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */; };
 		DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */; };
 		DD9306AE2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */; };
-		DD9306B02959C9F6000ED1F2 /* MainScreenCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */; };
+		DD9306B02959C9F6000ED1F2 /* CardsGridCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */; };
 		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
+		DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */; };
+		DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */; };
+		DDCADC5129619EAC007FEAAB /* MainScreenTextContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */; };
+		DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,8 +155,8 @@
 		DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCoordinatorView.swift; sourceTree = "<group>"; };
 		DD0DE0042953BEB50024B7EA /* MainScreenCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinatorView.swift; sourceTree = "<group>"; };
 		DD0DE0062954991B0024B7EA /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
-		DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenButton.swift; sourceTree = "<group>"; };
 		DD0DE00B2954E5240024B7EA /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		DD2AEC1C295E35D900E9FD12 /* MainScreenSearchContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSearchContentCell.swift; sourceTree = "<group>"; };
 		DD34A67D2955B1B70007AE93 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD360D272957326E00DDA30F /* SwiftFallResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFallResult.swift; sourceTree = "<group>"; };
 		DD360D292957326E00DDA30F /* SwiftfallNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftfallNetworkService.swift; sourceTree = "<group>"; };
@@ -184,23 +188,27 @@
 		DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		DD360D7629575C8700DDA30F /* CardReviewScreenCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReviewScreenCardModel.swift; sourceTree = "<group>"; };
 		DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenErrorStateCell.swift; sourceTree = "<group>"; };
-		DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCellModel.swift; sourceTree = "<group>"; };
-		DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		DD360D7C2957624400DDA30F /* CardsGridCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridCellModel.swift; sourceTree = "<group>"; };
+		DD360D7E29577BAC00DDA30F /* CardsGridAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridAdapter.swift; sourceTree = "<group>"; };
 		DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenStateModelManager.swift; sourceTree = "<group>"; };
-		DD360D842957948000DDA30F /* MainScreenSubtitledCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSubtitledCardCell.swift; sourceTree = "<group>"; };
+		DD360D842957948000DDA30F /* CardsGridSubtitledCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridSubtitledCardCell.swift; sourceTree = "<group>"; };
 		DD360D8D2958A67A00DDA30F /* InteractiveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardView.swift; sourceTree = "<group>"; };
 		DD360D942958AD5500DDA30F /* InteractiveCardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardState.swift; sourceTree = "<group>"; };
 		DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardLoadingView.swift; sourceTree = "<group>"; };
 		DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardErrorView.swift; sourceTree = "<group>"; };
 		DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveCardStateManager.swift; sourceTree = "<group>"; };
+		DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelErrorStateAdapter.swift; sourceTree = "<group>"; };
 		DD9306A12958F417000ED1F2 /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
 		DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
 		DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+CollectionViewAdapterDelegate.swift"; sourceTree = "<group>"; };
-		DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadedStateModel.swift; sourceTree = "<group>"; };
 		DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadedStateAdapter.swift; sourceTree = "<group>"; };
 		DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+SearchManagerDelegate.swift"; sourceTree = "<group>"; };
-		DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCell.swift; sourceTree = "<group>"; };
+		DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridCardCell.swift; sourceTree = "<group>"; };
 		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenContentCellModel.swift; sourceTree = "<group>"; };
+		DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTextContentCell.swift; sourceTree = "<group>"; };
+		DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,10 +449,8 @@
 		DD0DDFDF295361280024B7EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D832957945D00DDA30F /* Cells */,
+				DD360D832957945D00DDA30F /* ContentList */,
 				DD0DDFF82953B9F50024B7EA /* MainScreenView.swift */,
-				DD0DE0082954BA6A0024B7EA /* MainScreenButton.swift */,
-				DD360D7E29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -452,8 +458,9 @@
 		DD0DDFE02953612D0024B7EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DD9306AC2959C04C000ED1F2 /* Extensions */,
 				DD360D80295792D800DDA30F /* ContentCellModelsCreation */,
+				DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */,
+				DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */,
 				DD0DDFFA2953BA440024B7EA /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
@@ -471,6 +478,7 @@
 		DD0DDFE2295361880024B7EA /* Shared views */ = {
 			isa = PBXGroup;
 			children = (
+				DD2AEC18295E310A00E9FD12 /* CardsGrid */,
 				DD0DDFB9295317240024B7EA /* InteractiveCard */,
 				DD360D7429575C0800DDA30F /* ScrollViewOffset.swift */,
 				DD0DDFE8295365D40024B7EA /* LazyLoadView.swift */,
@@ -521,6 +529,43 @@
 				DD0DE0022953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DD2AEC18295E310A00E9FD12 /* CardsGrid */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D7E29577BAC00DDA30F /* CardsGridAdapter.swift */,
+				DD2AEC1B295E337800E9FD12 /* Model */,
+				DD2AEC19295E312100E9FD12 /* Cells */,
+			);
+			path = CardsGrid;
+			sourceTree = "<group>";
+		};
+		DD2AEC19295E312100E9FD12 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D842957948000DDA30F /* CardsGridSubtitledCardCell.swift */,
+				DD9306AF2959C9F6000ED1F2 /* CardsGridCardCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD2AEC1A295E316200E9FD12 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */,
+				DD2AEC1C295E35D900E9FD12 /* MainScreenSearchContentCell.swift */,
+				DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD2AEC1B295E337800E9FD12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD360D7C2957624400DDA30F /* CardsGridCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DD360D262957326E00DDA30F /* Model */ = {
@@ -682,10 +727,10 @@
 		DD360D692957545000DDA30F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD9306A72959BFFD000ED1F2 /* StateModels */,
 				DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */,
-				DD360D7C2957624400DDA30F /* MainScreenCellModel.swift */,
 				DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */,
+				DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */,
+				DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -702,20 +747,20 @@
 		DD360D80295792D800DDA30F /* ContentCellModelsCreation */ = {
 			isa = PBXGroup;
 			children = (
+				DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */,
 				DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */,
 				DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */,
 			);
 			path = ContentCellModelsCreation;
 			sourceTree = "<group>";
 		};
-		DD360D832957945D00DDA30F /* Cells */ = {
+		DD360D832957945D00DDA30F /* ContentList */ = {
 			isa = PBXGroup;
 			children = (
-				DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */,
-				DD360D842957948000DDA30F /* MainScreenSubtitledCardCell.swift */,
-				DD9306AF2959C9F6000ED1F2 /* MainScreenCardCell.swift */,
+				DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */,
+				DD2AEC1A295E316200E9FD12 /* Cells */,
 			);
-			path = Cells;
+			path = ContentList;
 			sourceTree = "<group>";
 		};
 		DD360D862958A48B00DDA30F /* View */ = {
@@ -776,23 +821,6 @@
 				DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */,
 			);
 			path = InteractiveCardStateManager;
-			sourceTree = "<group>";
-		};
-		DD9306A72959BFFD000ED1F2 /* StateModels */ = {
-			isa = PBXGroup;
-			children = (
-				DD9306A82959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift */,
-			);
-			path = StateModels;
-			sourceTree = "<group>";
-		};
-		DD9306AC2959C04C000ED1F2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */,
-				DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,10 +968,10 @@
 				DD360D82295792E800DDA30F /* MainScreenStateModelManager.swift in Sources */,
 				DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */,
 				DD0DDFB4295305900024B7EA /* CardReviewScreenViewModel.swift in Sources */,
-				DD360D852957948000DDA30F /* MainScreenSubtitledCardCell.swift in Sources */,
-				DD360D7F29577BAC00DDA30F /* MainScreenCollectionViewAdapter.swift in Sources */,
+				DD360D852957948000DDA30F /* CardsGridSubtitledCardCell.swift in Sources */,
+				DD360D7F29577BAC00DDA30F /* CardsGridAdapter.swift in Sources */,
 				DD0DDFF42953682A0024B7EA /* FontSize.swift in Sources */,
-				DD360D7D2957624400DDA30F /* MainScreenCellModel.swift in Sources */,
+				DD360D7D2957624400DDA30F /* CardsGridCellModel.swift in Sources */,
 				DD360D4E2957326E00DDA30F /* SwiftfallCardListService.swift in Sources */,
 				DD360D5D2957326E00DDA30F /* Catalog.swift in Sources */,
 				DD360D552957326E00DDA30F /* SwiftfallCardSetService.swift in Sources */,
@@ -955,6 +983,7 @@
 				DD360D7529575C0800DDA30F /* ScrollViewOffset.swift in Sources */,
 				DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */,
 				DD0DE0032953BDFF0024B7EA /* CardReviewScreenCoordinatorView.swift in Sources */,
+				DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */,
 				DD0DDFBE29531FE00024B7EA /* View+CornerRadius.swift in Sources */,
 				DD0DDFDA29535BFB0024B7EA /* Coordinator.swift in Sources */,
 				DD360D67295732F000DDA30F /* NetworkParams.swift in Sources */,
@@ -971,7 +1000,7 @@
 				DD360D66295732F000DDA30F /* NetworkService.swift in Sources */,
 				DD360D7B295761CD00DDA30F /* MainScreenErrorStateCell.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
-				DD9306B02959C9F6000ED1F2 /* MainScreenCardCell.swift in Sources */,
+				DD9306B02959C9F6000ED1F2 /* CardsGridCardCell.swift in Sources */,
 				DD0DDFDC29535DB70024B7EA /* AppCoordinator.swift in Sources */,
 				DD360D4B2957326E00DDA30F /* NetworkService+SwiftFallCoreNetworkServiceProtocol.swift in Sources */,
 				DD0DDFF92953B9F50024B7EA /* MainScreenView.swift in Sources */,
@@ -979,25 +1008,28 @@
 				DD360D512957326E00DDA30F /* SetList.swift in Sources */,
 				DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
+				DD6F5DBF2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift in Sources */,
 				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
-				DD9306A92959C014000ED1F2 /* MainScreenViewModelLoadedStateModel.swift in Sources */,
 				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
+				DD2AEC1D295E35D900E9FD12 /* MainScreenSearchContentCell.swift in Sources */,
 				DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */,
 				DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */,
+				DDCADC5129619EAC007FEAAB /* MainScreenTextContentCell.swift in Sources */,
 				DD360D8E2958A67A00DDA30F /* InteractiveCardView.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
 				DD360D572957326E00DDA30F /* RelatedCard.swift in Sources */,
 				DD0DDFC429532E000024B7EA /* CardReviewScreenTextBlockView.swift in Sources */,
 				DD360D492957326E00DDA30F /* SwiftFallResult.swift in Sources */,
 				DD360D4F2957326E00DDA30F /* RulingList.swift in Sources */,
+				DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */,
 				DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */,
 				DD360D65295732F000DDA30F /* NetworkServiceError.swift in Sources */,
 				DD360D542957326E00DDA30F /* ScryFallSet.swift in Sources */,
 				DD360D5C2957326E00DDA30F /* SwiftfallCatalogService.swift in Sources */,
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
-				DD0DE0092954BA6A0024B7EA /* MainScreenButton.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD360D5A2957326E00DDA30F /* Card.swift in Sources */,
+				DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
 				DD360D522957326E00DDA30F /* SymbolList.swift in Sources */,
 				DD9306A42959BBF9000ED1F2 /* MainScreenState.swift in Sources */,
@@ -1168,6 +1200,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
+				DEVELOPMENT_TEAM = DM9F39FAY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MagicCatalog/Info.plist;
@@ -1198,6 +1231,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicCatalog/Preview Content\"";
+				DEVELOPMENT_TEAM = DM9F39FAY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MagicCatalog/Info.plist;

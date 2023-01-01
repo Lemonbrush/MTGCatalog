@@ -17,7 +17,7 @@ struct MainScreenErrorStateCell: View {
     
     weak var delegate: MainScreenErrorStateCellDelegate?
     
-    let image: UIImage?
+    let systemImageName: String?
     let topText: String?
     let bottomText: String?
     let buttonTLabelText: String?
@@ -27,8 +27,8 @@ struct MainScreenErrorStateCell: View {
       var body: some View {
           VStack(spacing: 30) {
               
-              if let image = image {
-                  Image(uiImage: image)
+              if let strongSystemImageName = systemImageName {
+                  Image(systemName: strongSystemImageName)
                       .resizable()
                       .aspectRatio(contentMode: .fit)
                       .frame(width: 60, height: 60)
@@ -36,6 +36,20 @@ struct MainScreenErrorStateCell: View {
               }
               
               errorCellTextBlock
+              
+              if let buttonTLabelText = buttonTLabelText {
+                  Button(action: {
+                      delegate?.didPressButton()
+                  }) {
+                      Text(buttonTLabelText)
+                          .bold()
+                          .padding([.leading, .trailing], 25)
+                          .padding([.top, .bottom], 10)
+                  }
+                  .foregroundColor(.white)
+                  .background(Color.blue)
+                  .cornerRadius(12)
+              }
               
           }.frame(height: UIScreen.main.bounds.size.height / 1.5)
       }
@@ -49,20 +63,10 @@ struct MainScreenErrorStateCell: View {
                     .font(.title.weight(.bold))
             }
             
-            VStack(spacing: 5) {
-                if let bottomText = bottomText {
-                    Text(bottomText)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.gray)
-                }
-                
-                if let buttonTLabelText = buttonTLabelText {
-                    Button(action: {
-                        delegate?.didPressButton()
-                    }) {
-                        Text(buttonTLabelText)
-                    }.foregroundColor(.blue)
-                }
+            if let bottomText = bottomText {
+                Text(bottomText)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.gray)
             }
         }
     }
