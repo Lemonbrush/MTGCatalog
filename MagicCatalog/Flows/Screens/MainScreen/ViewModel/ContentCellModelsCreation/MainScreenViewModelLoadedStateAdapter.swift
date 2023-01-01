@@ -12,10 +12,11 @@ class MainScreenViewModelLoadedStateAdapter {
     // MARK: - Functions
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
-                                                   cardsSearchResults: [MainScreenCardCellModel]) -> [MainScreenContentCell] {
+                                                   cardsSearchResults: [MainScreenCardCellModel],
+                                                   totalCards: Int) -> [MainScreenContentCell] {
         var mainScreenContentCells: [MainScreenContentCell] = []
         
-        let textLineCellModel = createTextLineCellModel(text: "\(cardsSearchResults.count) cards were found")
+        let textLineCellModel = createTextLineCellModel(text: "\(totalCards) cards were found")
         mainScreenContentCells.append(textLineCellModel)
         
         switch gridType {

@@ -28,6 +28,9 @@ class MainScreenViewModel: ObservableObject {
     var cardModels: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch
     
+    var cardList: CardList? = nil
+    var totalCards: Int = 0
+    
     // MARK: - Private properties
     
     private let cardSerachManager: MainScreenCardSearchManager
@@ -87,9 +90,17 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func setupCardCellModels(_ cardModels: [Card]) {
+    func setupCardListModel(_ cardListModel: CardList) {
+        cardList = cardListModel
+        updateCardModels(cardListModel.data)
+        totalCards = cardListModel.totalCards
+    }
+    
+    // MARK: - Private functions
+    
+    private func updateCardModels(_ newCards: [Card]) {
         var cardCellModels: [MainScreenCardCellModel] = []
-        for cardModel in cardModels {
+        for cardModel in newCards {
             let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
             let cardCellStateManager = InteractiveCardStateManager(imageURLString: imageURL)
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
@@ -98,11 +109,10 @@ class MainScreenViewModel: ObservableObject {
         self.cardModels = cardCellModels
     }
     
-    // MARK: - Private functions
-    
     private func updateLoadedState() {
         contentCellModels = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
-                                                                       cardsSearchResults: cardModels)
+                                                                       cardsSearchResults: cardModels,
+                                                                       totalCards: totalCards)
     }
     
     private func updateEmptySearchState() {

@@ -459,7 +459,8 @@
 			isa = PBXGroup;
 			children = (
 				DD360D80295792D800DDA30F /* ContentCellModelsCreation */,
-				DD9306AC2959C04C000ED1F2 /* Extensions */,
+				DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */,
+				DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */,
 				DD0DDFFA2953BA440024B7EA /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
@@ -820,15 +821,6 @@
 				DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */,
 			);
 			path = InteractiveCardStateManager;
-			sourceTree = "<group>";
-		};
-		DD9306AC2959C04C000ED1F2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */,
-				DD9306AD2959C308000ED1F2 /* MainScreenViewModel+SearchManagerDelegate.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

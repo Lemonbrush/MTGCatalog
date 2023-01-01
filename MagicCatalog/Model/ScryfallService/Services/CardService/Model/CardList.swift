@@ -12,7 +12,7 @@ public struct CardList: Codable, CustomStringConvertible {
     let data: [Card]
     let hasMore: Bool
     let nextPage: String?
-    let totalCards: Int?
+    let totalCards: Int
     
     // prints each set
     public var description: String {

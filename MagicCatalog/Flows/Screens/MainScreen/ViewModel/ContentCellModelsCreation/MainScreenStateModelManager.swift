@@ -26,9 +26,11 @@ class MainScreenStateModelManager {
     }
     
     func createLoadedStateModel(resultsGridType: MainScreenGridType,
-                                cardsSearchResults: [MainScreenCardCellModel]) -> [MainScreenContentCell] {
+                                cardsSearchResults: [MainScreenCardCellModel],
+                                totalCards: Int) -> [MainScreenContentCell] {
         return loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
-                                                                            cardsSearchResults: cardsSearchResults)
+                                                                            cardsSearchResults: cardsSearchResults,
+                                                                            totalCards: totalCards)
     }
     
     func createErrorStateCellModel(_ errorState: MainScreenStateError) -> [MainScreenContentCell] {
