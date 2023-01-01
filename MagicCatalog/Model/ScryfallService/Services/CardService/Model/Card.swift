@@ -76,7 +76,7 @@ struct Card: Codable, CustomStringConvertible {
     let colors: [String]?
     
     /// Online listings for these cards names.
-    let purchaseUris: [String: String]
+    let purchaseUris: [String: String]?
     
     /// Flavor text on the card, if there is any
     let flavorText: String?

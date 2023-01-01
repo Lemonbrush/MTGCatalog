@@ -23,11 +23,19 @@ extension NetworkService: SwiftFallCoreNetworkServiceProtocol {
             }
             
             if case .success(let data) = result {
+                
+                do {
+                    let decoded = try self.decode(ResultType.self, data: data)
+                } catch {
+                    print(error)
+                }
+                
                 guard let decoded = try? self.decode(ResultType.self, data: data) else {
                     do {
                         let decodedScryFallError = try self.decode(ScryfallError.self, data: data)
                         completion(.failure(.scryfallError(error: decodedScryFallError)))
                     } catch {
+                        print(error.localizedDescription)
                         completion(.failure(.unknownError(error: error)))
                     }
                     return

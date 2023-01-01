@@ -17,7 +17,7 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
                 return
             }
             
-            self.setupCardCelModels(cardListModel.data)
+            self.setupCardCellModels(cardListModel.data)
 
             self.currentState = .loaded
             self.updateContentCells()

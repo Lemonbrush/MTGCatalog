@@ -87,7 +87,7 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func setupCardCelModels(_ cardModels: [Card]) {
+    func setupCardCellModels(_ cardModels: [Card]) {
         var cardCellModels: [MainScreenCardCellModel] = []
         for cardModel in cardModels {
             let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
