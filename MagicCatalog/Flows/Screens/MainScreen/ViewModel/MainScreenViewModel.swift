@@ -30,13 +30,12 @@ class MainScreenViewModel: ObservableObject {
     
     var cardList: CardList? = nil
     var totalCards: Int = 0
+    var resultsGridType: MainScreenGridType = .grid(columns: 2)
+    let cardSerachManager: MainScreenCardSearchManager
     
     // MARK: - Private properties
     
-    private let cardSerachManager: MainScreenCardSearchManager
-    
     private let contentCellsManager = MainScreenStateModelManager()
-    private var resultsGridType: MainScreenGridType = .grid(columns: 2)
     
     // MARK: - Construction
     
@@ -48,29 +47,6 @@ class MainScreenViewModel: ObservableObject {
     }
     
     // MARK: - Functions
-    
-    func didPressSearch(query: String) {
-        guard query != navigationTitle else {
-            return
-        }
-        
-        navigationTitle = query
-        cardSerachManager.requestCardsSerach(cardName: query)
-    }
-    
-    func showRandomCardReviewScreen() {
-        //onNavigation?(.randomCardScreen)
-    }
-    
-    func didCancelSearch() {
-        //currentState = .emptySearch
-        //updateContentCells()
-    }
-    
-    func updateContentGridType(_ newGridType: MainScreenGridType) {
-        resultsGridType = newGridType
-        updateContentCells()
-    }
     
     func updateContentCells() {
         DispatchQueue.main.async { [weak self] in
