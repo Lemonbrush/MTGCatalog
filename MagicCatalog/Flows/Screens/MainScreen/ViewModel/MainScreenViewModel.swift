@@ -70,15 +70,21 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func updateContentCells() {
-        switch currentState {
-        case .emptySearch:
-            updateEmptySearchState()
-        case .loaded:
-            updateLoadedState()
-        case .loding:
-            break
-        case .error(_):
-            break
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            switch self.currentState {
+            case .emptySearch:
+                self.updateEmptySearchState()
+            case .loaded:
+                self.updateLoadedState()
+            case .loding:
+                break
+            case .error(let errorState):
+                self.updateErrorState(errorState)
+            }
         }
     }
     
@@ -102,5 +108,9 @@ class MainScreenViewModel: ObservableObject {
     
     private func updateEmptySearchState() {
         contentCellModels = contentCellsManager.createEmptySearchStateCellModels()
+    }
+    
+    private func updateErrorState(_ errorState: MainScreenStateError) {
+        contentCellModels = contentCellsManager.createErrorStateCellModel(errorState)
     }
 }

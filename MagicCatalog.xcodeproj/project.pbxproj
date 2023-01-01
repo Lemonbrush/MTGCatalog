@@ -84,6 +84,7 @@
 		DD360D972958B05400DDA30F /* InteractiveCardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */; };
 		DD360D992958BC5500DDA30F /* InteractiveCardErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */; };
 		DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */; };
+		DD6F5DBF2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */; };
 		DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A12958F417000ED1F2 /* View+Shimmer.swift */; };
 		DD9306A42959BBF9000ED1F2 /* MainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */; };
 		DD9306A62959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */; };
@@ -93,6 +94,8 @@
 		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
 		DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */; };
 		DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */; };
+		DDCADC5129619EAC007FEAAB /* MainScreenTextContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */; };
+		DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +197,7 @@
 		DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardLoadingView.swift; sourceTree = "<group>"; };
 		DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardErrorView.swift; sourceTree = "<group>"; };
 		DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveCardStateManager.swift; sourceTree = "<group>"; };
+		DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelErrorStateAdapter.swift; sourceTree = "<group>"; };
 		DD9306A12958F417000ED1F2 /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
 		DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
 		DD9306A52959BC80000ED1F2 /* MainScreenViewModel+CollectionViewAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+CollectionViewAdapterDelegate.swift"; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenContentCellModel.swift; sourceTree = "<group>"; };
+		DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTextContentCell.swift; sourceTree = "<group>"; };
+		DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +554,7 @@
 			children = (
 				DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */,
 				DD2AEC1C295E35D900E9FD12 /* MainScreenSearchContentCell.swift */,
+				DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -722,6 +729,7 @@
 				DD360D6A2957547100DDA30F /* MainScreenCardSearchManager.swift */,
 				DD9306A32959BBF9000ED1F2 /* MainScreenState.swift */,
 				DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */,
+				DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -738,6 +746,7 @@
 		DD360D80295792D800DDA30F /* ContentCellModelsCreation */ = {
 			isa = PBXGroup;
 			children = (
+				DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */,
 				DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */,
 				DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */,
 			);
@@ -1007,11 +1016,13 @@
 				DD360D512957326E00DDA30F /* SetList.swift in Sources */,
 				DD360D7729575C8700DDA30F /* CardReviewScreenCardModel.swift in Sources */,
 				DD0DDF7D29525E570024B7EA /* MagicCatalogApp.swift in Sources */,
+				DD6F5DBF2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift in Sources */,
 				DD360D4A2957326E00DDA30F /* SwiftfallNetworkService.swift in Sources */,
 				DD360D592957326E00DDA30F /* CardPrice.swift in Sources */,
 				DD2AEC1D295E35D900E9FD12 /* MainScreenSearchContentCell.swift in Sources */,
 				DD360D6E295757F600DDA30F /* CardReviewScreenSearchManager.swift in Sources */,
 				DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */,
+				DDCADC5129619EAC007FEAAB /* MainScreenTextContentCell.swift in Sources */,
 				DD360D8E2958A67A00DDA30F /* InteractiveCardView.swift in Sources */,
 				DD0DDFB829530EF20024B7EA /* ImageDownloaderManager.swift in Sources */,
 				DD360D572957326E00DDA30F /* RelatedCard.swift in Sources */,
@@ -1026,6 +1037,7 @@
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD360D5A2957326E00DDA30F /* Card.swift in Sources */,
+				DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
 				DD360D522957326E00DDA30F /* SymbolList.swift in Sources */,
 				DD9306A42959BBF9000ED1F2 /* MainScreenState.swift in Sources */,

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct MainScreenCardCellModel {
-    let cardStateManager: InteractiveCardStateManager
-    let cardModel: Card
-}
-
 extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     
     // MARK: - Functions
@@ -29,5 +24,8 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
         }
     }
     
-    func didReceiveError(error: MainScreenStateError) { }
+    func didReceiveError(error: MainScreenStateError) {
+        currentState = .error(error)
+        updateContentCells()
+    }
 }

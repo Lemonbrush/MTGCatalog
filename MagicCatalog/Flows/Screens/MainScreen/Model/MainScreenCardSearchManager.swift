@@ -26,11 +26,40 @@ class MainScreenCardSearchManager {
     
     func requestCardsSerach(cardName: String) {
         cardSearchService.getCardListWithText(cardText: cardName) { [weak self] result in
-            guard let self = self, case .success(let cards) = result else {
+            guard let self = self else {
                 return
             }
             
-            self.delegate?.didReceiveCardData(cards)
+            switch result {
+            case .success(let cards):
+                self.delegate?.didReceiveCardData(cards)
+            case .failure(let error):
+                self.handleErrorResult(error: error)
+            }
+        }
+    }
+    
+    // MARK: - Private functions
+    
+    private func handleErrorResult(error: SwiftFallResultError) {
+        switch error {
+        case .networkError(let error):
+            handleNetworkError(error: error)
+        case .scryfallError(let error):
+            delegate?.didReceiveError(error: .serviceError(error: error))
+        case .unknownError(_):
+            delegate?.didReceiveError(error: .notAvailable)
+        }
+    }
+    
+    private func handleNetworkError(error: NetworkServiceError) {
+        switch error {
+        case .notConnectedToInternet:
+            delegate?.didReceiveError(error: .notReachable)
+        case .timeOut:
+            delegate?.didReceiveError(error: .timeout)
+        default:
+            delegate?.didReceiveError(error: .notAvailable)
         }
     }
 }

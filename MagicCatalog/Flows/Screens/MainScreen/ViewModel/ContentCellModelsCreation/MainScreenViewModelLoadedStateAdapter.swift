@@ -13,7 +13,10 @@ class MainScreenViewModelLoadedStateAdapter {
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
                                                    cardsSearchResults: [MainScreenCardCellModel]) -> [MainScreenContentCell] {
-        var mainScreenContentCells: [MainScreenGridContentCellModel] = []
+        var mainScreenContentCells: [MainScreenContentCell] = []
+        
+        let textLineCellModel = createTextLineCellModel(text: "\(cardsSearchResults.count) cards were found")
+        mainScreenContentCells.append(textLineCellModel)
         
         switch gridType {
         case .grid(columns: let columns):
@@ -25,10 +28,16 @@ class MainScreenViewModelLoadedStateAdapter {
             mainScreenContentCells.append(contentCellModels)
         }
         
+        mainScreenContentCells.append(createTextLineCellModel(text: "This search is finished. Now the real work can begin."))
+        
         return mainScreenContentCells
     }
     
     // MARK: - Private functions
+    
+    private func createTextLineCellModel(text: String) -> MainScreenTextContentCellModel {
+        return MainScreenTextContentCellModel(text: text)
+    }
     
     private func createGridCell(cards: [MainScreenCardCellModel], columns: Int) -> MainScreenGridContentCellModel {
         switch columns {

@@ -23,6 +23,8 @@ class MainScreenCollectionViewAdapter {
             return createSearchContentCell()
         case let stubViewModel as MainScreenStubContentCellModel:
             return createStubView(stubViewModel)
+        case let textLineViewModel as MainScreenTextContentCellModel:
+            return createTextLineView(textLineViewModel)
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -30,6 +32,11 @@ class MainScreenCollectionViewAdapter {
     }
     
     // MARK: - Private functions
+    
+    private func createTextLineView(_ textCellViewModel: MainScreenTextContentCellModel) -> AnyView {
+        let view = MainScreenTextContentCell(text: textCellViewModel.text)
+        return AnyView(view)
+    }
     
     private func createStubView(_ stubViewModel: MainScreenStubContentCellModel) -> AnyView {
         let view = MainScreenErrorStateCell(image: stubViewModel.image,

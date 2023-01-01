@@ -20,7 +20,21 @@ struct MainScreenGridContentCellModel: MainScreenContentCell {
 
 struct MainScreenStubContentCellModel: MainScreenContentCell {
     let image: UIImage?
-    let topText: String
-    let bottomText: String
-    let buttonLabelText: String
+    let topText: String?
+    let bottomText: String?
+    let buttonLabelText: String?
+    
+    init(image: UIImage? = nil,
+         topText: String? = nil,
+         bottomText: String? = nil,
+         buttonLabelText: String? = nil) {
+        self.image = image
+        self.topText = topText
+        self.bottomText = bottomText
+        self.buttonLabelText = buttonLabelText
+    }
+}
+
+struct MainScreenTextContentCellModel: MainScreenContentCell {
+    let text: String
 }

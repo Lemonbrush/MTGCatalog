@@ -7,10 +7,16 @@
 
 import Foundation
 
+enum SwiftFallResultError: Error {
+    case networkError(error: NetworkServiceError)
+    case scryfallError(error: ScryfallError)
+    case unknownError(error: Error)
+}
+
 // Result enum to control possible end states
 enum SwiftfalResult<Value> {
     case success(Value)
-    case failure(Error)
+    case failure(SwiftFallResultError)
     
     // MARK: - Functions
     

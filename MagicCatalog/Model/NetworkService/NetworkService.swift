@@ -172,13 +172,6 @@ extension NetworkService: URLSessionDelegate, URLSessionTaskDelegate, URLSession
     
     //MARK: - Functions
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        guard let param = getNetworkParams(session) else {
-            return
-        }
-        param.completion?(Result.failure(.unknown(error)))
-    }
-    
     func urlSession(_ session: URLSession,
                     dataTask: URLSessionDataTask,
                     didReceive response: URLResponse,

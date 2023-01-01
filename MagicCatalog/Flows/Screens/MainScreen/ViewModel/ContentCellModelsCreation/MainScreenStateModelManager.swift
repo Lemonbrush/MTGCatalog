@@ -12,6 +12,7 @@ class MainScreenStateModelManager {
     // MARK: - Private properties
     
     private let loadedStateAdapter = MainScreenViewModelLoadedStateAdapter()
+    private let errorStateAdapter = MainScreenViewModelErrorStateAdapter()
     
     // MARK: - Private functions
     
@@ -28,5 +29,9 @@ class MainScreenStateModelManager {
                                 cardsSearchResults: [MainScreenCardCellModel]) -> [MainScreenContentCell] {
         return loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
                                                                             cardsSearchResults: cardsSearchResults)
+    }
+    
+    func createErrorStateCellModel(_ errorState: MainScreenStateError) -> [MainScreenContentCell] {
+        return errorStateAdapter.createMainScreenViewModelErrorStateModel(errorState)
     }
 }
