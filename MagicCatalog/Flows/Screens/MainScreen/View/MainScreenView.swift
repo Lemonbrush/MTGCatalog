@@ -7,11 +7,22 @@
 
 import SwiftUI
 
-struct MainScreenView: View {
+protocol MainScreenViewModelProtocol: ObservableObject {
+    var navigationTitle: String { get set }
+    var contentCellModels: [MainScreenContentCell] { get set }
+    
+    func showRandomCardReviewScreen()
+    func updateContentGridType(_ newGridType: MainScreenGridType)
+    func didPressCardCell(_ cellId: Int)
+    func didCancelSearch()
+    func didPressSearch(query: String)
+}
+
+struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: MainScreenViewModel
+    @ObservedObject var viewModel: ViewModel
     
     @Environment(\.isSearching) private var isSearching: Bool
     
@@ -20,6 +31,14 @@ struct MainScreenView: View {
     // MARK: - Private properties
     
     private let gridContentAdapter = MainScreenCollectionViewAdapter()
+    
+    // MARK: - Construction
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        
+        gridContentAdapter.delegate = self
+    }
     
     // MARK: - Body view
     
@@ -136,5 +155,11 @@ struct MainScreenView: View {
         if searchCardText.isEmpty && !isSearching {
             viewModel.didCancelSearch()
         }
+    }
+}
+
+extension MainScreenView: MainScreenCollectionViewAdapterDelegate {
+    func didPressCardCell(_ cellId: Int) {
+        viewModel.didPressCardCell(cellId)
     }
 }

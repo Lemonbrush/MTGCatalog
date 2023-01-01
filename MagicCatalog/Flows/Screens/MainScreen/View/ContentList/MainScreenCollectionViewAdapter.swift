@@ -7,11 +7,25 @@
 
 import SwiftUI
 
+protocol MainScreenCollectionViewAdapterDelegate {
+    func didPressCardCell(_ cellId: Int)
+}
+
 class MainScreenCollectionViewAdapter {
+    
+    // MARK: - Properties
+    
+    var delegate: MainScreenCollectionViewAdapterDelegate?
     
     // MARK: - Private properties
     
     private let contentAdapter = CardsGridAdapter()
+    
+    // MARK: - Construction
+    
+    init() {
+        contentAdapter.delegate = self
+    }
     
     // MARK: - Functions
     
@@ -62,3 +76,11 @@ class MainScreenCollectionViewAdapter {
         return AnyView(view)
     }
 }
+
+extension MainScreenCollectionViewAdapter: CardsGridAdapterDelegate {
+    func didPressCardCell(_ cellId: Int) {
+        delegate?.didPressCardCell(cellId)
+    }
+}
+
+

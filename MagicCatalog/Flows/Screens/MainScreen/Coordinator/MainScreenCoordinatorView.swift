@@ -12,7 +12,7 @@ struct MainScreenCoordinatorView: View {
     
     var body: some View {
         ZStack {
-            MainScreenView(viewModel: coordinator.viewModel(for: .mainScreen))
+            MainScreenView<MainScreenViewModel>(viewModel: coordinator.viewModel(for: .mainScreen))
             LazyNavigationLink(
                 isActive: coordinator.isActive(.cardReview),
                 destination: {

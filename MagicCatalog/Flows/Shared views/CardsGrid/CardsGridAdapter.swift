@@ -8,7 +8,6 @@
 import SwiftUI
 
 protocol CardsGridAdapterDelegate: AnyObject {
-    func didPressErrorCellButton()
     func didPressCardCell(_ cellId: Int)
 }
 
@@ -54,11 +53,5 @@ class CardsGridAdapter {
 extension CardsGridAdapter: CardsGridCardCellDelegate {
     func didPressOnCardCell(_ cellId: Int) {
         delegate?.didPressCardCell(cellId)
-    }
-}
-
-extension CardsGridAdapter: MainScreenErrorStateCellDelegate {
-    func didPressButton() {
-        delegate?.didPressErrorCellButton()
     }
 }
