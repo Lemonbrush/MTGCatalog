@@ -7,37 +7,21 @@
 
 import SwiftUI
 
+protocol GridStackDelegate: AnyObject {
+    func didItemAppeared(index: Int)
+}
+
 struct GridStack<CellViewModelType, Content: View>: View {
     
     // MARK: - Properties
+    
+    weak var delegate: GridStackDelegate?
     
     let columns: Int
     let hSpacing: CGFloat
     let vSpacing: CGFloat
     let content: (CellViewModelType) -> Content
     let viewModels: [CellViewModelType]
-
-    // MARK: - Body view
-    
-    var body: some View {
-        VStack(spacing: vSpacing) {
-            ForEach(0 ... viewModels.count / columns , id: \.self) { row in
-                HStack(spacing: hSpacing) {
-                    ForEach(0 ..< columns, id: \.self) { column in
-                        if let index = calculateIndex(row: row, column: column),
-                            index < viewModels.count {
-                            content(viewModels[index])
-                        } else if columns > 1 {
-                            VStack {
-                                HStack { Spacer() }
-                                Spacer()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
     
     // MARK: - Construction
     
@@ -52,8 +36,52 @@ struct GridStack<CellViewModelType, Content: View>: View {
         self.vSpacing = vSpacing
         self.content = content
     }
+
+    // MARK: - Body view
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack(spacing: vSpacing) {
+                gridRows
+            }
+        }
+    }
+    
+    // MARK: - Private body view
+    
+    private var gridRows: some View {
+        ForEach(0 ... viewModels.count / columns , id: \.self) { row in
+            HStack(spacing: hSpacing) {
+                ForEach(0 ..< columns, id: \.self) { column in
+                    createItem(row: row, column: column)
+                }
+            }
+        }
+    }
+    
+    private var spacerItem: some View {
+        VStack {
+            HStack { Spacer() }
+            Spacer()
+        }
+    }
     
     // MARK: - Private properties
+    
+    private func createItem(row: Int, column: Int) -> AnyView? {
+        var view: AnyView? = nil
+        
+        let index = calculateIndex(row: row, column: column)
+        if index < viewModels.count {
+            let contentView = content(viewModels[index])
+            view = AnyView(contentView)
+        } else if columns > 1 {
+            let spacer = spacerItem
+            view = AnyView(spacer)
+        }
+        
+        return view
+    }
     
     private func calculateIndex(row: Int, column: Int) -> Int {
         return (row * columns) + column

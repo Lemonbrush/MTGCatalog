@@ -16,6 +16,7 @@ protocol MainScreenViewModelProtocol: ObservableObject {
     func didPressCardCell(_ cellId: Int)
     func didCancelSearch()
     func didPressSearch(query: String)
+    func didItemAppeared(index: Int)
 }
 
 struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
@@ -159,6 +160,10 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
 }
 
 extension MainScreenView: MainScreenCollectionViewAdapterDelegate {
+    func didItemAppeared(index: Int) {
+        viewModel.didItemAppeared(index: index)
+    }
+    
     func didPressCardCell(_ cellId: Int) {
         viewModel.didPressCardCell(cellId)
     }

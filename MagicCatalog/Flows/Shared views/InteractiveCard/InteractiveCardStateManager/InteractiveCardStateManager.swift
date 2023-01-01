@@ -43,13 +43,19 @@ class InteractiveCardStateManager: ObservableObject {
     // MARK: - Private functions
     
     private func updateStateModel() {
-        switch currentState {
-        case .loading:
-            stateModel = InteractiveCardLoadingStateModel()
-        case .loaded:
-            stateModel = InteractiveCardLoadedStateModel(image: cardImage)
-        case .error:
-            stateModel = InteractiveCardErrorStateModel()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            switch self.currentState {
+            case .loading:
+                self.stateModel = InteractiveCardLoadingStateModel()
+            case .loaded:
+                self.stateModel = InteractiveCardLoadedStateModel(image: self.cardImage)
+            case .error:
+                self.stateModel = InteractiveCardErrorStateModel()
+            }
         }
     }
 }

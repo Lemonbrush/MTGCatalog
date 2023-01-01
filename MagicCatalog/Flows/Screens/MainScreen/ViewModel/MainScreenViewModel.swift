@@ -72,6 +72,12 @@ class MainScreenViewModel: ObservableObject {
         totalCards = cardListModel.totalCards
     }
     
+    func loadMoreIfNeeded() {
+        if let currentCardList = cardList, currentCardList.hasMore {
+            
+        }
+    }
+    
     // MARK: - Private functions
     
     private func updateCardModels(_ newCards: [Card]) {
@@ -82,7 +88,7 @@ class MainScreenViewModel: ObservableObject {
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
         }
         
-        self.cardModels = cardCellModels
+        cardModels = cardCellModels
     }
     
     private func updateLoadedState() {

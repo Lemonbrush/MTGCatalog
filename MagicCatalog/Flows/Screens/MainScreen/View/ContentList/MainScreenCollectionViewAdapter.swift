@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-protocol MainScreenCollectionViewAdapterDelegate {
+protocol MainScreenCollectionViewAdapterDelegate  {
     func didPressCardCell(_ cellId: Int)
+    func didItemAppeared(index: Int)
 }
 
 class MainScreenCollectionViewAdapter {
@@ -66,14 +67,16 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createContentGridCell(_ cellModel: MainScreenGridContentCellModel) -> AnyView {
-        let view = GridStack(cellModel.viewModels,
+        var grid = GridStack(cellModel.viewModels,
                              columns: cellModel.columns,
                              hSpacing: 5,
                              vSpacing: 5) { [weak self] viewModel in
             self?.contentAdapter.getCell(viewModel)
         }
         
-        return AnyView(view)
+        grid.delegate = self
+        
+        return AnyView(grid)
     }
 }
 
@@ -84,3 +87,8 @@ extension MainScreenCollectionViewAdapter: CardsGridAdapterDelegate {
 }
 
 
+extension MainScreenCollectionViewAdapter: GridStackDelegate {
+    func didItemAppeared(index: Int) {
+        delegate?.didItemAppeared(index: index)
+    }
+}

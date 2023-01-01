@@ -8,6 +8,9 @@
 import Foundation
 
 extension MainScreenViewModel: MainScreenViewModelProtocol {
+    
+    // MARK: - Functions
+    
     func showRandomCardReviewScreen() {
         //onNavigation?(.randomCardScreen)
     }
@@ -34,5 +37,12 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     func didPressCardCell(_ cellId: Int) {
         let cardModel = cardModels[cellId]
         onNavigation?(.cardReview, cardModel.cardModel)
+    }
+    
+    func didItemAppeared(index: Int) {
+        print("\(index) / \(cardModels.count)")
+        if index == cardModels.count {
+            loadMoreIfNeeded()
+        }
     }
 }
