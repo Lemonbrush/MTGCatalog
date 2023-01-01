@@ -39,7 +39,7 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createStubView(_ stubViewModel: MainScreenStubContentCellModel) -> AnyView {
-        let view = MainScreenErrorStateCell(image: stubViewModel.image,
+        let view = MainScreenErrorStateCell(systemImageName: stubViewModel.systemImageName,
                                             topText: stubViewModel.topText,
                                             bottomText: stubViewModel.bottomText,
                                             buttonTLabelText: stubViewModel.buttonLabelText)

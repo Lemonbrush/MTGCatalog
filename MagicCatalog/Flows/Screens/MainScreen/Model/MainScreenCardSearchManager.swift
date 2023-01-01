@@ -47,7 +47,8 @@ class MainScreenCardSearchManager {
             handleNetworkError(error: error)
         case .scryfallError(let error):
             delegate?.didReceiveError(error: .serviceError(error: error))
-        case .unknownError(_):
+        case .unknownError(let error):
+            print(error.localizedDescription)
             delegate?.didReceiveError(error: .notAvailable)
         }
     }
@@ -59,7 +60,7 @@ class MainScreenCardSearchManager {
         case .timeOut:
             delegate?.didReceiveError(error: .timeout)
         default:
-            delegate?.didReceiveError(error: .notAvailable)
+            delegate?.didReceiveError(error: .genericError)
         }
     }
 }

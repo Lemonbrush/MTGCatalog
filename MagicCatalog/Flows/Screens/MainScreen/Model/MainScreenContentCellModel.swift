@@ -19,16 +19,16 @@ struct MainScreenGridContentCellModel: MainScreenContentCell {
 }
 
 struct MainScreenStubContentCellModel: MainScreenContentCell {
-    let image: UIImage?
+    let systemImageName: String?
     let topText: String?
     let bottomText: String?
     let buttonLabelText: String?
     
-    init(image: UIImage? = nil,
+    init(systemImageName: String? = nil,
          topText: String? = nil,
          bottomText: String? = nil,
          buttonLabelText: String? = nil) {
-        self.image = image
+        self.systemImageName = systemImageName
         self.topText = topText
         self.bottomText = bottomText
         self.buttonLabelText = buttonLabelText

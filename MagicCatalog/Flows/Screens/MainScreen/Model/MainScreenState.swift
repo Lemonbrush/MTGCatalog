@@ -12,6 +12,7 @@ enum MainScreenStateError: Error {
     case notAvailable
     case timeout
     case serviceError(error: ScryfallError)
+    case genericError
 }
 
 enum MainScreenState {

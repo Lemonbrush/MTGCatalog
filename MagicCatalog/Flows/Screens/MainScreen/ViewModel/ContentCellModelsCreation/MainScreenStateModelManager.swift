@@ -17,7 +17,7 @@ class MainScreenStateModelManager {
     // MARK: - Private functions
     
     func createEmptySearchStateCellModels() -> [MainScreenContentCell] {
-        let errorCellModel = MainScreenStubContentCellModel(image: UIImage(systemName: "rectangle.portrait.on.rectangle.portrait.fill"),
+        let errorCellModel = MainScreenStubContentCellModel(systemImageName: "rectangle.portrait.on.rectangle.portrait.fill",
                                                             topText: "Find a card",
                                                             bottomText: "Start searching for an mtg card or get a ",
                                                             buttonLabelText: "Random card")

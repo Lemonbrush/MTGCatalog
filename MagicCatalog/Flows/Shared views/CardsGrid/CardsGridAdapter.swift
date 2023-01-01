@@ -22,8 +22,6 @@ class CardsGridAdapter {
     
     func getCell(_ cellModel: CardsGridCellModel) -> AnyView {
         switch cellModel {
-        case let errorCellModel as CardsGridStubCellModel:
-            return AnyView(createErrorStateCellView(errorCellModel))
         case let cardCellModel as CardsGridSubtitledCardCellModel:
             return AnyView(createGridThreeCardCellView(cardCellModel))
         case let cardCellModel as CardsGridSimpleCardCellModel:
@@ -34,15 +32,6 @@ class CardsGridAdapter {
     }
     
     // MARK: - Private functions
-    
-    private func createErrorStateCellView(_ model: CardsGridStubCellModel) -> AnyView {
-        var errorStateCell = MainScreenErrorStateCell(image: model.image,
-                                                      topText: model.topText,
-                                                      bottomText: model.bottomText,
-                                                      buttonTLabelText: model.buttonLabelText)
-        errorStateCell.delegate = self
-        return AnyView(errorStateCell)
-    }
     
     private func createGridThreeCardCellView(_ model: CardsGridSubtitledCardCellModel) -> AnyView {
         var cardCell = CardsGridSubtitledCardCell(stateManager: model.stateManager,

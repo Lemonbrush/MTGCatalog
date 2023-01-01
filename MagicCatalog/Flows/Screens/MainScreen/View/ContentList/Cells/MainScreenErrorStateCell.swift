@@ -17,7 +17,7 @@ struct MainScreenErrorStateCell: View {
     
     weak var delegate: MainScreenErrorStateCellDelegate?
     
-    let image: UIImage?
+    let systemImageName: String?
     let topText: String?
     let bottomText: String?
     let buttonTLabelText: String?
@@ -27,8 +27,8 @@ struct MainScreenErrorStateCell: View {
       var body: some View {
           VStack(spacing: 30) {
               
-              if let image = image {
-                  Image(uiImage: image)
+              if let strongSystemImageName = systemImageName {
+                  Image(systemName: strongSystemImageName)
                       .resizable()
                       .aspectRatio(contentMode: .fit)
                       .frame(width: 60, height: 60)
