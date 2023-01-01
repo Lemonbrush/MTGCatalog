@@ -74,7 +74,6 @@ class MainScreenViewModel: ObservableObject {
             guard let self = self else {
                 return
             }
-            self.currentState = .error(.genericError)
             switch self.currentState {
             case .emptySearch:
                 self.updateEmptySearchState()

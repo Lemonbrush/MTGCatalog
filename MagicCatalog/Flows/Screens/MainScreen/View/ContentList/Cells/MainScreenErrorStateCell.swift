@@ -37,6 +37,20 @@ struct MainScreenErrorStateCell: View {
               
               errorCellTextBlock
               
+              if let buttonTLabelText = buttonTLabelText {
+                  Button(action: {
+                      delegate?.didPressButton()
+                  }) {
+                      Text(buttonTLabelText)
+                          .bold()
+                          .padding([.leading, .trailing], 25)
+                          .padding([.top, .bottom], 10)
+                  }
+                  .foregroundColor(.white)
+                  .background(Color.blue)
+                  .cornerRadius(12)
+              }
+              
           }.frame(height: UIScreen.main.bounds.size.height / 1.5)
       }
     
@@ -49,20 +63,10 @@ struct MainScreenErrorStateCell: View {
                     .font(.title.weight(.bold))
             }
             
-            VStack(spacing: 5) {
-                if let bottomText = bottomText {
-                    Text(bottomText)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.gray)
-                }
-                
-                if let buttonTLabelText = buttonTLabelText {
-                    Button(action: {
-                        delegate?.didPressButton()
-                    }) {
-                        Text(buttonTLabelText)
-                    }.foregroundColor(.blue)
-                }
+            if let bottomText = bottomText {
+                Text(bottomText)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.gray)
             }
         }
     }
