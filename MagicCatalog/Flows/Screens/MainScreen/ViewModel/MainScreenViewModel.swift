@@ -22,6 +22,7 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var navigationTitle: String = "Magic cards"
     @Published var contentCellModels: [MainScreenContentCell] = []
+    @Published var shoulScrollToTop = false
     
     var onNavigation: ((MainScreenNavigation, Card, UIImage?) -> Void)?
     
@@ -89,6 +90,7 @@ class MainScreenViewModel: ObservableObject {
         }
         
         cardModels = cardCellModels
+        shoulScrollToTop.toggle()
     }
     
     private func updateLoadedState() {

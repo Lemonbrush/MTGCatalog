@@ -40,7 +40,6 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     }
     
     func didItemAppeared(index: Int) {
-        print("\(index) / \(cardModels.count)")
         if index == cardModels.count {
             loadMoreIfNeeded()
         }
