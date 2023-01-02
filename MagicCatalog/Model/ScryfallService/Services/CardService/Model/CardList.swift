@@ -7,25 +7,9 @@
 
 import Foundation
 
-public struct CardList: Codable, CustomStringConvertible {
-    
-    // MARK: - Properties
-
+struct CardList: Codable {
     let data: [Card]
     let hasMore: Bool
     let nextPage: String?
     let totalCards: Int
-    
-    // prints each set
-    public var description: String {
-        var text = ""
-        var i = 0
-        for card in data {
-            text += "\n"
-            text += card.description
-            text += "\n"
-            i = i + 1
-        }
-        return text
-    }
 }

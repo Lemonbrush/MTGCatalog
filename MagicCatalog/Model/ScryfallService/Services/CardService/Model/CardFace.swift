@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardFace: Codable, CustomStringConvertible {
+struct CardFace: Codable {
     let name: String?
     let manaCost: String?
     let typeLine: String?
@@ -19,25 +19,4 @@ struct CardFace: Codable, CustomStringConvertible {
     let flavorText: String?
     let illustrationId: String?
     let imageUris: [String: String]?
-    
-    var description: String {
-        var text = "Name: \(name!)\n"
-        
-        if self.manaCost != nil {
-            text += "Cost: \(manaCost!)\n"
-        }
-        if self.typeLine != nil {
-            text += "Type Line: \(typeLine!)\n"
-        }
-        if self.oracleText != nil {
-            text += "Oracle Text:\n\(oracleText!)\n"
-        }
-        if self.power != nil && self.toughness != nil {
-            text += "Power: \(power!)\nToughness: \(toughness!)\n"
-        }
-        if self.loyalty != nil {
-            text += "Loyalty: \(loyalty!)\n"
-        }
-        return text
-    }
 }

@@ -11,7 +11,9 @@ enum SwiftFallCardImagery {
     case png, borderCrop, artCrop, large, normal, small
 }
 
-struct Card: Codable, CustomStringConvertible {
+struct Card: Codable {
+    
+    // MARK: - Properties
     
     let prices: CardPrice?
     
@@ -131,40 +133,6 @@ struct Card: Codable, CustomStringConvertible {
     
     /// A URL to this cards’s story article, if any.
     let storySpotlightUri: String?
-    
-    /// Return string when self is used as a parameter for print
-    var description: String {
-        var text = ""
-        // if the card has multiple faces, print them
-        if (self.cardFaces) != nil {
-            for face in cardFaces! {
-                text += face.description
-                text += "\n"
-            }
-            return text
-        }
-        // Each variable is tested to see if printing it makes sense.
-        if self.name != nil {
-            text += "Name: \(name!)\n"
-        }
-        if self.manaCost != nil {
-            text += "Cost: \(manaCost!)\n"
-        }
-        if self.typeLine != nil {
-            text += "Type Line: \(typeLine!)\n"
-        }
-        if self.oracleText != nil {
-            text += "Oracle Text:\n\(oracleText!)\n"
-        }
-        if self.power != nil && self.toughness != nil {
-            text += "Power: \(power!)\nToughness: \(toughness!)\n"
-        }
-        if self.loyalty != nil {
-            text += "Loyalty: \(loyalty!)\n"
-        }
-        
-        return text
-    }
     
     // MARK: - Functions
     
