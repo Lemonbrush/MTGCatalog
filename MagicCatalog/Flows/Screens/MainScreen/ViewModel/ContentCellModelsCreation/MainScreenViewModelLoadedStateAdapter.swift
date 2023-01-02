@@ -21,11 +21,11 @@ class MainScreenViewModelLoadedStateAdapter {
         
         switch gridType {
         case .grid(columns: let columns):
-            let contentCellModels =  createGridCell(cards: cardsSearchResults, columns: columns)
+            let contentCellModels = createGridCell(cards: cardsSearchResults, columns: columns)
             mainScreenContentCells.append(contentCellModels)
         case .inline:
             let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            let contentCellModels =  MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 5)
+            let contentCellModels = MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 5)
             mainScreenContentCells.append(contentCellModels)
         }
         

@@ -70,7 +70,8 @@ class MainScreenCollectionViewAdapter {
         var grid = GridStack(cellModel.viewModels,
                              columns: cellModel.columns,
                              hSpacing: 5,
-                             vSpacing: 5) { [weak self] viewModel in
+                             vSpacing: 5,
+                             isLazyLoad:  true) { [weak self] viewModel in
             self?.contentAdapter.getCell(viewModel)
         }
         

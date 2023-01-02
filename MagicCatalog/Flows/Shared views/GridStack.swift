@@ -22,6 +22,7 @@ struct GridStack<CellViewModelType, Content: View>: View {
     let vSpacing: CGFloat
     let content: (CellViewModelType) -> Content
     let viewModels: [CellViewModelType]
+    let isLazyLoad: Bool
     
     // MARK: - Construction
     
@@ -29,19 +30,25 @@ struct GridStack<CellViewModelType, Content: View>: View {
          columns: Int = 1,
          hSpacing: CGFloat = 0,
          vSpacing: CGFloat = 0,
+         isLazyLoad: Bool = false,
          @ViewBuilder content: @escaping (CellViewModelType) -> Content) {
         self.viewModels = viewModels
         self.columns = columns
         self.hSpacing = hSpacing
         self.vSpacing = vSpacing
         self.content = content
+        self.isLazyLoad = isLazyLoad
     }
 
     // MARK: - Body view
     
     var body: some View {
-        ScrollView {
+        if isLazyLoad {
             LazyVStack(spacing: vSpacing) {
+                gridRows
+            }
+        } else {
+            VStack(spacing: vSpacing) {
                 gridRows
             }
         }
@@ -54,6 +61,9 @@ struct GridStack<CellViewModelType, Content: View>: View {
             HStack(spacing: hSpacing) {
                 ForEach(0 ..< columns, id: \.self) { column in
                     createItem(row: row, column: column)
+                        .onAppear {
+                            didItemAppeared(row: row, column: column)
+                        }
                 }
             }
         }
@@ -67,6 +77,11 @@ struct GridStack<CellViewModelType, Content: View>: View {
     }
     
     // MARK: - Private properties
+    
+    private func didItemAppeared(row: Int, column: Int) {
+        let currentIndex = calculateIndex(row: row, column: column)
+        delegate?.didItemAppeared(index: currentIndex)
+    }
     
     private func createItem(row: Int, column: Int) -> AnyView? {
         var view: AnyView? = nil
