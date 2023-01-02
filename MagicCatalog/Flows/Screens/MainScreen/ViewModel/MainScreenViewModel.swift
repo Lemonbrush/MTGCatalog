@@ -23,7 +23,7 @@ class MainScreenViewModel: ObservableObject {
     @Published var navigationTitle: String = "Magic cards"
     @Published var contentCellModels: [MainScreenContentCell] = []
     
-    var onNavigation: ((MainScreenNavigation, Card) -> Void)?
+    var onNavigation: ((MainScreenNavigation, Card, UIImage?) -> Void)?
     
     var cardModels: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch

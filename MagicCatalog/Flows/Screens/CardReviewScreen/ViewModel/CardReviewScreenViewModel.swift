@@ -27,8 +27,12 @@ class CardReviewScreenViewModel: ObservableObject {
     
     // MARK: - Construction
     
-    init(swiftFallCardModel: Card) {
+    init(swiftFallCardModel: Card, cardImage: UIImage? = nil) {
         self.swiftFallCardModel = swiftFallCardModel
+        
+        if let cardImage = cardImage {
+            self.cardImage = cardImage
+        }
         
         imageDownloader.delegate = self
         
@@ -49,11 +53,10 @@ class CardReviewScreenViewModel: ObservableObject {
     
     private func setupCardData(_ swiftFallCardModel: Card) {
         let cardViewModel = CardReviewScreenCardModel(cardTitle: swiftFallCardModel.name,
-                                  cardText: swiftFallCardModel.oracleText,
-                                  cardArtist: swiftFallCardModel.artist,
-                                  creatureType: swiftFallCardModel.typeLine,
-                                  flavourText: swiftFallCardModel.flavorText)
-        
+                                                      cardText: swiftFallCardModel.oracleText,
+                                                      cardArtist: swiftFallCardModel.artist,
+                                                      creatureType: swiftFallCardModel.typeLine,
+                                                      flavourText: swiftFallCardModel.flavorText)
         DispatchQueue.main.async { [weak self] in
             self?.cardModel = cardViewModel
         }

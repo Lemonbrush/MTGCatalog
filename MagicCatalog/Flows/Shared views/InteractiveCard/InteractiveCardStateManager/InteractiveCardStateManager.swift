@@ -18,9 +18,10 @@ class InteractiveCardStateManager: ObservableObject {
     
     @Published var stateModel: InteractiveCardStateProtocol = InteractiveCardErrorStateModel()
     
+    var cardImage = UIImage()
+    
     // MARK: - Private properties
     
-    private var cardImage = UIImage()
     private let imageDownloader = ImageDownloaderManager()
     private var currentState: InteractiveCardViewModelState = .loading
     

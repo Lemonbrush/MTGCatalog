@@ -17,17 +17,17 @@ class MainScreenCoordinator: Coordinator {
     
     init() {
         let viewModel = MainScreenViewModel()
-        viewModel.onNavigation = { [weak self] navigation, cardModel in
+        viewModel.onNavigation = { [weak self] navigation, cardModel, cardImage in
             switch navigation {
             case .cardReview:
-                self?.pushCardViewCoordinator(swiftFallCardModel: cardModel)
+                self?.pushCardViewCoordinator(swiftFallCardModel: cardModel, cardImage: cardImage)
             }
         }
         pushToNavigationStack(.mainScreen, viewModel: viewModel)
     }
     
-    private func pushCardViewCoordinator(swiftFallCardModel: Card) {
-        let coordinator = CardReviewScreenCoordinator(swiftFallCardModel: swiftFallCardModel)
+    private func pushCardViewCoordinator(swiftFallCardModel: Card, cardImage: UIImage?) {
+        let coordinator = CardReviewScreenCoordinator(swiftFallCardModel: swiftFallCardModel, cardImage: cardImage)
         coordinator.onFinish = { [weak self] in
             self?.popFromNavigationStack()
         }
