@@ -1,0 +1,18 @@
+# Xcode project
+xcuserdata/
+
+# Pods
+Pods/
+
+# DS_Store
+.DS_Store
+
+# fastlane time report
+fastlane/report.xml
+fastlane/test_output/
+
+# AppCode files
+.idea
+
+# temp folder for building app
+build/
