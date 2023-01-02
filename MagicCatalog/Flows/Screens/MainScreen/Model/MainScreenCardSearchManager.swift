@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainScreenCardSearchManagerDelegate: AnyObject {
     func didReceiveCardData(_ cardListModel: CardList)
+    func didReceiveNextPageData(_ cardListModel: CardList)
     func didReceiveError(error: MainScreenStateError)
 }
 
@@ -37,6 +38,10 @@ class MainScreenCardSearchManager {
                 self.handleErrorResult(error: error)
             }
         }
+    }
+    
+    func requestNextPage(_ nextPageUrl: String) {
+        
     }
     
     // MARK: - Private functions

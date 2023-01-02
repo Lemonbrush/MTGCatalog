@@ -8,6 +8,8 @@
 import Foundation
 
 public struct CardList: Codable, CustomStringConvertible {
+    
+    // MARK: - Properties
 
     let data: [Card]
     let hasMore: Bool

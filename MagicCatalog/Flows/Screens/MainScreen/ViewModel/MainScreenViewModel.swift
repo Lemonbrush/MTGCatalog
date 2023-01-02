@@ -73,9 +73,15 @@ class MainScreenViewModel: ObservableObject {
         totalCards = cardListModel.totalCards
     }
     
+    func setupNextPageCardListModel(_ cardListModel: CardList) {
+        
+    }
+    
     func loadMoreIfNeeded() {
-        if let currentCardList = cardList, currentCardList.hasMore {
-            
+        if let currentCardList = cardList,
+            let nextPageUrl = cardList?.nextPage,
+            currentCardList.hasMore {
+            cardSerachManager.requestNextPage(nextPageUrl)
         }
     }
     
