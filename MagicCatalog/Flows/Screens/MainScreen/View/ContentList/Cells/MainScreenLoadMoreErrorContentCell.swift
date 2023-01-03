@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+protocol MainScreenLoadMoreErrorContentCellDelegate: AnyObject {
+    func didPressReload()
+}
+
 struct MainScreenLoadMoreErrorContentCell: View {
     
     // MARK: - Properties
+    
+    weak var delegate: MainScreenLoadMoreErrorContentCellDelegate?
     
     let text: String
     let systemImageName: String
@@ -34,7 +40,7 @@ struct MainScreenLoadMoreErrorContentCell: View {
                 Spacer()
                 
                 Button {
-                    
+                    delegate?.didPressReload()
                 } label: {
                     Image(systemName: "arrow.clockwise").foregroundColor(.white)
                 }

@@ -10,6 +10,7 @@ import SwiftUI
 protocol MainScreenCollectionViewAdapterDelegate  {
     func didPressCardCell(_ cellId: Int)
     func didItemAppeared(index: Int)
+    func didPressLoadMoreErrorReload()
 }
 
 class MainScreenCollectionViewAdapter {
@@ -58,7 +59,8 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createLoadMoreErrorView(_ loadMoreErrorModel: MainScreenLoadMoreErrorCellModel) -> AnyView {
-        let view = MainScreenLoadMoreErrorContentCell(text: loadMoreErrorModel.errorText, systemImageName: loadMoreErrorModel.systemImageName)
+        var view = MainScreenLoadMoreErrorContentCell(text: loadMoreErrorModel.errorText, systemImageName: loadMoreErrorModel.systemImageName)
+        view.delegate = self
         return AnyView(view)
     }
     
@@ -107,3 +109,10 @@ extension MainScreenCollectionViewAdapter: GridStackDelegate {
         delegate?.didItemAppeared(index: index)
     }
 }
+
+extension MainScreenCollectionViewAdapter: MainScreenLoadMoreErrorContentCellDelegate {
+    func didPressReload() {
+        delegate?.didPressLoadMoreErrorReload()
+    }
+}
+

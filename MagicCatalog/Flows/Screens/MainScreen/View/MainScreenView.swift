@@ -18,6 +18,7 @@ protocol MainScreenViewModelProtocol: ObservableObject {
     func didCancelSearch()
     func didPressSearch(query: String)
     func didItemAppeared(index: Int)
+    func didPressLoadMoreErrorReload()
 }
 
 struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
@@ -169,6 +170,10 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
 }
 
 extension MainScreenView: MainScreenCollectionViewAdapterDelegate {
+    func didPressLoadMoreErrorReload() {
+        viewModel.didPressLoadMoreErrorReload()
+    }
+    
     func didItemAppeared(index: Int) {
         viewModel.didItemAppeared(index: index)
     }

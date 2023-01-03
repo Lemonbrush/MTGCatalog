@@ -44,4 +44,8 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
             loadMoreIfNeeded()
         }
     }
+    
+    func didPressLoadMoreErrorReload() {
+        loadMoreIfNeeded()
+    }
 }
