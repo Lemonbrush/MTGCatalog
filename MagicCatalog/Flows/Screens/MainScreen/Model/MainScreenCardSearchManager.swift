@@ -11,6 +11,7 @@ protocol MainScreenCardSearchManagerDelegate: AnyObject {
     func didReceiveCardData(_ cardListModel: CardList)
     func didReceiveNextPageData(_ cardListModel: CardList)
     func didReceiveError(error: MainScreenStateError)
+    func didReceiveLoadMoreError(error: MainScreenLoadMoreError)
 }
 
 class MainScreenCardSearchManager {
@@ -49,22 +50,31 @@ class MainScreenCardSearchManager {
             switch result {
             case .success(let cards):
                 self.delegate?.didReceiveNextPageData(cards)
-            case .failure(_):
-                return
+            case .failure(let error):
+                self.handleLoadMoreErrorResult(error)
             }
         }
     }
     
     // MARK: - Private functions
     
+    private func handleLoadMoreErrorResult(_ error: SwiftFallResultError) {
+        if case .networkError(error: let networkError) = error,
+           case .notConnectedToInternet = networkError {
+            delegate?.didReceiveLoadMoreError(error: .notReachable)
+        }
+        
+        delegate?.didReceiveLoadMoreError(error: .notAvailable)
+    }
+    
     private func handleErrorResult(error: SwiftFallResultError) {
+        
         switch error {
         case .networkError(let error):
             handleNetworkError(error: error)
         case .scryfallError(let error):
             delegate?.didReceiveError(error: .serviceError(error: error))
-        case .unknownError(let error):
-            print(error.localizedDescription)
+        case .unknownError(_):
             delegate?.didReceiveError(error: .notAvailable)
         }
     }

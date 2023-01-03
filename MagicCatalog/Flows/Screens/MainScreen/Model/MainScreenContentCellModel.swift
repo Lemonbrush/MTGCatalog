@@ -38,3 +38,10 @@ struct MainScreenStubContentCellModel: MainScreenContentCell {
 struct MainScreenTextContentCellModel: MainScreenContentCell {
     let text: String
 }
+
+struct MainScreenLoadMoreLoadingCellModel: MainScreenContentCell { }
+
+struct MainScreenLoadMoreErrorCellModel: MainScreenContentCell {
+    let errorText: String
+    let systemImageName: String
+}

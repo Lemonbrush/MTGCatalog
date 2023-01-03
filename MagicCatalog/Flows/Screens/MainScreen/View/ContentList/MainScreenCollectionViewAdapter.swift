@@ -40,6 +40,10 @@ class MainScreenCollectionViewAdapter {
             return createStubView(stubViewModel)
         case let textLineViewModel as MainScreenTextContentCellModel:
             return createTextLineView(textLineViewModel)
+        case let loadMoreErrorModel as MainScreenLoadMoreErrorCellModel:
+            return createLoadMoreErrorView(loadMoreErrorModel)
+        case _ as MainScreenLoadMoreLoadingCellModel:
+            return createLoadMoreLoadingView()
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -47,6 +51,16 @@ class MainScreenCollectionViewAdapter {
     }
     
     // MARK: - Private functions
+    
+    private func createLoadMoreLoadingView() -> AnyView {
+        let view = MainScreenActivityIndicatorContentCell()
+        return AnyView(view)
+    }
+    
+    private func createLoadMoreErrorView(_ loadMoreErrorModel: MainScreenLoadMoreErrorCellModel) -> AnyView {
+        let view = MainScreenLoadMoreErrorContentCell(text: loadMoreErrorModel.errorText, systemImageName: loadMoreErrorModel.systemImageName)
+        return AnyView(view)
+    }
     
     private func createTextLineView(_ textCellViewModel: MainScreenTextContentCellModel) -> AnyView {
         let view = MainScreenTextContentCell(text: textCellViewModel.text)

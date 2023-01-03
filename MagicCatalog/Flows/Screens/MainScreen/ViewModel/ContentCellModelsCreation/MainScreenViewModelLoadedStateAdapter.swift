@@ -13,7 +13,8 @@ class MainScreenViewModelLoadedStateAdapter {
     
     func createMainScreenViewModelLoadedStateModel(gridType: MainScreenGridType,
                                                    cardsSearchResults: [MainScreenCardCellModel],
-                                                   totalCards: Int) -> [MainScreenContentCell] {
+                                                   totalCards: Int,
+                                                   hasMore: Bool) -> [MainScreenContentCell] {
         var mainScreenContentCells: [MainScreenContentCell] = []
         
         let textLineCellModel = createTextLineCellModel(text: "\(totalCards) cards were found")
@@ -29,7 +30,9 @@ class MainScreenViewModelLoadedStateAdapter {
             mainScreenContentCells.append(contentCellModels)
         }
         
-        mainScreenContentCells.append(createTextLineCellModel(text: "This search is finished. Now the real work can begin."))
+        if !hasMore {
+            mainScreenContentCells.append(createTextLineCellModel(text: "This search is finished. Now the real work can begin."))
+        }
         
         return mainScreenContentCells
     }

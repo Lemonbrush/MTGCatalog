@@ -63,6 +63,10 @@ class MainScreenViewModel: ObservableObject {
                 break
             case .error(let errorState):
                 self.updateErrorState(errorState)
+            case .loadingMore:
+                self.updateLoadingMoreState()
+            case .loadingMoreError(let loadingMoreError):
+                self.updateLoadingMoreErrorState(loadingMoreError)
             }
         }
     }
@@ -83,6 +87,8 @@ class MainScreenViewModel: ObservableObject {
             let nextPageUrl = cardList?.nextPage,
             currentCardList.hasMore {
             cardSerachManager.requestNextPage(nextPageUrl)
+            currentState = .loadingMore
+            updateContentCells()
         }
     }
     
@@ -111,7 +117,8 @@ class MainScreenViewModel: ObservableObject {
     private func updateLoadedState() {
         contentCellModels = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
                                                                        cardsSearchResults: cardModels,
-                                                                       totalCards: totalCards)
+                                                                       totalCards: totalCards,
+                                                                       hasMode: cardList?.hasMore ?? false)
     }
     
     private func updateEmptySearchState() {
@@ -120,5 +127,20 @@ class MainScreenViewModel: ObservableObject {
     
     private func updateErrorState(_ errorState: MainScreenStateError) {
         contentCellModels = contentCellsManager.createErrorStateCellModel(errorState)
+    }
+    
+    private func updateLoadingMoreState() {
+        contentCellModels = contentCellsManager.updateLoadMoreLoadingState(resultsGridType: resultsGridType,
+                                                                           cardsSearchResults: cardModels,
+                                                                           totalCards: totalCards,
+                                                                           hasMode: cardList?.hasMore ?? false)
+    }
+    
+    private func updateLoadingMoreErrorState(_ loadingMoreError: MainScreenLoadMoreError) {
+        contentCellModels = contentCellsManager.updateLoadMoreErrorState(resultsGridType: resultsGridType,
+                                                                         cardsSearchResults: cardModels,
+                                                                         totalCards: totalCards,
+                                                                         loadMoreError: loadingMoreError,
+                                                                         hasMode: cardList?.hasMore ?? false)
     }
 }
