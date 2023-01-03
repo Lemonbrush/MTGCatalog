@@ -25,7 +25,8 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
     }
     
     func didReceiveNextPageData(_ cardListModel: CardList) {
-        
+        setupNextPageCardListModel(cardListModel)
+        updateContentCells()
     }
     
     func didReceiveError(error: MainScreenStateError) {

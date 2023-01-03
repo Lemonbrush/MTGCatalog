@@ -41,7 +41,18 @@ class MainScreenCardSearchManager {
     }
     
     func requestNextPage(_ nextPageUrl: String) {
-        
+        cardSearchService.getNextCardListPage(cardListUrl: nextPageUrl) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let cards):
+                self.delegate?.didReceiveNextPageData(cards)
+            case .failure(_):
+                return
+            }
+        }
     }
     
     // MARK: - Private functions

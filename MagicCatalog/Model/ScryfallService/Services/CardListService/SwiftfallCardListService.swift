@@ -52,6 +52,9 @@ class SwiftfallCardListService {
         networkService.request(call: call, timeout: 15, completion: completion)
     }
     
+    func getNextCardListPage(cardListUrl: String, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        networkService.request(call: cardListUrl, timeout: 15, completion: completion)
+    }
     
     // MARK: - Private functions
     

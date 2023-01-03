@@ -74,7 +74,8 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func setupNextPageCardListModel(_ cardListModel: CardList) {
-        
+        cardList = cardListModel
+        addMoreCardModels(cardListModel.data)
     }
     
     func loadMoreIfNeeded() {
@@ -88,15 +89,23 @@ class MainScreenViewModel: ObservableObject {
     // MARK: - Private functions
     
     private func updateCardModels(_ newCards: [Card]) {
+        cardModels = createCardCellModels(newCards)
+        shoulScrollToTop.toggle()
+    }
+    
+    private func addMoreCardModels(_ newCards: [Card]) {
+        let newCardModels = createCardCellModels(newCards)
+        cardModels.append(contentsOf: newCardModels)
+    }
+    
+    private func createCardCellModels(_ cards: [Card]) -> [MainScreenCardCellModel] {
         var cardCellModels: [MainScreenCardCellModel] = []
-        for cardModel in newCards {
+        for cardModel in cards {
             let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
             let cardCellStateManager = InteractiveCardStateManager(imageURLString: imageURL)
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
         }
-        
-        cardModels = cardCellModels
-        shoulScrollToTop.toggle()
+        return cardCellModels
     }
     
     private func updateLoadedState() {
