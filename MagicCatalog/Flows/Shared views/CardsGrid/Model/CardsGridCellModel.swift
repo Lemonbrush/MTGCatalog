@@ -18,6 +18,15 @@ struct CardsGridSubtitledCardCellModel: CardsGridCellModel {
     let cardType: String
 }
 
+struct CardsGridInlineCardCellModel: CardsGridCellModel {
+    let cellId: Int
+    
+    let stateManager: InteractiveCardStateManager
+    
+    let cardTitle: String
+    let cardType: String
+}
+
 struct CardsGridSimpleCardCellModel: CardsGridCellModel {
     let cellId: Int
     let stateManager: InteractiveCardStateManager

@@ -25,9 +25,8 @@ class MainScreenViewModelLoadedStateAdapter {
             let contentCellModels = createGridCell(cards: cardsSearchResults, columns: columns)
             mainScreenContentCells.append(contentCellModels)
         case .inline:
-            let cardViewModels = createRegularCellModels(cards: cardsSearchResults)
-            let contentCellModels = MainScreenGridContentCellModel(viewModels: cardViewModels, columns: 5)
-            mainScreenContentCells.append(contentCellModels)
+            let cardViewModels = createInlineCellModels(cards: cardsSearchResults)
+            mainScreenContentCells.append(cardViewModels)
         }
         
         if !hasMore {
@@ -41,6 +40,11 @@ class MainScreenViewModelLoadedStateAdapter {
     
     private func createTextLineCellModel(text: String) -> MainScreenTextContentCellModel {
         return MainScreenTextContentCellModel(text: text)
+    }
+    
+    private func createInlineCellModels(cards: [MainScreenCardCellModel]) -> MainScreenContentCell {
+        let cardModels = createSubtitlesCellModels(cards: cards)
+        return MainScreenGridInlineContentCellModel(viewModels: cardModels)
     }
     
     private func createGridCell(cards: [MainScreenCardCellModel], columns: Int) -> MainScreenGridContentCellModel {
@@ -70,6 +74,18 @@ class MainScreenViewModelLoadedStateAdapter {
                                                             stateManager: cardCellModel.cardStateManager,
                                                             cardTitle: cardCellModel.cardModel.name ?? "",
                                                             cardType: cardCellModel.cardModel.typeLine ?? "")
+            cellModels.append(cellModel)
+        }
+        return cellModels
+    }
+    
+    private func createSubtitlesCellModels(cards: [MainScreenCardCellModel]) -> [CardsGridCellModel] {
+        var cellModels: [CardsGridCellModel] = []
+        for (cellId, cardCellModel) in cards.enumerated() {
+            let cellModel = CardsGridInlineCardCellModel(cellId: cellId,
+                                                         stateManager: cardCellModel.cardStateManager,
+                                                         cardTitle: cardCellModel.cardModel.name ?? "",
+                                                         cardType: cardCellModel.cardModel.typeLine ?? "")
             cellModels.append(cellModel)
         }
         return cellModels
