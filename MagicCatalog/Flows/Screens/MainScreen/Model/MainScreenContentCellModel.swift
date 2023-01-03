@@ -18,6 +18,10 @@ struct MainScreenGridContentCellModel: MainScreenContentCell {
     let vStack: Int = 5
 }
 
+struct MainScreenGridInlineContentCellModel: MainScreenContentCell {
+    let viewModels: [CardsGridCellModel]
+}
+
 struct MainScreenStubContentCellModel: MainScreenContentCell {
     let systemImageName: String?
     let topText: String?

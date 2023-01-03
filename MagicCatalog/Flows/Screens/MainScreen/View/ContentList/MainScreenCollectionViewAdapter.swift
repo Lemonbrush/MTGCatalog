@@ -35,6 +35,8 @@ class MainScreenCollectionViewAdapter {
         switch contentCellModel {
         case let contentGridCell as MainScreenGridContentCellModel:
             return createContentGridCell(contentGridCell)
+        case let contentGridInlineCell as MainScreenGridInlineContentCellModel:
+            return createContentGridInlineCell(contentGridInlineCell)
         case _ as MainScreenSearchContentCellModel:
             return createSearchContentCell()
         case let stubViewModel as MainScreenStubContentCellModel:
@@ -90,7 +92,15 @@ class MainScreenCollectionViewAdapter {
                              isLazyLoad:  true) { [weak self] viewModel in
             self?.contentAdapter.getCell(viewModel)
         }
+        grid.delegate = self
         
+        return AnyView(grid)
+    }
+    
+    private func createContentGridInlineCell(_ cellModel: MainScreenGridInlineContentCellModel) -> AnyView {
+        var grid = GridStack(cellModel.viewModels, isLazyLoad:  true) { [weak self] viewModel in
+            self?.contentAdapter.getCell(viewModel)
+        }
         grid.delegate = self
         
         return AnyView(grid)

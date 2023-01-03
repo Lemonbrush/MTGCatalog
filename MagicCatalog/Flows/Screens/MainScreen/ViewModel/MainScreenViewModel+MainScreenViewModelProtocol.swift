@@ -40,7 +40,7 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     }
     
     func didItemAppeared(index: Int) {
-        if index == cardModels.count {
+        if index == cardModels.count - 1 {
             loadMoreIfNeeded()
         }
     }

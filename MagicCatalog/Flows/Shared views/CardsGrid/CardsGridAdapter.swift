@@ -25,12 +25,24 @@ class CardsGridAdapter {
             return AnyView(createGridThreeCardCellView(cardCellModel))
         case let cardCellModel as CardsGridSimpleCardCellModel:
             return AnyView(createGridTwoCardCellView(cardCellModel))
+        case let cardCellModel as CardsGridInlineCardCellModel:
+            return AnyView(createGridInlineCardCellView(cardCellModel))
         default:
             return AnyView(EmptyView())
         }
     }
     
     // MARK: - Private functions
+    
+    private func createGridInlineCardCellView(_ model: CardsGridInlineCardCellModel) -> AnyView {
+        var cardCell = CardsGridInlineCardCell(stateManager: model.stateManager,
+                                               cardTitle: model.cardTitle,
+                                               cardType: model.cardType,
+                                               cellId: model.cellId)
+        cardCell.delegate = self
+        
+        return AnyView(cardCell)
+    }
     
     private func createGridThreeCardCellView(_ model: CardsGridSubtitledCardCellModel) -> AnyView {
         var cardCell = CardsGridSubtitledCardCell(stateManager: model.stateManager,
