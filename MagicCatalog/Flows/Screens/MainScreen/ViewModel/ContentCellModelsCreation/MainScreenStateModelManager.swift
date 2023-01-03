@@ -13,6 +13,7 @@ class MainScreenStateModelManager {
     
     private let loadedStateAdapter = MainScreenViewModelLoadedStateAdapter()
     private let errorStateAdapter = MainScreenViewModelErrorStateAdapter()
+    private let loadMoreStateAdapter = MainScreenViewModelLoadMoreStateAdapter()
     
     // MARK: - Private functions
     
@@ -27,10 +28,41 @@ class MainScreenStateModelManager {
     
     func createLoadedStateModel(resultsGridType: MainScreenGridType,
                                 cardsSearchResults: [MainScreenCardCellModel],
-                                totalCards: Int) -> [MainScreenContentCell] {
+                                totalCards: Int,
+                                hasMode: Bool) -> [MainScreenContentCell] {
         return loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
                                                                             cardsSearchResults: cardsSearchResults,
-                                                                            totalCards: totalCards)
+                                                                            totalCards: totalCards,
+                                                                            hasMore: hasMode)
+    }
+    
+    func updateLoadMoreErrorState(resultsGridType: MainScreenGridType,
+                                  cardsSearchResults: [MainScreenCardCellModel],
+                                  totalCards: Int,
+                                  loadMoreError: MainScreenLoadMoreError,
+                                  hasMode: Bool) -> [MainScreenContentCell] {
+        var loadedStateModels = loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
+                                                                                             cardsSearchResults: cardsSearchResults,
+                                                                                             totalCards: totalCards,
+                                                                                             hasMore: hasMode)
+        let loadingLoadMoreCellModel = loadMoreStateAdapter.createLoadMoreErrorStateModel(loadMoreError)
+        loadedStateModels.append(loadingLoadMoreCellModel)
+        
+        return loadedStateModels
+    }
+    
+    func updateLoadMoreLoadingState(resultsGridType: MainScreenGridType,
+                                    cardsSearchResults: [MainScreenCardCellModel],
+                                    totalCards: Int,
+                                    hasMode: Bool) -> [MainScreenContentCell] {
+        var loadedStateModels = loadedStateAdapter.createMainScreenViewModelLoadedStateModel(gridType: resultsGridType,
+                                                                                             cardsSearchResults: cardsSearchResults,
+                                                                                             totalCards: totalCards,
+                                                                                             hasMore: hasMode)
+        let loadingLoadMoreCellModel = loadMoreStateAdapter.createLoadMoreLoadingStateModel()
+        loadedStateModels.append(loadingLoadMoreCellModel)
+        
+        return loadedStateModels
     }
     
     func createErrorStateCellModel(_ errorState: MainScreenStateError) -> [MainScreenContentCell] {

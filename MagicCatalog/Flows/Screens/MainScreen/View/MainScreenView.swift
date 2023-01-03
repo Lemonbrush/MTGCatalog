@@ -10,12 +10,15 @@ import SwiftUI
 protocol MainScreenViewModelProtocol: ObservableObject {
     var navigationTitle: String { get set }
     var contentCellModels: [MainScreenContentCell] { get set }
+    var shoulScrollToTop: Bool { get }
     
     func showRandomCardReviewScreen()
     func updateContentGridType(_ newGridType: MainScreenGridType)
     func didPressCardCell(_ cellId: Int)
     func didCancelSearch()
     func didPressSearch(query: String)
+    func didItemAppeared(index: Int)
+    func didPressLoadMoreErrorReload()
 }
 
 struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
@@ -43,6 +46,16 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
     // MARK: - Body view
     
     var body: some View {
+        ScrollViewReader { reader in
+            scrollView.onChange(of: viewModel.shoulScrollToTop) { shouldScrollToTop in
+                reader.scrollTo(0)
+            }
+        }
+    }
+    
+    // MARK: - Private body views
+    
+    private var scrollView: some View {
         ScrollView(showsIndicators: false) {
             GridStack(viewModel.contentCellModels) { cellViewModel in
                 gridContentAdapter.createContentCell(cellViewModel)
@@ -58,8 +71,6 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
         .onChange(of: searchCardText) { _ in cancelSearchIfNeeded() }
         .onSubmit(of: .search) { viewModel.didPressSearch(query: searchCardText) }
     }
-    
-    // MARK: - Private body views
     
     private var menuButton: some View {
         Menu {
@@ -159,6 +170,14 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
 }
 
 extension MainScreenView: MainScreenCollectionViewAdapterDelegate {
+    func didPressLoadMoreErrorReload() {
+        viewModel.didPressLoadMoreErrorReload()
+    }
+    
+    func didItemAppeared(index: Int) {
+        viewModel.didItemAppeared(index: index)
+    }
+    
     func didPressCardCell(_ cellId: Int) {
         viewModel.didPressCardCell(cellId)
     }

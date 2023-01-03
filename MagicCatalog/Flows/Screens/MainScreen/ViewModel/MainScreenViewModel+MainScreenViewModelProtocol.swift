@@ -8,6 +8,9 @@
 import Foundation
 
 extension MainScreenViewModel: MainScreenViewModelProtocol {
+    
+    // MARK: - Functions
+    
     func showRandomCardReviewScreen() {
         //onNavigation?(.randomCardScreen)
     }
@@ -33,6 +36,16 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     
     func didPressCardCell(_ cellId: Int) {
         let cardModel = cardModels[cellId]
-        onNavigation?(.cardReview, cardModel.cardModel)
+        onNavigation?(.cardReview, cardModel.cardModel, cardModel.cardStateManager.cardImage)
+    }
+    
+    func didItemAppeared(index: Int) {
+        if index == cardModels.count {
+            loadMoreIfNeeded()
+        }
+    }
+    
+    func didPressLoadMoreErrorReload() {
+        loadMoreIfNeeded()
     }
 }

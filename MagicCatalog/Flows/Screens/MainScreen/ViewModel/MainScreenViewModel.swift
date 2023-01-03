@@ -22,8 +22,9 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var navigationTitle: String = "Magic cards"
     @Published var contentCellModels: [MainScreenContentCell] = []
+    @Published var shoulScrollToTop = false
     
-    var onNavigation: ((MainScreenNavigation, Card) -> Void)?
+    var onNavigation: ((MainScreenNavigation, Card, UIImage?) -> Void)?
     
     var cardModels: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch
@@ -62,6 +63,10 @@ class MainScreenViewModel: ObservableObject {
                 break
             case .error(let errorState):
                 self.updateErrorState(errorState)
+            case .loadingMore:
+                self.updateLoadingMoreState()
+            case .loadingMoreError(let loadingMoreError):
+                self.updateLoadingMoreErrorState(loadingMoreError)
             }
         }
     }
@@ -72,23 +77,48 @@ class MainScreenViewModel: ObservableObject {
         totalCards = cardListModel.totalCards
     }
     
+    func setupNextPageCardListModel(_ cardListModel: CardList) {
+        cardList = cardListModel
+        addMoreCardModels(cardListModel.data)
+    }
+    
+    func loadMoreIfNeeded() {
+        if let currentCardList = cardList,
+            let nextPageUrl = cardList?.nextPage,
+            currentCardList.hasMore {
+            cardSerachManager.requestNextPage(nextPageUrl)
+            currentState = .loadingMore
+            updateContentCells()
+        }
+    }
+    
     // MARK: - Private functions
     
     private func updateCardModels(_ newCards: [Card]) {
+        cardModels = createCardCellModels(newCards)
+        shoulScrollToTop.toggle()
+    }
+    
+    private func addMoreCardModels(_ newCards: [Card]) {
+        let newCardModels = createCardCellModels(newCards)
+        cardModels.append(contentsOf: newCardModels)
+    }
+    
+    private func createCardCellModels(_ cards: [Card]) -> [MainScreenCardCellModel] {
         var cardCellModels: [MainScreenCardCellModel] = []
-        for cardModel in newCards {
+        for cardModel in cards {
             let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
             let cardCellStateManager = InteractiveCardStateManager(imageURLString: imageURL)
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
         }
-        
-        self.cardModels = cardCellModels
+        return cardCellModels
     }
     
     private func updateLoadedState() {
         contentCellModels = contentCellsManager.createLoadedStateModel(resultsGridType: resultsGridType,
                                                                        cardsSearchResults: cardModels,
-                                                                       totalCards: totalCards)
+                                                                       totalCards: totalCards,
+                                                                       hasMode: cardList?.hasMore ?? false)
     }
     
     private func updateEmptySearchState() {
@@ -97,5 +127,20 @@ class MainScreenViewModel: ObservableObject {
     
     private func updateErrorState(_ errorState: MainScreenStateError) {
         contentCellModels = contentCellsManager.createErrorStateCellModel(errorState)
+    }
+    
+    private func updateLoadingMoreState() {
+        contentCellModels = contentCellsManager.updateLoadMoreLoadingState(resultsGridType: resultsGridType,
+                                                                           cardsSearchResults: cardModels,
+                                                                           totalCards: totalCards,
+                                                                           hasMode: cardList?.hasMore ?? false)
+    }
+    
+    private func updateLoadingMoreErrorState(_ loadingMoreError: MainScreenLoadMoreError) {
+        contentCellModels = contentCellsManager.updateLoadMoreErrorState(resultsGridType: resultsGridType,
+                                                                         cardsSearchResults: cardModels,
+                                                                         totalCards: totalCards,
+                                                                         loadMoreError: loadingMoreError,
+                                                                         hasMode: cardList?.hasMore ?? false)
     }
 }

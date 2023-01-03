@@ -13,6 +13,7 @@ protocol SwiftfallProtocol {
     func getCardSetsList(completion: @escaping (SwiftfalResult<SetList>) -> ())
     func getRulingsList(code:String, number:Int, completion: @escaping (SwiftfalResult<RulingList>) -> ())
     func getCardSymbols(completion: @escaping (SwiftfalResult<SymbolList>) -> ())
+    func getNextCardListPage(cardListUrl: String, completion: @escaping (SwiftfalResult<CardList>) -> ())
     
     func getCardSetByCode(code: String, completion: @escaping (SwiftfalResult<ScryfallSet>) -> ())
     
@@ -89,6 +90,10 @@ class Swiftfall: SwiftfallProtocol {
     
     func getRulingsList(code: String, number: Int, completion: @escaping (SwiftfalResult<RulingList>) -> ()) {
         listService.getRulingList(code: code, number: number, completion: completion)
+    }
+    
+    func getNextCardListPage(cardListUrl: String, completion: @escaping (SwiftfalResult<CardList>) -> ()) {
+        listService.getNextCardListPage(cardListUrl: cardListUrl, completion: completion)
     }
     
     func getCardSymbols(completion: @escaping (SwiftfalResult<SymbolList>) -> ()) {

@@ -84,6 +84,9 @@
 		DD360D972958B05400DDA30F /* InteractiveCardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */; };
 		DD360D992958BC5500DDA30F /* InteractiveCardErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */; };
 		DD360DA22958EFF100DDA30F /* InteractiveCardStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */; };
+		DD626B312964594400C1EA5B /* MainScreenViewModelLoadMoreStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD626B302964594400C1EA5B /* MainScreenViewModelLoadMoreStateAdapter.swift */; };
+		DD626B3329645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD626B3229645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift */; };
+		DD626B35296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD626B34296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift */; };
 		DD6F5DBF2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */; };
 		DD6F5DC129620D1600C5518E /* MainScreenViewModel+MainScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F5DC029620D1600C5518E /* MainScreenViewModel+MainScreenViewModelProtocol.swift */; };
 		DD9306A22958F417000ED1F2 /* View+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306A12958F417000ED1F2 /* View+Shimmer.swift */; };
@@ -197,6 +200,9 @@
 		DD360D962958B05400DDA30F /* InteractiveCardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardLoadingView.swift; sourceTree = "<group>"; };
 		DD360D982958BC5500DDA30F /* InteractiveCardErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveCardErrorView.swift; sourceTree = "<group>"; };
 		DD360DA12958EFF100DDA30F /* InteractiveCardStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveCardStateManager.swift; sourceTree = "<group>"; };
+		DD626B302964594400C1EA5B /* MainScreenViewModelLoadMoreStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelLoadMoreStateAdapter.swift; sourceTree = "<group>"; };
+		DD626B3229645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenLoadMoreErrorContentCell.swift; sourceTree = "<group>"; };
+		DD626B34296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenActivityIndicatorContentCell.swift; sourceTree = "<group>"; };
 		DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModelErrorStateAdapter.swift; sourceTree = "<group>"; };
 		DD6F5DC029620D1600C5518E /* MainScreenViewModel+MainScreenViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewModel+MainScreenViewModelProtocol.swift"; sourceTree = "<group>"; };
 		DD9306A12958F417000ED1F2 /* View+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shimmer.swift"; sourceTree = "<group>"; };
@@ -556,6 +562,8 @@
 				DD360D7A295761CD00DDA30F /* MainScreenErrorStateCell.swift */,
 				DD2AEC1C295E35D900E9FD12 /* MainScreenSearchContentCell.swift */,
 				DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */,
+				DD626B3229645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift */,
+				DD626B34296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -747,6 +755,7 @@
 		DD360D80295792D800DDA30F /* ContentCellModelsCreation */ = {
 			isa = PBXGroup;
 			children = (
+				DD626B302964594400C1EA5B /* MainScreenViewModelLoadMoreStateAdapter.swift */,
 				DD6F5DBE2961EDEB00C5518E /* MainScreenViewModelErrorStateAdapter.swift */,
 				DD9306AA2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift */,
 				DD360D81295792E800DDA30F /* MainScreenStateModelManager.swift */,
@@ -997,7 +1006,9 @@
 				DD360D4C2957326E00DDA30F /* SwiftfallError.swift in Sources */,
 				DD0DE0052953BEB50024B7EA /* MainScreenCoordinatorView.swift in Sources */,
 				DD360D64295732F000DDA30F /* ReachabilityService.swift in Sources */,
+				DD626B35296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift in Sources */,
 				DD360D66295732F000DDA30F /* NetworkService.swift in Sources */,
+				DD626B312964594400C1EA5B /* MainScreenViewModelLoadMoreStateAdapter.swift in Sources */,
 				DD360D7B295761CD00DDA30F /* MainScreenErrorStateCell.swift in Sources */,
 				DD0DDFE9295365D40024B7EA /* LazyLoadView.swift in Sources */,
 				DD9306B02959C9F6000ED1F2 /* CardsGridCardCell.swift in Sources */,
@@ -1029,6 +1040,7 @@
 				DD0DDFA729525E8B0024B7EA /* CardSideView.swift in Sources */,
 				DD0DDFC02953201E0024B7EA /* RoundedCornerShape.swift in Sources */,
 				DD360D5A2957326E00DDA30F /* Card.swift in Sources */,
+				DD626B3329645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift in Sources */,
 				DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */,
 				DD0DDFFE2953BC960024B7EA /* MainScreenCoordinator.swift in Sources */,
 				DD360D522957326E00DDA30F /* SymbolList.swift in Sources */,

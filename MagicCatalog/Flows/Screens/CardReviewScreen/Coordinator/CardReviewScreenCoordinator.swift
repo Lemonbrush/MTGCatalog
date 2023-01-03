@@ -18,8 +18,8 @@ class CardReviewScreenCoordinator: Coordinator {
     
     var onFinish: (() -> Void)?
     
-    init(swiftFallCardModel: Card) {
-        let viewModel = CardReviewScreenViewModel(swiftFallCardModel: swiftFallCardModel)
+    init(swiftFallCardModel: Card, cardImage: UIImage? = nil) {
+        let viewModel = CardReviewScreenViewModel(swiftFallCardModel: swiftFallCardModel, cardImage:  cardImage)
         viewModel.onNavigation = { [weak self] navigation in
             switch navigation {
             case .back:

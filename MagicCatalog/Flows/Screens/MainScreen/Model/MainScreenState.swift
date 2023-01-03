@@ -15,9 +15,16 @@ enum MainScreenStateError: Error {
     case genericError
 }
 
+enum MainScreenLoadMoreError: Error {
+    case notReachable
+    case notAvailable
+}
+
 enum MainScreenState {
     case emptySearch
     case loaded
     case loding
+    case loadingMore
+    case loadingMoreError(MainScreenLoadMoreError)
     case error(MainScreenStateError)
 }

@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-protocol MainScreenCollectionViewAdapterDelegate {
+protocol MainScreenCollectionViewAdapterDelegate  {
     func didPressCardCell(_ cellId: Int)
+    func didItemAppeared(index: Int)
+    func didPressLoadMoreErrorReload()
 }
 
 class MainScreenCollectionViewAdapter {
@@ -39,6 +41,10 @@ class MainScreenCollectionViewAdapter {
             return createStubView(stubViewModel)
         case let textLineViewModel as MainScreenTextContentCellModel:
             return createTextLineView(textLineViewModel)
+        case let loadMoreErrorModel as MainScreenLoadMoreErrorCellModel:
+            return createLoadMoreErrorView(loadMoreErrorModel)
+        case _ as MainScreenLoadMoreLoadingCellModel:
+            return createLoadMoreLoadingView()
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -46,6 +52,17 @@ class MainScreenCollectionViewAdapter {
     }
     
     // MARK: - Private functions
+    
+    private func createLoadMoreLoadingView() -> AnyView {
+        let view = MainScreenActivityIndicatorContentCell()
+        return AnyView(view)
+    }
+    
+    private func createLoadMoreErrorView(_ loadMoreErrorModel: MainScreenLoadMoreErrorCellModel) -> AnyView {
+        var view = MainScreenLoadMoreErrorContentCell(text: loadMoreErrorModel.errorText, systemImageName: loadMoreErrorModel.systemImageName)
+        view.delegate = self
+        return AnyView(view)
+    }
     
     private func createTextLineView(_ textCellViewModel: MainScreenTextContentCellModel) -> AnyView {
         let view = MainScreenTextContentCell(text: textCellViewModel.text)
@@ -66,14 +83,17 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createContentGridCell(_ cellModel: MainScreenGridContentCellModel) -> AnyView {
-        let view = GridStack(cellModel.viewModels,
+        var grid = GridStack(cellModel.viewModels,
                              columns: cellModel.columns,
                              hSpacing: 5,
-                             vSpacing: 5) { [weak self] viewModel in
+                             vSpacing: 5,
+                             isLazyLoad:  true) { [weak self] viewModel in
             self?.contentAdapter.getCell(viewModel)
         }
         
-        return AnyView(view)
+        grid.delegate = self
+        
+        return AnyView(grid)
     }
 }
 
@@ -83,4 +103,16 @@ extension MainScreenCollectionViewAdapter: CardsGridAdapterDelegate {
     }
 }
 
+
+extension MainScreenCollectionViewAdapter: GridStackDelegate {
+    func didItemAppeared(index: Int) {
+        delegate?.didItemAppeared(index: index)
+    }
+}
+
+extension MainScreenCollectionViewAdapter: MainScreenLoadMoreErrorContentCellDelegate {
+    func didPressReload() {
+        delegate?.didPressLoadMoreErrorReload()
+    }
+}
 

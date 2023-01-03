@@ -24,8 +24,19 @@ extension MainScreenViewModel: MainScreenCardSearchManagerDelegate {
         }
     }
     
+    func didReceiveNextPageData(_ cardListModel: CardList) {
+        currentState = .loaded
+        setupNextPageCardListModel(cardListModel)
+        updateContentCells()
+    }
+    
     func didReceiveError(error: MainScreenStateError) {
         currentState = .error(error)
+        updateContentCells()
+    }
+    
+    func didReceiveLoadMoreError(error: MainScreenLoadMoreError) {
+        currentState = .loadingMoreError(error)
         updateContentCells()
     }
 }
