@@ -1,5 +1,5 @@
 //
-//  InteractiveCardViewModel.swift
+//  CardViewStateManager.swift
 //  MagicCatalog
 //
 //  Created by Alexander Rubtsov on 25.12.2022.
@@ -25,7 +25,7 @@ class CardViewStateManager: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var stateModel: InteractiveCardStateProtocol = InteractiveCardLoadingStateModel()
+    @Published var stateModel: CardViewStateManagerStateProtocol = CardViewStateManagerLoadingStateModel()
     
     var cardFrontImage = UIImage()
     var cardBackImage: UIImage? = nil
@@ -54,13 +54,13 @@ class CardViewStateManager: ObservableObject {
             
             switch self.currentState {
             case .loading:
-                self.stateModel = InteractiveCardLoadingStateModel()
+                self.stateModel = CardViewStateManagerLoadingStateModel()
             case .loaded:
-                self.stateModel = InteractiveCardLoadedStateModel(frontFace: self.cardFrontImage,
+                self.stateModel = CardViewStateManagerLoadedStateModel(frontFace: self.cardFrontImage,
                                                                   backFace: self.cardBackImage,
                                                                   cardViewType: self.cardManagerModel.cardViewType)
             case .error:
-                self.stateModel = InteractiveCardErrorStateModel()
+                self.stateModel = CardViewStateManagerErrorStateModel()
             }
         }
     }

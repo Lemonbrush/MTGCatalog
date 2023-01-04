@@ -1,5 +1,5 @@
 //
-//  InteractiveCardView.swift
+//  CardView.swift
 //  MagicCatalog
 //
 //  Created by Alexander Rubtsov on 21.12.2022.
