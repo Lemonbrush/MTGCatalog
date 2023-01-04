@@ -38,7 +38,11 @@ struct InteractiveCardView: View {
     var body: some View {
         ZStack {
             cardView
-            flipButton
+            
+            HStack {
+                Spacer()
+                flipButton
+            }.padding([.trailing], 10)
         }
     }
     
@@ -59,9 +63,9 @@ struct InteractiveCardView: View {
             Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                 .resizable()
                 .frame(width: 50, height: 50)
-                .foregroundColor(.white)
+                .foregroundStyle(isFlipped ? .black : .white, isFlipped ? .white : .black)
+                .shadow(color: isFlipped ? .black : .white, radius: 5)
                 .opacity(0.4)
-                .shadow(color: .black, radius: 5)
         }
     }
     
