@@ -11,8 +11,8 @@ struct CardView: View {
     
     // MARK: - Properties
     
-    @State var backDegree: Double
-    @State var frontDegree: Double
+    @Binding var backDegree: Double
+    @Binding var frontDegree: Double
     
     var frontCardImage: UIImage
     var backCardImage: UIImage?
@@ -21,12 +21,12 @@ struct CardView: View {
     
     init(frontCardImage: UIImage,
          backCardImage: UIImage? = nil,
-         backDegree: Double = -90.0,
-         frontDegree: Double = 0.0) {
+         backDegree: Binding<Double> = .constant(-90.0),
+         frontDegree: Binding<Double> = .constant(0.0)) {
         self.frontCardImage = frontCardImage
         self.backCardImage = backCardImage
-        self.backDegree = backDegree
-        self.frontDegree = frontDegree
+        _backDegree = backDegree
+        _frontDegree = frontDegree
     }
     
     // MARK: - Body view

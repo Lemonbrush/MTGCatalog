@@ -52,6 +52,7 @@ struct CardReviewScreenView: View {
                 .padding([.bottom], 40)
                 .padding([.leading, .trailing], 10)
             
+            
             customeNavBarBlockView
             
         }.padding([.bottom], 20)
