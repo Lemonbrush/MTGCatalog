@@ -33,35 +33,39 @@ struct InteractiveCardView: View {
             }
     }
     
-    private var dragGesture: some Gesture {
-        DragGesture()
-            .onChanged { dragAmount = $0.translation }
-            .onEnded { remainedDragAmount in
-                handleDragEnd(remainedDegrees: remainedDragAmount.translation.width)
-            }
-    }
-    
     // MARK: - Body view
     
     var body: some View {
+        ZStack {
+            cardView
+            flipButton
+        }
+    }
+    
+    // MARK: - Private Body view
+    
+    private var cardView: some View {
         CardView(frontCardImage: frontCardImage, backCardImage: backCardImage, backDegree: backDegree, frontDegree: frontDegree)
         .rotation3DEffect(.degrees(-Double(dragAmount.width) / 5), axis: (x: 0, y: -1, z: 0.1))
         .rotation3DEffect(.degrees(Double(dragAmount.height / 5)), axis: (x: -1, y: 0, z: 0.1))
-        .gesture(dragGesture)
         .scaleEffect(magnifyBy)
         .gesture(magnification)
     }
     
-    // MARK: - Private functions
-    
-    private func handleDragEnd(remainedDegrees: CGFloat) {
-        if remainedDegrees > 200 || remainedDegrees < -200 {
+    private var flipButton: some View {
+        Button {
             flipCard()
-        }
-        withAnimation(.spring()) {
-            dragAmount = .zero
+        } label: {
+            Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .foregroundColor(.white)
+                .opacity(0.4)
+                .shadow(color: .black, radius: 5)
         }
     }
+    
+    // MARK: - Private functions
     
     private func flipCard () {
         isFlipped.toggle()
@@ -70,16 +74,25 @@ struct InteractiveCardView: View {
             withAnimation(.linear(duration: durationAndDelay)) {
                 backDegree = 90
             }
-            withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)){
+            withAnimation(.linear(duration: durationAndDelay)
+                .delay(durationAndDelay)){
                 frontDegree = 0
             }
         } else {
-            withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)){
+            withAnimation(.linear(duration: durationAndDelay)
+                .delay(durationAndDelay)){
                 backDegree = 0
             }
             withAnimation(.linear(duration: durationAndDelay)) {
                 frontDegree = -90
             }
         }
+    }
+}
+
+struct InteractiveCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        InteractiveCardView(frontCardImage: UIImage(named: "mtgBackImage") ?? UIImage() , backCardImage: nil)
+            .padding(30)
     }
 }
