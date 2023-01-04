@@ -8,6 +8,6 @@
 import Foundation
 
 struct MainScreenCardCellModel {
-    let cardStateManager: InteractiveCardStateManager
+    let cardStateManager: CardViewStateManager
     let cardModel: Card
 }

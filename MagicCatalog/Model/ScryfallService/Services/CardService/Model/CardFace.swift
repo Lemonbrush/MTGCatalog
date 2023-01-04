@@ -8,6 +8,9 @@
 import Foundation
 
 struct CardFace: Codable {
+    
+    // MARK: - Properties
+    
     let name: String?
     let manaCost: String?
     let typeLine: String?
@@ -19,4 +22,23 @@ struct CardFace: Codable {
     let flavorText: String?
     let illustrationId: String?
     let imageUris: [String: String]?
+    
+    // MARK: - Functions
+    
+    func imageUris(imageType: SwiftFallCardImagery) -> String? {
+        switch imageType {
+        case .png:
+            return imageUris?["png"]
+        case .borderCrop:
+            return imageUris?["border_crop"]
+        case .artCrop:
+            return imageUris?["art_crop"]
+        case .large:
+            return imageUris?["large"]
+        case .normal:
+            return imageUris?["normal"]
+        case .small:
+            return imageUris?["small"]
+        }
+    }
 }

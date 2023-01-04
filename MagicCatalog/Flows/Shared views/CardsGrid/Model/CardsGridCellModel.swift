@@ -12,7 +12,7 @@ protocol CardsGridCellModel { }
 struct CardsGridSubtitledCardCellModel: CardsGridCellModel {
     let cellId: Int
     
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
     
     let cardTitle: String
     let cardType: String
@@ -21,7 +21,7 @@ struct CardsGridSubtitledCardCellModel: CardsGridCellModel {
 struct CardsGridInlineCardCellModel: CardsGridCellModel {
     let cellId: Int
     
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
     
     let cardTitle: String
     let cardType: String
@@ -29,5 +29,5 @@ struct CardsGridInlineCardCellModel: CardsGridCellModel {
 
 struct CardsGridSimpleCardCellModel: CardsGridCellModel {
     let cellId: Int
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
 }

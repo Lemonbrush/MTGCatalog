@@ -13,7 +13,7 @@ struct CardsGridInlineCardCell: View {
     
     weak var delegate: CardsGridCardCellDelegate?
     
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
     let cardTitle: String
     let cardType: String
     let cellId: Int
@@ -32,7 +32,7 @@ struct CardsGridInlineCardCell: View {
     
     private var cellContent: some View {
         HStack {
-            InteractiveCardView(stateManager: stateManager)
+            CardViewStateAdapter(stateManager: stateManager)
                 .frame(width: 50, height: 70)
                 .padding([.trailing, .leading], 10)
                 .padding([.top, .bottom], 5)
@@ -60,14 +60,5 @@ struct CardsGridInlineCardCell: View {
             
             Spacer()
         }
-    }
-}
-
-struct CardsGridInlineCardCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CardsGridInlineCardCell(stateManager: InteractiveCardStateManager(imageURLString: ""),
-                                cardTitle: "The big black lotus",
-                                cardType: "instant creature",
-                                cellId: 1)
     }
 }

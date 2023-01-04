@@ -34,12 +34,14 @@ class CardReviewScreenViewModel: ObservableObject {
             self.cardImage = cardImage
         }
         
-        imageDownloader.delegate = self
-        
         setupCardData(swiftFallCardModel)
         
         if let cardURL = swiftFallCardModel.imageUris(imageType: .normal) {
-            self.imageDownloader.getImageByURL(cardURL)
+            imageDownloader.getImageByURL(cardURL) { [weak self] cardImage, error in
+                if let cardImage = cardImage {
+                    self?.cardImage = cardImage
+                }
+            }
         }
     }
     
@@ -60,15 +62,5 @@ class CardReviewScreenViewModel: ObservableObject {
         DispatchQueue.main.async { [weak self] in
             self?.cardModel = cardViewModel
         }
-    }
-}
-
-extension CardReviewScreenViewModel: ImageDownloaderManagerDelegate {
-    func didReceiveImage(_ image: UIImage) {
-        cardImage = image
-    }
-    
-    func didReceiveError(_ error: ImageDownloaderManagerError) {
-        
     }
 }

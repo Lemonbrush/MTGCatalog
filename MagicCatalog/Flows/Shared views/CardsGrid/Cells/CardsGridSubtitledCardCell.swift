@@ -13,7 +13,7 @@ struct CardsGridSubtitledCardCell: View {
     
     weak var delegate: CardsGridCardCellDelegate?
     
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
     
     let cardTitle: String
     let cardType: String
@@ -33,22 +33,27 @@ struct CardsGridSubtitledCardCell: View {
     
     private var cellContent: some View {
         VStack {
-            InteractiveCardView(stateManager: stateManager)
+            CardViewStateAdapter(stateManager: stateManager)
                 .layoutPriority(1)
             
-            VStack(spacing: 5) {
-                Text(cardTitle)
-                    .font(.system(size: FontSize.pt14))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
-                
-                Text(cardType)
-                    .font(.system(size: FontSize.pt10))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.gray)
-            }
+            subtitleBlock
             
             Spacer()
+        }
+    }
+    
+    
+    private var subtitleBlock: some View {
+        VStack(spacing: 5) {
+            Text(cardTitle)
+                .font(.system(size: FontSize.pt14))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+            
+            Text(cardType)
+                .font(.system(size: FontSize.pt10))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.gray)
         }
     }
 }

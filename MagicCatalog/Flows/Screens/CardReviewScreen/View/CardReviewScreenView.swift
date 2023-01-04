@@ -47,10 +47,11 @@ struct CardReviewScreenView: View {
     
     private var interactiveCardBlockView: some View {
         ZStack {
-            CardView(cardImage: viewModel.cardImage)
+            CardView(frontCardImage: viewModel.cardImage, backCardImage: nil)
                 .padding([.top], 100)
                 .padding([.bottom], 40)
                 .padding([.leading, .trailing], 10)
+            
             
             customeNavBarBlockView
             
