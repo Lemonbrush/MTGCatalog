@@ -8,11 +8,20 @@
 import UIKit
 import SwiftUI
 
-enum InteractiveCardViewModelState {
-    case loading, loaded, error
+enum CardViewStateManagerState {
+    case loading
+    case loaded
+    case error
 }
 
-class InteractiveCardStateManager: ObservableObject {
+enum CardViewType {
+    case normal
+    case flipCard
+    case splitCard
+    case transformCard
+}
+
+class CardViewStateManager: ObservableObject {
     
     // MARK: - Properties
     
@@ -24,15 +33,14 @@ class InteractiveCardStateManager: ObservableObject {
     // MARK: - Private properties
     
     private let imageDownloader = ImageDownloaderManager()
-    private var currentState: InteractiveCardViewModelState = .loading
+    private var currentState: CardViewStateManagerState = .loading
     
-    private let cardManagerModel: InteractiveCardStateManagerModel
+    private let cardManagerModel: CardViewStateManagerModel
     
     // MARK: - Construction
     
-    init(cardManagerModel: InteractiveCardStateManagerModel) {
+    init(cardManagerModel: CardViewStateManagerModel) {
         self.cardManagerModel = cardManagerModel
-        
         requestCardImages()
     }
     
@@ -49,7 +57,8 @@ class InteractiveCardStateManager: ObservableObject {
                 self.stateModel = InteractiveCardLoadingStateModel()
             case .loaded:
                 self.stateModel = InteractiveCardLoadedStateModel(frontFace: self.cardFrontImage,
-                                                                  backFace: self.cardBackImage)
+                                                                  backFace: self.cardBackImage,
+                                                                  cardViewType: self.cardManagerModel.cardViewType)
             case .error:
                 self.stateModel = InteractiveCardErrorStateModel()
             }

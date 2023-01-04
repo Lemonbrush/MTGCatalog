@@ -2,17 +2,17 @@
 //  InteractiveCardView.swift
 //  MagicCatalog
 //
-//  Created by Alexander Rubtsov on 21.12.2022.
+//  Created by Alexander Rubtsov on 04.01.2023.
 //
 
 import SwiftUI
 
-struct CardView: View {
+struct InteractiveCardView: View {
     
     // MARK: - Properties
     
-    var frontCardImage: UIImage
-    var backCardImage: UIImage?
+    let frontCardImage: UIImage
+    let backCardImage: UIImage?
     
     // MARK: - Private properties
     
@@ -33,24 +33,21 @@ struct CardView: View {
             }
     }
     
-    private var cardView: some View {
-        ZStack {
-            CardSideView(cardImage: backCardImage ?? UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
-            CardSideView(cardImage: frontCardImage, degree: $frontDegree)
-        }
+    private var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged { dragAmount = $0.translation }
+            .onEnded { remainedDragAmount in
+                handleDragEnd(remainedDegrees: remainedDragAmount.translation.width)
+            }
     }
     
     // MARK: - Body view
     
     var body: some View {
-        cardView
+        CardView(frontCardImage: frontCardImage, backCardImage: backCardImage, backDegree: backDegree, frontDegree: frontDegree)
         .rotation3DEffect(.degrees(-Double(dragAmount.width) / 5), axis: (x: 0, y: -1, z: 0.1))
         .rotation3DEffect(.degrees(Double(dragAmount.height / 5)), axis: (x: -1, y: 0, z: 0.1))
-        .gesture(DragGesture()
-                .onChanged { dragAmount = $0.translation }
-                .onEnded { remainedDragAmount in
-                    handleDragEnd(remainedDegrees: remainedDragAmount.translation.width)
-                })
+        .gesture(dragGesture)
         .scaleEffect(magnifyBy)
         .gesture(magnification)
     }

@@ -17,7 +17,7 @@ struct CardsGridCardCell: View {
     
     weak var delegate: CardsGridCardCellDelegate?
     
-    let stateManager: InteractiveCardStateManager
+    let stateManager: CardViewStateManager
     let cellId: Int
     
     // MARK: - Body view
@@ -33,6 +33,6 @@ struct CardsGridCardCell: View {
     // MARK: - Private body views
     
     private var cellContent: some View {
-        InteractiveCardView(stateManager: stateManager)
+        CardViewStateAdapter(stateManager: stateManager)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  InteractiveCardView.swift
+//  CardViewStateAdapter.swift
 //  MagicCatalog
 //
 //  Created by Alexander Rubtsov on 25.12.2022.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct InteractiveCardView: View {
+struct CardViewStateAdapter: View {
     
     // MARK: - Properties
     
-    @ObservedObject var stateManager: InteractiveCardStateManager
+    @ObservedObject var stateManager: CardViewStateManager
     
     // MARK: - Private properties
     
-    private let fade = AnyTransition.opacity.animation(Animation.linear(duration: 5))
+    private let loadedStateAdapter = CardViewLoadedStateAdapter()
     
     // MARK: - Body view
     
@@ -35,23 +35,19 @@ struct InteractiveCardView: View {
     // MARK: - Private functions
     
     private func createLoadedCardView(stateModel: InteractiveCardLoadedStateModel) -> AnyView {
-        let view = CardView(frontCardImage: stateModel.frontFace, backCardImage: stateModel.backFace)
-            .transition(fade)
-        
+        let view = loadedStateAdapter.createCardViewCell(frontCardImage: stateModel.frontFace,
+                                                         backCardImage: stateModel.backFace,
+                                                         cardViewType: stateModel.cardViewType)
         return AnyView(view)
     }
     
     private func createErrorCardView(errorStateModel: InteractiveCardErrorStateModel) -> AnyView {
         let view = InteractiveCardErrorView()
-            .transition(fade)
-        
         return AnyView(view)
     }
     
     private func createLoadingCardView(loadingStateModel: InteractiveCardLoadingStateModel) -> AnyView {
         let view = InteractiveCardLoadingView()
-            .transition(fade)
-        
         return AnyView(view)
     }
 }
