@@ -62,12 +62,3 @@ struct CardsGridInlineCardCell: View {
         }
     }
 }
-
-struct CardsGridInlineCardCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CardsGridInlineCardCell(stateManager: InteractiveCardStateManager(imageURLString: ""),
-                                cardTitle: "The big black lotus",
-                                cardType: "instant creature",
-                                cellId: 1)
-    }
-}

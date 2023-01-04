@@ -36,7 +36,7 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     
     func didPressCardCell(_ cellId: Int) {
         let cardModel = cardModels[cellId]
-        onNavigation?(.cardReview, cardModel.cardModel, cardModel.cardStateManager.cardImage)
+        onNavigation?(.cardReview, cardModel.cardModel, cardModel.cardStateManager.cardFrontImage)
     }
     
     func didItemAppeared(index: Int) {

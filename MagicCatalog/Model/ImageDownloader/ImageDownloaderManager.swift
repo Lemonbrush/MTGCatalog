@@ -14,46 +14,31 @@ enum ImageDownloaderManagerError: Error {
     case didReceiveError(Error)
 }
 
-protocol ImageDownloaderManagerDelegate: AnyObject {
-    func didReceiveImage(_ image: UIImage)
-    func didReceiveError(_ error: ImageDownloaderManagerError)
-}
-
 class ImageDownloaderManager {
-    
-    // MARK: - Properties
-    
-    weak var delegate: ImageDownloaderManagerDelegate?
     
     // MARK: - Functions
     
-    func getImageByURL(_ urlString: String) {
-        DispatchQueue.global().async { [weak self] in
+    func getImageByURL(_ urlString: String, completion: @escaping ((UIImage?, ImageDownloaderManagerError?) -> Void)) {
+        DispatchQueue.global().async {
             guard let strongURL = URL(string: urlString) else {
-                self?.delegate?.didReceiveError(.urlError)
+                completion(nil, .urlError)
                 return
             }
             
             do {
                 let data = try Data(contentsOf: strongURL)
-                self?.convertAndReturnImageData(data)
+                DispatchQueue.main.async {
+                    guard let image = UIImage(data: data) else {
+                        completion(nil, .failedToConvertImageData)
+                        return
+                    }
+                    completion(image, nil)
+                }
                 return
             } catch {
-                self?.delegate?.didReceiveError(.didReceiveError(error))
+                completion(nil, .didReceiveError(error))
                 return
             }
-        }
-    }
-    
-    // MARK: - Private functions
-    
-    private func convertAndReturnImageData(_ data: Data) {
-        DispatchQueue.main.async { [weak self] in
-            guard let image = UIImage(data: data) else {
-                self?.delegate?.didReceiveError(.failedToConvertImageData)
-                return
-            }
-            self?.delegate?.didReceiveImage(image)
         }
     }
 }

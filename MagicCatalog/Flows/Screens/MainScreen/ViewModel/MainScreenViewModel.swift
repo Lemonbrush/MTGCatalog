@@ -107,11 +107,20 @@ class MainScreenViewModel: ObservableObject {
     private func createCardCellModels(_ cards: [Card]) -> [MainScreenCardCellModel] {
         var cardCellModels: [MainScreenCardCellModel] = []
         for cardModel in cards {
-            let imageURL = cardModel.imageUris(imageType: .normal) ?? ""
-            let cardCellStateManager = InteractiveCardStateManager(imageURLString: imageURL)
+            let cardManagerModel = createCardStateManagerModel(cardModel)
+            let cardCellStateManager = InteractiveCardStateManager(cardManagerModel: cardManagerModel)
             cardCellModels.append(MainScreenCardCellModel(cardStateManager: cardCellStateManager, cardModel: cardModel))
         }
         return cardCellModels
+    }
+    
+    private func createCardStateManagerModel(_ cardModel: Card) -> InteractiveCardStateManagerModel {
+        if let cardFaces = cardModel.cardFaces, let frontImage = cardFaces[safe: 0]?.imageUris(imageType: .normal) {
+            let backImageURLString = cardFaces[safe: 1]?.imageUris(imageType: .normal)
+            return InteractiveCardStateManagerModel(frontImageURLString: frontImage, backImageURLString: backImageURLString)
+        }
+        
+        return InteractiveCardStateManagerModel(frontImageURLString: cardModel.imageUris(imageType: .normal) ?? "")
     }
     
     private func updateLoadedState() {

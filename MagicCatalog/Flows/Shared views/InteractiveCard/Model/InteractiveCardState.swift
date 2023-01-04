@@ -14,5 +14,6 @@ struct InteractiveCardLoadingStateModel: InteractiveCardStateProtocol { }
 struct InteractiveCardErrorStateModel: InteractiveCardStateProtocol { }
 
 struct InteractiveCardLoadedStateModel: InteractiveCardStateProtocol {
-    let image: UIImage
+    let frontFace: UIImage
+    let backFace: UIImage?
 }

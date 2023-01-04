@@ -11,7 +11,8 @@ struct CardView: View {
     
     // MARK: - Properties
     
-    var cardImage: UIImage
+    var frontCardImage: UIImage
+    var backCardImage: UIImage?
     
     // MARK: - Private properties
     
@@ -34,12 +35,12 @@ struct CardView: View {
     
     private var cardView: some View {
         ZStack {
-            CardSideView(cardImage: UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
-            CardSideView(cardImage: cardImage, degree: $frontDegree)
+            CardSideView(cardImage: backCardImage ?? UIImage(named: "mtgBackImage") ?? UIImage(), degree: $backDegree)
+            CardSideView(cardImage: frontCardImage, degree: $frontDegree)
         }
     }
     
-    // MARK: - View body
+    // MARK: - Body view
     
     var body: some View {
         cardView

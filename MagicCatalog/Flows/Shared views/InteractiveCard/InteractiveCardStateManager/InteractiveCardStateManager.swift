@@ -16,29 +16,24 @@ class InteractiveCardStateManager: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var stateModel: InteractiveCardStateProtocol = InteractiveCardErrorStateModel()
+    @Published var stateModel: InteractiveCardStateProtocol = InteractiveCardLoadingStateModel()
     
-    var cardImage = UIImage()
+    var cardFrontImage = UIImage()
+    var cardBackImage: UIImage? = nil
     
     // MARK: - Private properties
     
     private let imageDownloader = ImageDownloaderManager()
     private var currentState: InteractiveCardViewModelState = .loading
     
-    private let imageURLString: String
+    private let cardManagerModel: InteractiveCardStateManagerModel
     
     // MARK: - Construction
     
-    init(imageURLString: String) {
-        self.imageURLString = imageURLString
+    init(cardManagerModel: InteractiveCardStateManagerModel) {
+        self.cardManagerModel = cardManagerModel
         
-        stateModel = InteractiveCardLoadingStateModel()
-        
-        currentState = .loading
-        updateStateModel()
-        
-        imageDownloader.delegate = self
-        imageDownloader.getImageByURL(imageURLString)
+        requestCardImages()
     }
     
     // MARK: - Private functions
@@ -53,22 +48,58 @@ class InteractiveCardStateManager: ObservableObject {
             case .loading:
                 self.stateModel = InteractiveCardLoadingStateModel()
             case .loaded:
-                self.stateModel = InteractiveCardLoadedStateModel(image: self.cardImage)
+                self.stateModel = InteractiveCardLoadedStateModel(frontFace: self.cardFrontImage,
+                                                                  backFace: self.cardBackImage)
             case .error:
                 self.stateModel = InteractiveCardErrorStateModel()
             }
         }
     }
-}
-
-extension InteractiveCardStateManager: ImageDownloaderManagerDelegate {
-    func didReceiveImage(_ image: UIImage) {
-        cardImage = image
+    
+    private func requestCardImages() {
+        currentState = .loading
+        updateStateModel()
+        
+        imageDownloader.getImageByURL(cardManagerModel.frontImageURLString) { [weak self] image, error in
+            guard let self = self else {
+                return
+            }
+            
+            if let image = image {
+                self.cardFrontImage = image
+                self.currentState = .loaded
+                self.updateStateModel()
+            } else if let error = error {
+                self.didReceiveError(error)
+            }
+        }
+        
+        guard let backImageURLString = cardManagerModel.backImageURLString else {
+            return
+        }
+        
+        imageDownloader.getImageByURL(backImageURLString) { [weak self] image, error in
+            guard let self = self else {
+                return
+            }
+            
+            if let image = image {
+                self.cardBackImage = image
+                self.currentState = .loaded
+                self.updateStateModel()
+            } else if let error = error {
+                self.didReceiveError(error)
+            }
+        }
+    }
+    
+    private func didReceiveImage(_ image: UIImage) {
+        cardFrontImage = image
         currentState = .loaded
         updateStateModel()
     }
     
-    func didReceiveError(_ error: ImageDownloaderManagerError) {
+    private func didReceiveError(_ error: ImageDownloaderManagerError) {
         currentState = .error
         updateStateModel()
     }
