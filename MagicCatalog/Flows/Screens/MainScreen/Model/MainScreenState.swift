@@ -23,7 +23,7 @@ enum MainScreenLoadMoreError: Error {
 enum MainScreenState {
     case emptySearch
     case loaded
-    case loding
+    case loading
     case loadingMore
     case loadingMoreError(MainScreenLoadMoreError)
     case error(MainScreenStateError)

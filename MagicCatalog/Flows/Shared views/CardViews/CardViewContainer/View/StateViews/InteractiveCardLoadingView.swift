@@ -43,3 +43,10 @@ struct InteractiveCardLoadingView : View {
         }
     }
 }
+
+struct InteractiveCardLoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        InteractiveCardLoadingView()
+            .padding(30)
+    }
+}

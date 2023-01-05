@@ -68,4 +68,8 @@ class MainScreenStateModelManager {
     func createErrorStateCellModel(_ errorState: MainScreenStateError) -> [MainScreenContentCell] {
         return errorStateAdapter.createMainScreenViewModelErrorStateModel(errorState)
     }
+    
+    func createLoadingStateModels() -> [MainScreenContentCell] {
+        return [MainScreenLoadingCellModel()]
+    }
 }

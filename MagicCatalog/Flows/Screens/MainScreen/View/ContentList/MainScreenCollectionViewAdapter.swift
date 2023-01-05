@@ -11,6 +11,7 @@ protocol MainScreenCollectionViewAdapterDelegate  {
     func didPressCardCell(_ cellId: Int)
     func didItemAppeared(index: Int)
     func didPressLoadMoreErrorReload()
+    func didPressStubCellButton()
 }
 
 class MainScreenCollectionViewAdapter {
@@ -47,6 +48,8 @@ class MainScreenCollectionViewAdapter {
             return createLoadMoreErrorView(loadMoreErrorModel)
         case _ as MainScreenLoadMoreLoadingCellModel:
             return createLoadMoreLoadingView()
+        case _ as MainScreenLoadingCellModel:
+            return createLoadingCell()
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -72,10 +75,11 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createStubView(_ stubViewModel: MainScreenStubContentCellModel) -> AnyView {
-        let view = MainScreenErrorStateCell(systemImageName: stubViewModel.systemImageName,
+        var view = MainScreenErrorStateCell(systemImageName: stubViewModel.systemImageName,
                                             topText: stubViewModel.topText,
                                             bottomText: stubViewModel.bottomText,
                                             buttonTLabelText: stubViewModel.buttonLabelText)
+        view.delegate = self
         return AnyView(view)
     }
     
@@ -93,7 +97,6 @@ class MainScreenCollectionViewAdapter {
             self?.contentAdapter.getCell(viewModel)
         }
         grid.delegate = self
-        
         return AnyView(grid)
     }
     
@@ -102,8 +105,12 @@ class MainScreenCollectionViewAdapter {
             self?.contentAdapter.getCell(viewModel)
         }
         grid.delegate = self
-        
         return AnyView(grid)
+    }
+    
+    private func createLoadingCell() -> AnyView {
+        let loadingCell = MainScreenLoadingStateCell(finalText: "Searching for cards...")
+        return AnyView(loadingCell)
     }
 }
 
@@ -126,3 +133,8 @@ extension MainScreenCollectionViewAdapter: MainScreenLoadMoreErrorContentCellDel
     }
 }
 
+extension MainScreenCollectionViewAdapter: MainScreenErrorStateCellDelegate {
+    func didPressButton() {
+        delegate?.didPressStubCellButton()
+    }
+}

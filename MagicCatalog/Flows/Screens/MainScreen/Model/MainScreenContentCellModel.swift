@@ -43,6 +43,8 @@ struct MainScreenTextContentCellModel: MainScreenContentCell {
     let text: String
 }
 
+struct MainScreenLoadingCellModel: MainScreenContentCell { }
+
 struct MainScreenLoadMoreLoadingCellModel: MainScreenContentCell { }
 
 struct MainScreenLoadMoreErrorCellModel: MainScreenContentCell {

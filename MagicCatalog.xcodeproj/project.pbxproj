@@ -102,6 +102,7 @@
 		DD9306B2295CCE22000ED1F2 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B1295CCE22000ED1F2 /* GridStack.swift */; };
 		DD9306B4295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */; };
 		DD9306B6295CDD82000ED1F2 /* MainScreenContentCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */; };
+		DDC55DA4296777BD00AFEB26 /* MainScreenLoadingStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC55DA3296777BD00AFEB26 /* MainScreenLoadingStateCell.swift */; };
 		DDCADC5129619EAC007FEAAB /* MainScreenTextContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */; };
 		DDCADC532961A3D1007FEAAB /* MainScreenCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */; };
 /* End PBXBuildFile section */
@@ -223,6 +224,7 @@
 		DD9306B1295CCE22000ED1F2 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		DD9306B3295CDD3E000ED1F2 /* MainScreenCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		DD9306B5295CDD82000ED1F2 /* MainScreenContentCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenContentCellModel.swift; sourceTree = "<group>"; };
+		DDC55DA3296777BD00AFEB26 /* MainScreenLoadingStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenLoadingStateCell.swift; sourceTree = "<group>"; };
 		DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTextContentCell.swift; sourceTree = "<group>"; };
 		DDCADC522961A3D1007FEAAB /* MainScreenCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCardCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -576,6 +578,7 @@
 				DDCADC5029619EAC007FEAAB /* MainScreenTextContentCell.swift */,
 				DD626B3229645CB400C1EA5B /* MainScreenLoadMoreErrorContentCell.swift */,
 				DD626B34296461BF00C1EA5B /* MainScreenActivityIndicatorContentCell.swift */,
+				DDC55DA3296777BD00AFEB26 /* MainScreenLoadingStateCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC55DA4296777BD00AFEB26 /* MainScreenLoadingStateCell.swift in Sources */,
 				DD360D972958B05400DDA30F /* InteractiveCardLoadingView.swift in Sources */,
 				DD360D82295792E800DDA30F /* MainScreenStateModelManager.swift in Sources */,
 				DD9306AB2959C02C000ED1F2 /* MainScreenViewModelLoadedStateAdapter.swift in Sources */,

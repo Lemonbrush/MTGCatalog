@@ -19,6 +19,7 @@ protocol MainScreenViewModelProtocol: ObservableObject {
     func didPressSearch(query: String)
     func didItemAppeared(index: Int)
     func didPressLoadMoreErrorReload()
+    func didPressStubCellButton()
 }
 
 struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProtocol {
@@ -170,6 +171,10 @@ struct MainScreenView<ViewModel>: View where ViewModel: MainScreenViewModelProto
 }
 
 extension MainScreenView: MainScreenCollectionViewAdapterDelegate {
+    func didPressStubCellButton() {
+        viewModel.didPressStubCellButton()
+    }
+    
     func didPressLoadMoreErrorReload() {
         viewModel.didPressLoadMoreErrorReload()
     }
