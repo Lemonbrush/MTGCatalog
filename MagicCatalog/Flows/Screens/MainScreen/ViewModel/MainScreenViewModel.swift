@@ -29,6 +29,7 @@ class MainScreenViewModel: ObservableObject {
     var cardModels: [MainScreenCardCellModel] = []
     var currentState: MainScreenState = .emptySearch
     
+    var currentSearchQuery = ""
     var cardList: CardList? = nil
     var totalCards: Int = 0
     var resultsGridType: MainScreenGridType = .grid(columns: 2)
@@ -80,6 +81,13 @@ class MainScreenViewModel: ObservableObject {
     func setupNextPageCardListModel(_ cardListModel: CardList) {
         cardList = cardListModel
         addMoreCardModels(cardListModel.data)
+    }
+    
+    func reloadContent() {
+        cardSerachManager.requestCardsSerach(cardName: currentSearchQuery)
+        
+        currentState = .loding
+        updateContentCells()
     }
     
     func loadMoreIfNeeded() {

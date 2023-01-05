@@ -11,6 +11,7 @@ protocol MainScreenCollectionViewAdapterDelegate  {
     func didPressCardCell(_ cellId: Int)
     func didItemAppeared(index: Int)
     func didPressLoadMoreErrorReload()
+    func didPressStubCellButton()
 }
 
 class MainScreenCollectionViewAdapter {
@@ -72,10 +73,11 @@ class MainScreenCollectionViewAdapter {
     }
     
     private func createStubView(_ stubViewModel: MainScreenStubContentCellModel) -> AnyView {
-        let view = MainScreenErrorStateCell(systemImageName: stubViewModel.systemImageName,
+        var view = MainScreenErrorStateCell(systemImageName: stubViewModel.systemImageName,
                                             topText: stubViewModel.topText,
                                             bottomText: stubViewModel.bottomText,
                                             buttonTLabelText: stubViewModel.buttonLabelText)
+        view.delegate = self
         return AnyView(view)
     }
     
@@ -126,3 +128,8 @@ extension MainScreenCollectionViewAdapter: MainScreenLoadMoreErrorContentCellDel
     }
 }
 
+extension MainScreenCollectionViewAdapter: MainScreenErrorStateCellDelegate {
+    func didPressButton() {
+        delegate?.didPressStubCellButton()
+    }
+}

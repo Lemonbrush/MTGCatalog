@@ -15,6 +15,10 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
         //onNavigation?(.randomCardScreen)
     }
     
+    func didPressStubCellButton() {
+        reloadContent()
+    }
+    
     func updateContentGridType(_ newGridType: MainScreenGridType) {
         resultsGridType = newGridType
         updateContentCells()
@@ -26,6 +30,7 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
         }
         
         navigationTitle = query
+        currentSearchQuery = query
         cardSerachManager.requestCardsSerach(cardName: query)
     }
     

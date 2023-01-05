@@ -93,10 +93,3 @@ struct InteractiveCardView: View {
         }
     }
 }
-
-struct InteractiveCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        InteractiveCardView(frontCardImage: UIImage(named: "mtgBackImage") ?? UIImage() , backCardImage: nil)
-            .padding(30)
-    }
-}
