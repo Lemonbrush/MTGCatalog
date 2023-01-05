@@ -16,7 +16,12 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     }
     
     func didPressStubCellButton() {
-        reloadContent()
+        switch currentState {
+        case .emptySearch:
+            showRandomCardReviewScreen()
+        default:
+            reloadContent()
+        }
     }
     
     func updateContentGridType(_ newGridType: MainScreenGridType) {
