@@ -31,6 +31,7 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
         
         navigationTitle = query
         currentSearchQuery = query
+        currentState = .loading
         cardSerachManager.requestCardsSerach(cardName: query)
     }
     

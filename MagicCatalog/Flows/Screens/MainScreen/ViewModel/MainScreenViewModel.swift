@@ -60,8 +60,8 @@ class MainScreenViewModel: ObservableObject {
                 self.updateEmptySearchState()
             case .loaded:
                 self.updateLoadedState()
-            case .loding:
-                break
+            case .loading:
+                self.updateLoadingState()
             case .error(let errorState):
                 self.updateErrorState(errorState)
             case .loadingMore:
@@ -86,7 +86,7 @@ class MainScreenViewModel: ObservableObject {
     func reloadContent() {
         cardSerachManager.requestCardsSerach(cardName: currentSearchQuery)
         
-        currentState = .loding
+        currentState = .loading
         updateContentCells()
     }
     
@@ -159,5 +159,9 @@ class MainScreenViewModel: ObservableObject {
                                                                          totalCards: totalCards,
                                                                          loadMoreError: loadingMoreError,
                                                                          hasMode: cardList?.hasMore ?? false)
+    }
+    
+    private func updateLoadingState() {
+        contentCellModels = contentCellsManager.createLoadingStateModels()
     }
 }

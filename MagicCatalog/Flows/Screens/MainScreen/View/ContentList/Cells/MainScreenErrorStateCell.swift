@@ -47,7 +47,7 @@ struct MainScreenErrorStateCell: View {
                           .padding([.top, .bottom], 10)
                   }
                   .foregroundColor(.white)
-                  .background(Color.blue)
+                  .background(.blue)
                   .cornerRadius(12)
               }
               

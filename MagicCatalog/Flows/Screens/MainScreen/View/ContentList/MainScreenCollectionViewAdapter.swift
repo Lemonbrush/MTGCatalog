@@ -48,6 +48,8 @@ class MainScreenCollectionViewAdapter {
             return createLoadMoreErrorView(loadMoreErrorModel)
         case _ as MainScreenLoadMoreLoadingCellModel:
             return createLoadMoreLoadingView()
+        case _ as MainScreenLoadingCellModel:
+            return createLoadingCell()
         default:
             let view = EmptyView()
             return AnyView(view)
@@ -95,7 +97,6 @@ class MainScreenCollectionViewAdapter {
             self?.contentAdapter.getCell(viewModel)
         }
         grid.delegate = self
-        
         return AnyView(grid)
     }
     
@@ -104,8 +105,12 @@ class MainScreenCollectionViewAdapter {
             self?.contentAdapter.getCell(viewModel)
         }
         grid.delegate = self
-        
         return AnyView(grid)
+    }
+    
+    private func createLoadingCell() -> AnyView {
+        let loadingCell = MainScreenLoadingStateCell(finalText: "Searching for cards...")
+        return AnyView(loadingCell)
     }
 }
 
