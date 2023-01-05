@@ -18,7 +18,7 @@ struct InteractiveCardView: View {
     
     @GestureState private var magnifyBy = 1.0
     
-    @State private var backDegree = -90.0
+    @State private var backDegree = 90.0
     @State private var frontDegree = 0.0
     @State private var isFlipped = true
     @State private var dragAmount = CGSize.zero
@@ -50,10 +50,10 @@ struct InteractiveCardView: View {
     
     private var cardView: some View {
         CardView(frontCardImage: frontCardImage, backCardImage: backCardImage, backDegree: $backDegree, frontDegree: $frontDegree)
-        .rotation3DEffect(.degrees(-Double(dragAmount.width) / 5), axis: (x: 0, y: -1, z: 0.1))
-        .rotation3DEffect(.degrees(Double(dragAmount.height / 5)), axis: (x: -1, y: 0, z: 0.1))
-        .scaleEffect(magnifyBy)
-        .gesture(magnification)
+            .rotation3DEffect(.degrees(-Double(dragAmount.width) / 5), axis: (x: 0, y: -1, z: 0.1))
+            .rotation3DEffect(.degrees(Double(dragAmount.height / 5)), axis: (x: -1, y: 0, z: 0.1))
+            .scaleEffect(magnifyBy)
+            .gesture(magnification)
     }
     
     private var flipButton: some View {
